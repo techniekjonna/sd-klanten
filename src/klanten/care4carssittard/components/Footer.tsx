@@ -1,27 +1,31 @@
 import { Link } from 'react-router-dom';
 import { config } from '../config';
 
+const fontCondensed = "'Barlow Condensed', sans-serif";
+const fontBody = "'Barlow', sans-serif";
+
 export const Footer = () => {
   const year = new Date().getFullYear();
   const p = config.colors.primary;
 
   return (
-    <footer style={{ backgroundColor: '#1F2937' }} className="text-white">
+    <footer style={{ backgroundColor: '#1F2937', fontFamily: fontBody }} className="text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Branding */}
           <div>
-            <h3 className="text-xl font-extrabold mb-3">
-              <span style={{ color: p }}>Care</span>
-              <span className="text-white">4</span>
-              <span className="text-white">Cars Sittard</span>
-            </h3>
+            <div
+              className="mb-3 flex items-center gap-0"
+              style={{ fontFamily: fontCondensed, fontWeight: 800, fontSize: '1.4rem', letterSpacing: '0.05em' }}
+            >
+              <span className="text-white">CARE</span>
+              <span style={{ color: p }}>4</span>
+              <span className="text-white">CARS</span>
+            </div>
             <p className="text-gray-400 text-sm leading-relaxed">{config.tagline}</p>
           </div>
 
-          {/* Nav links */}
           <div>
-            <h4 className="font-semibold mb-4 text-gray-200">Navigatie</h4>
+            <h4 className="font-semibold mb-4 text-gray-200 uppercase text-xs tracking-widest">Navigatie</h4>
             <ul className="space-y-2">
               {config.navigation.map((link) => (
                 <li key={link.path}>
@@ -36,9 +40,8 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-gray-200">Contact</h4>
+            <h4 className="font-semibold mb-4 text-gray-200 uppercase text-xs tracking-widest">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>{config.contact.address}</li>
               <li>
