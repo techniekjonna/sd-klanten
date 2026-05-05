@@ -8,9 +8,10 @@ export const Header = () => {
 
   const isActive = (path: string) => {
     const fullPath = config.basePath + path;
-    return path === '/'
-      ? location.pathname === fullPath || location.pathname === fullPath + '/'
-      : location.pathname.startsWith(fullPath);
+    if (path === '/') {
+      return location.pathname === config.basePath || location.pathname === config.basePath + '/';
+    }
+    return location.pathname.startsWith(fullPath);
   };
 
   return (
@@ -21,7 +22,7 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to={config.basePath || "/"} className="flex items-center gap-3">
+          <Link to={config.basePath + "/"} className="flex items-center gap-3">
             {config.logo ? (
               <img src={config.logo} alt={config.naam} className="h-9 w-auto" />
             ) : (
