@@ -8,7 +8,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<KlantenOverzicht />} />
+        <Route path="/preview/sjabloon" element={<Sjabloon />} />
         <Route path="/preview/sjabloon/*" element={<Sjabloon />} />
+        <Route path="/preview/dutch-ink" element={<DutchInk />} />
         <Route path="/preview/dutch-ink/*" element={<DutchInk />} />
       </Routes>
     </BrowserRouter>
