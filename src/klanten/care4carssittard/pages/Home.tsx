@@ -3,18 +3,16 @@ import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
-const FlipCard = ({
-  item,
-}: {
-  item: (typeof config.werkzaamheden)[number];
-}) => {
+const fontCondensed = "'Barlow Condensed', sans-serif";
+
+const FlipCard = ({ item }: { item: (typeof config.werkzaamheden)[number] }) => {
   const [flipped, setFlipped] = useState(false);
   const p = config.colors.primary;
 
   return (
     <div
       className="cursor-pointer"
-      style={{ perspective: '1000px', height: '220px' }}
+      style={{ perspective: '1000px', height: '230px' }}
       onClick={() => setFlipped(!flipped)}
     >
       <div
@@ -34,10 +32,15 @@ const FlipCard = ({
         >
           <div>
             <div className="text-3xl mb-3">{item.icon}</div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+            <h3
+              className="text-xl font-bold text-gray-900 mb-2 uppercase"
+              style={{ fontFamily: fontCondensed, letterSpacing: '0.03em' }}
+            >
+              {item.title}
+            </h3>
             <p className="text-sm text-gray-500 leading-relaxed">{item.short}</p>
           </div>
-          <p className="text-xs font-medium mt-3" style={{ color: p }}>
+          <p className="text-xs font-semibold mt-3 uppercase tracking-wide" style={{ color: p }}>
             Klik voor meer info →
           </p>
         </div>
@@ -53,10 +56,15 @@ const FlipCard = ({
           className="absolute inset-0 rounded-2xl p-6 flex flex-col justify-between text-white"
         >
           <div>
-            <h3 className="text-lg font-bold mb-3">{item.title}</h3>
+            <h3
+              className="text-xl font-bold mb-3 uppercase"
+              style={{ fontFamily: fontCondensed, letterSpacing: '0.03em' }}
+            >
+              {item.title}
+            </h3>
             <p className="text-sm leading-relaxed text-gray-300">{item.full}</p>
           </div>
-          <p className="text-xs font-medium mt-3" style={{ color: p }}>
+          <p className="text-xs font-semibold mt-3 uppercase tracking-wide" style={{ color: p }}>
             ← Klik om terug te gaan
           </p>
         </div>
@@ -79,16 +87,19 @@ export const Home = () => {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(31,41,55,0.75)' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(31,41,55,0.78)' }} />
         <div className="relative container mx-auto px-4">
           <div className="max-w-2xl text-white">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-5 px-3 py-1.5 rounded-full inline-block"
-              style={{ backgroundColor: p, color: '#fff' }}
+              style={{ backgroundColor: p }}
             >
               RDW Erkend Garagebedrijf · Sittard
             </p>
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+            <h1
+              className="text-5xl md:text-7xl font-extrabold leading-none mb-6 uppercase"
+              style={{ fontFamily: fontCondensed, letterSpacing: '0.02em' }}
+            >
               {config.hero.title}
             </h1>
             <p className="text-lg text-gray-200 mb-10 leading-relaxed max-w-xl">
@@ -119,7 +130,10 @@ export const Home = () => {
       <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+            <h2
+              className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 uppercase"
+              style={{ fontFamily: fontCondensed }}
+            >
               Auto Werkzaamheden
             </h2>
             <p className="text-gray-500 max-w-lg mx-auto">
@@ -157,7 +171,10 @@ export const Home = () => {
               />
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 uppercase tracking-wide">
+              <h2
+                className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8 uppercase"
+                style={{ fontFamily: fontCondensed }}
+              >
                 Werkwijze
               </h2>
               <div className="space-y-8">
@@ -170,7 +187,12 @@ export const Home = () => {
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-gray-900 mb-1">{item.title}</h3>
+                      <h3
+                        className="text-lg font-bold text-gray-900 mb-1 uppercase"
+                        style={{ fontFamily: fontCondensed, letterSpacing: '0.02em' }}
+                      >
+                        {item.title}
+                      </h3>
                       <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
                     </div>
                   </div>
@@ -185,43 +207,24 @@ export const Home = () => {
       <section className="py-20" style={{ backgroundColor: '#1F2937' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Contact</h2>
+            <h2
+              className="text-4xl md:text-5xl font-extrabold text-white mb-3 uppercase"
+              style={{ fontFamily: fontCondensed }}
+            >
+              Contact
+            </h2>
             <p className="text-gray-400 max-w-md mx-auto">
               Heeft u vragen of wilt u een afspraak? Neem gerust contact op.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10">
             {[
-              {
-                icon: '📍',
-                label: 'Adres',
-                value: 'Nusterweg 67',
-                sub: '6136 KT Sittard',
-              },
-              {
-                icon: '📞',
-                label: 'Telefoon',
-                value: config.contact.phone,
-                href: `tel:${config.contact.phone}`,
-              },
-              {
-                icon: '✉️',
-                label: 'E-mail',
-                value: config.contact.email,
-                href: `mailto:${config.contact.email}`,
-              },
-              {
-                icon: '🕐',
-                label: 'Openingstijden',
-                value: 'Ma–Do: 08:30–17:00',
-                sub: 'Vr: 08:30–16:30 | Za–Zo: Gesloten',
-              },
+              { icon: '📍', label: 'Adres', value: 'Nusterweg 67', sub: '6136 KT Sittard' },
+              { icon: '📞', label: 'Telefoon', value: config.contact.phone, href: `tel:${config.contact.phone}` },
+              { icon: '✉️', label: 'E-mail', value: config.contact.email, href: `mailto:${config.contact.email}` },
+              { icon: '🕐', label: 'Openingstijden', value: 'Ma–Do: 08:30–17:00', sub: 'Vr: 08:30–16:30 | Za–Zo: Gesloten' },
             ].map(({ icon, label, value, sub, href }) => (
-              <div
-                key={label}
-                className="rounded-2xl p-6 text-center"
-                style={{ backgroundColor: '#374151' }}
-              >
+              <div key={label} className="rounded-2xl p-6 text-center" style={{ backgroundColor: '#374151' }}>
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center text-xl mx-auto mb-4"
                   style={{ backgroundColor: p }}
@@ -230,11 +233,7 @@ export const Home = () => {
                 </div>
                 <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">{label}</p>
                 {href ? (
-                  <a
-                    href={href}
-                    className="font-semibold text-white text-sm hover:underline block"
-                    style={{ color: '#fff' }}
-                  >
+                  <a href={href} className="font-semibold text-white text-sm hover:underline block">
                     {value}
                   </a>
                 ) : (
