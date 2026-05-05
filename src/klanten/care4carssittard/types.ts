@@ -53,6 +53,7 @@ export interface Care4CarsConfig {
   navigation: NavLink[];
   hero: {
     title: string;
+    titleSub: string;
     subtitle: string;
     image: string;
     cta: string;
