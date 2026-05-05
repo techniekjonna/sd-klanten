@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Care4Cars Sittard',
+    branche: 'Garage & APK',
+    beschrijving: 'RDW erkend garagebedrijf in Sittard. APK, onderhoud, banden, airco, diagnose en campers.',
+    pad: '/preview/care4carssittard',
+    kleur: '#1F2937',
+    accent: '#DC2626',
+    icon: '🔧',
+    status: 'concept',
+  },
+  {
     naam: 'Dutch Ink',
     branche: 'Tattoo & Piercing',
     beschrijving: 'The Tattoo Company — 15+ vestigingen door heel Nederland. Tattoo, piercing, PMU en laser.',
