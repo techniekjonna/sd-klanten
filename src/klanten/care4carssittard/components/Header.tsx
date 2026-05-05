@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { config } from '../config';
 
+const fontLogo = "'Teko', sans-serif";
 const fontBody = "'Barlow', sans-serif";
-const fontCondensed = "'Barlow Condensed', sans-serif";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,14 +21,23 @@ export const Header = () => {
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo — matches screenshot: CARE4CARS condensed bold all-caps */}
+          {/* Logo — Teko font to match CARE4CARS brand */}
           <Link
             to={config.basePath + '/'}
-            className="flex items-center gap-0 hover:opacity-80 transition-opacity"
-            style={{ fontFamily: fontCondensed, fontWeight: 800, fontSize: '1.5rem', letterSpacing: '0.05em', textDecoration: 'none' }}
+            className="hover:opacity-80 transition-opacity"
+            style={{
+              fontFamily: fontLogo,
+              fontWeight: 700,
+              fontSize: '1.75rem',
+              letterSpacing: '0.04em',
+              lineHeight: 1,
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+            }}
           >
             <span style={{ color: '#1F2937' }}>CARE</span>
-            <span style={{ color: config.colors.primary, fontWeight: 800 }}>4</span>
+            <span style={{ color: config.colors.primary }}>4</span>
             <span style={{ color: '#1F2937' }}>CARS</span>
           </Link>
 
@@ -49,15 +58,13 @@ export const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <a
-              href={config.hero.ctaLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={config.basePath + '/agenda'}
               className="px-5 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90"
               style={{ backgroundColor: config.colors.primary, fontFamily: fontBody }}
             >
               Afspraak Maken
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile toggle */}
@@ -90,16 +97,14 @@ export const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <a
-              href={config.hero.ctaLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={config.basePath + '/agenda'}
               onClick={() => setMenuOpen(false)}
               className="mx-4 mt-2 px-4 py-2 text-sm font-semibold text-white rounded-lg text-center transition-opacity hover:opacity-90"
               style={{ backgroundColor: config.colors.primary, fontFamily: fontBody }}
             >
               Afspraak Maken
-            </a>
+            </Link>
           </nav>
         )}
       </div>

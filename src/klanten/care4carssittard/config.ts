@@ -35,12 +35,13 @@ export const config: Care4CarsConfig = {
   ],
 
   hero: {
-    title: 'APK & Onderhoud voor alle merken auto\'s',
+    title: 'APK & Onderhoud',
+    titleSub: "voor alle merken auto's",
     subtitle:
       'RDW erkend garagebedrijf in Sittard. Vakkundige reparaties en onderhoud tegen scherpe tarieven — sneller dan de dealer.',
     image: 'https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=1920&h=1080&fit=crop',
     cta: 'Maak een Afspraak',
-    ctaLink: 'https://care4carssittard.com/agenda/',
+    ctaLink: '/agenda',
     ctaSecondary: 'Neem Contact Op',
     ctaSecondaryLink: '/contact',
   },

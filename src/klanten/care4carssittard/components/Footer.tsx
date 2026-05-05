@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { config } from '../config';
 
-const fontCondensed = "'Barlow Condensed', sans-serif";
+const fontCondensed = "'Teko', sans-serif";
 const fontBody = "'Barlow', sans-serif";
 
 export const Footer = () => {

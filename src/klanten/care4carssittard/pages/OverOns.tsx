@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
-const fontCondensed = "'Barlow Condensed', sans-serif";
+const fontCondensed = "'Teko', sans-serif";
+const fontBody = "'Barlow', sans-serif";
 
 export const OverOns = () => {
   const p = config.colors.primary;
@@ -27,7 +29,7 @@ export const OverOns = () => {
       </section>
 
       {/* Intro */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: '#F3F4F6' }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div>
@@ -70,7 +72,7 @@ export const OverOns = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-gray-100">
+      <section className="py-20" style={{ backgroundColor: '#E5E7EB' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2
@@ -85,7 +87,7 @@ export const OverOns = () => {
               <div key={i} className="bg-white rounded-2xl p-8 text-center shadow-sm">
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-5 border-2"
-                  style={{ borderColor: p, backgroundColor: '#FEF2F2' }}
+                  style={{ borderColor: p, backgroundColor: p, color: '#fff' }}
                 >
                   {item.icon}
                 </div>
@@ -127,7 +129,7 @@ export const OverOns = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white text-center">
+      <section className="py-20 text-center" style={{ backgroundColor: '#F3F4F6' }}>
         <div className="container mx-auto px-4">
           <h2
             className="text-4xl font-extrabold text-gray-900 mb-4 uppercase"
@@ -135,23 +137,21 @@ export const OverOns = () => {
           >
             Maak een Afspraak
           </h2>
-          <p className="text-gray-500 mb-8 max-w-md mx-auto">
+          <p className="text-gray-500 mb-8 max-w-md mx-auto" style={{ fontFamily: fontBody }}>
             Plan direct online uw APK of onderhoud in. Snel, makkelijk en vrijblijvend.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={config.hero.ctaLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={config.basePath + '/agenda'}
               className="px-8 py-4 font-semibold text-white rounded-xl transition-opacity hover:opacity-90 shadow"
-              style={{ backgroundColor: p }}
+              style={{ backgroundColor: p, fontFamily: fontBody }}
             >
               Online Afspraak Maken
-            </a>
+            </Link>
             <a
               href={`mailto:${config.contact.email}`}
               className="px-8 py-4 font-semibold rounded-xl border-2 text-gray-700 hover:bg-gray-900 hover:text-white transition-colors"
-              style={{ borderColor: '#1F2937' }}
+              style={{ borderColor: '#1F2937', fontFamily: fontBody }}
             >
               Stuur een E-mail
             </a>

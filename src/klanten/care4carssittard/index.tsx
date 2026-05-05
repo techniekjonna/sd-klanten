@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
+import { Agenda } from './pages/Agenda';
 import { Werkzaamheden } from './pages/Werkzaamheden';
 import { OverOns } from './pages/OverOns';
 import { Contact } from './pages/Contact';
@@ -7,6 +8,7 @@ import { Contact } from './pages/Contact';
 export const Care4CarsSittard = () => (
   <Routes>
     <Route path="/" element={<Home />} />
+    <Route path="/agenda" element={<Agenda />} />
     <Route path="/werkzaamheden" element={<Werkzaamheden />} />
     <Route path="/over-ons" element={<OverOns />} />
     <Route path="/contact" element={<Contact />} />
