@@ -19,48 +19,57 @@ export const Home = () => {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.70) 60%, rgba(0,0,0,0.50) 100%)' }} />
 
         <div className="relative container mx-auto px-4 py-24">
-          <div className="max-w-3xl">
-            <p
-              className="inline-block text-xs font-bold uppercase tracking-[0.3em] mb-6 px-3 py-1.5 rounded"
-              style={{ color: c.primary, backgroundColor: c.primaryLight, border: `1px solid ${c.primary}40` }}
-            >
-              {config.tagline}
-            </p>
-            <h1
-              className="text-6xl md:text-8xl font-black uppercase leading-none mb-6"
-              style={{ color: c.tekst }}
-            >
-              {config.hero.titel.split('\n').map((line, i) => (
-                <span key={i}>
-                  {i === 1 ? <span style={{ color: c.primary }}>{line}</span> : line}
-                  {i === 0 && <br />}
-                </span>
-              ))}
-            </h1>
-            <p className="text-lg max-w-xl mb-10 leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
-              {config.hero.subtitel}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to={config.basePath + config.hero.ctaLink}
-                className="px-8 py-4 font-bold uppercase tracking-wider text-white rounded transition-opacity hover:opacity-90"
-                style={{ backgroundColor: c.primary }}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p
+                className="inline-block text-xs font-bold uppercase tracking-[0.3em] mb-6 px-3 py-1.5 rounded"
+                style={{ color: c.primary, backgroundColor: c.primaryLight, border: `1px solid ${c.primary}40` }}
               >
-                {config.hero.cta}
-              </Link>
-              <Link
-                to={config.basePath + config.hero.ctaSecundairLink}
-                className="px-8 py-4 font-bold uppercase tracking-wider rounded border transition-colors"
-                style={{ color: c.tekst, borderColor: 'rgba(255,255,255,0.3)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }}
+                {config.tagline}
+              </p>
+              <h1
+                className="text-6xl md:text-8xl font-black uppercase leading-none mb-6"
+                style={{ color: c.tekst }}
               >
-                {config.hero.ctaSecundair}
-              </Link>
+                {config.hero.titel.split('\n').map((line, i) => (
+                  <span key={i}>
+                    {i === 1 ? <span style={{ color: c.primary }}>{line}</span> : line}
+                    {i === 0 && <br />}
+                  </span>
+                ))}
+              </h1>
+              <p className="text-lg max-w-xl mb-10 leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                {config.hero.subtitel}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to={config.basePath + config.hero.ctaLink}
+                  className="px-8 py-4 font-bold uppercase tracking-wider text-white rounded transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: c.primary }}
+                >
+                  {config.hero.cta}
+                </Link>
+                <Link
+                  to={config.basePath + config.hero.ctaSecundairLink}
+                  className="px-8 py-4 font-bold uppercase tracking-wider rounded border transition-colors"
+                  style={{ color: c.tekst, borderColor: 'rgba(255,255,255,0.3)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
+                >
+                  {config.hero.ctaSecundair}
+                </Link>
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <img
+                src={config.logoGold}
+                alt={config.naam}
+                className="max-w-sm w-full h-auto"
+              />
             </div>
           </div>
         </div>

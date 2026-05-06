@@ -41,6 +41,7 @@ export interface DutchInkConfig {
     tekst: string;
   };
   logo?: string;
+  logoGold?: string;
   navigation: NavLink[];
   hero: {
     titel: string;
