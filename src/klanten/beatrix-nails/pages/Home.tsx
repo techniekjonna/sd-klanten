@@ -41,11 +41,6 @@ export const Home = () => {
         />
 
         <div className="relative container mx-auto px-4 py-16">
-          {/* Logo links boven de tekst – wit */}
-          <div className="mb-10">
-            <Logo size="lg" variant="white" align="left" />
-          </div>
-
           <p className="text-sm font-medium uppercase tracking-widest mb-4 text-white/70">
             {config.tagline}
           </p>
