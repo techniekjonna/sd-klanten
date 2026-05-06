@@ -4,7 +4,6 @@ import { config } from '../config';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) =>
@@ -17,21 +16,11 @@ export const Header = () => {
 
           {/* Logo linksboven */}
           <Link to={config.basePath + '/'} className="flex-shrink-0">
-            {!logoError ? (
-              <img
-                src={config.logo}
-                alt={config.name}
-                className="h-12 w-auto object-contain"
-                onError={() => setLogoError(true)}
-              />
-            ) : (
-              <span
-                className="text-2xl font-extrabold tracking-tight"
-                style={{ color: config.colors.accent }}
-              >
-                {config.name}
-              </span>
-            )}
+            <img
+              src="https://taxialfa.nl/wp-content/uploads/2021/05/cropped-logo.png"
+              alt={config.name}
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop nav */}
