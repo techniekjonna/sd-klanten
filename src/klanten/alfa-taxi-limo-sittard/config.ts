@@ -70,7 +70,7 @@ export const config: AlfaTaxiConfig = {
       icon: '🚘',
       title: 'Comfort Voertuigen',
       description:
-        'Ruime, schone taxi's en limousines voor maximaal rijcomfort. Keus uit 4- of 8-persoonswagen.',
+        "Ruime, schone taxi's en limousines voor maximaal rijcomfort. Keus uit 4- of 8-persoonswagen.",
     },
   ],
 
