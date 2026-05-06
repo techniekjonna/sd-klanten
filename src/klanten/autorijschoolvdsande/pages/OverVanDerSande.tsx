@@ -22,9 +22,9 @@ export const OverVanDerSande = () => (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Foto */}
           <div>
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
+            <div className="rounded-3xl overflow-hidden shadow-2xl" style={{ maxHeight: '480px' }}>
               <img src="https://www.autorijschoolvdsande.nl/wp-content/uploads/2021/02/Mike_ZW_02-683x1024.jpg"
-                alt="Mike van der Sande" className="w-full object-cover" />
+                alt="Mike van der Sande" className="w-full h-full object-cover object-top" style={{ maxHeight: '480px' }} />
             </div>
             <blockquote className="mt-6 text-xl font-extrabold" style={{ color: c.gradientFrom }}>
               "Jouw rijbewijs is mijn reclame!"
