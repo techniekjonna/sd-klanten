@@ -6,7 +6,7 @@ export const config: AlfaTaxiConfig = {
   name: 'Alfa Taxi',
   tagline: 'Betrouwbaar en comfortabel taxivervoer',
   description: 'Alfa Taxi staat voor punctueel, veilig en comfortabel vervoer. Of u nu naar het vliegveld moet, een zakelijke afspraak heeft of gewoon een rit nodig heeft — wij rijden voor u.',
-  logo: 'https://taxialfa.nl/wp-content/uploads/2021/05/cropped-logo.png',
+  logo: '/cropped-logo.png',
 
   colors: {
     primary: '#0B1D3E',
@@ -35,7 +35,7 @@ export const config: AlfaTaxiConfig = {
   hero: {
     title: 'Altijd op tijd, altijd comfortabel',
     subtitle: 'Betrouwbaar taxivervoer voor particulieren en zakelijk. Direct boeken, vaste tarieven, 24/7 beschikbaar.',
-    image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&h=1080&fit=crop',
+    image: 'https://taxibobenschede.nl/images/hero-taxi.png',
     cta: 'Direct Boeken',
     ctaLink: '/boeken',
     ctaSecondary: 'Bekijk Tarieven',

@@ -17,7 +17,7 @@ export const Header = () => {
           {/* Logo linksboven */}
           <Link to={config.basePath + '/'} className="flex-shrink-0">
             <img
-              src="https://taxialfa.nl/wp-content/uploads/2021/05/cropped-logo.png"
+              src="/cropped-logo.png"
               alt={config.name}
               className="h-12 w-auto object-contain"
             />
