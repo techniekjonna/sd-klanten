@@ -43,6 +43,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Beatrix Nails & Beauty',
+    branche: 'Nagelstudio & Beauty',
+    beschrijving: 'Professionele nagelstudio in Sittard. Gellak, acrylnagels, nailart en meer. Mooie nagels voor elke verzorgde vrouw.',
+    pad: '/preview/beatrix-nails',
+    kleur: '#2D0F1E',
+    accent: '#C2185B',
+    icon: '💅',
+    status: 'concept',
+  },
+  {
     naam: 'Sjabloon',
     branche: 'Generiek Template',
     beschrijving: 'Het basis-sjabloon voor nieuwe klanten. Kopieer deze map en pas config.ts aan om te starten.',

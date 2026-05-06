@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -28,6 +28,13 @@
   [data-client="care4carssittard"] h3,
   [data-client="care4carssittard"] h4 {
     font-family: 'Teko', sans-serif;
+  }
+
+  [data-client="beatrix-nails"] h1,
+  [data-client="beatrix-nails"] h2,
+  [data-client="beatrix-nails"] h3,
+  [data-client="beatrix-nails"] h4 {
+    font-family: 'Playfair Display', serif;
   }
 
   [data-client="dutch-ink"],
