@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
+const OFF_WHITE = '#f6f8f5';
+const OFF_WHITE_2 = '#edf1ec';
+
 export const OverOns = () => {
   const p = config.colors.primary;
 
@@ -19,7 +22,7 @@ export const OverOns = () => {
       </section>
 
       {/* Ons verhaal */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: OFF_WHITE }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div>
@@ -41,7 +44,7 @@ export const OverOns = () => {
       </section>
 
       {/* Locatie highlight */}
-      <section className="py-16" style={{ backgroundColor: config.colors.primaryLight }}>
+      <section className="py-16" style={{ backgroundColor: OFF_WHITE_2 }}>
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4" style={{ color: config.colors.text }}>
             Centraal gelegen in Stadbroek, Sittard
@@ -57,7 +60,7 @@ export const OverOns = () => {
       </section>
 
       {/* Kernwaarden */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: OFF_WHITE }}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-14" style={{ color: config.colors.text }}>
             Onze Kernwaarden
@@ -66,8 +69,8 @@ export const OverOns = () => {
             {config.about.values.map((value, i) => (
               <div
                 key={i}
-                className="flex items-center gap-4 rounded-xl p-6 shadow-sm"
-                style={{ backgroundColor: config.colors.primaryLight }}
+                className="flex items-center gap-4 rounded-xl p-6 bg-white shadow-sm"
+                style={{ border: '1px solid #d4dbd3' }}
               >
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
@@ -83,19 +86,21 @@ export const OverOns = () => {
       </section>
 
       {/* Onderscheidende factoren */}
-      <section className="py-20" style={{ backgroundColor: config.colors.primaryDark }}>
+      <section className="py-20" style={{ backgroundColor: OFF_WHITE_2 }}>
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-14 text-white">
+          <h2 className="text-3xl font-bold text-center mb-14" style={{ color: config.colors.text }}>
             Wat ons onderscheidt
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {config.features.map((f, i) => (
-              <div key={i} className="text-center p-6 bg-white/10 rounded-2xl">
+              <div
+                key={i}
+                className="text-center p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                style={{ border: '1px solid #d4dbd3' }}
+              >
                 <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="text-lg font-bold mb-2 text-white">
-                  {f.title}
-                </h3>
-                <p className="text-green-200 text-sm leading-relaxed">{f.description}</p>
+                <h3 className="text-base font-bold mb-2" style={{ color: config.colors.text }}>{f.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
               </div>
             ))}
           </div>
@@ -103,7 +108,10 @@ export const OverOns = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 text-white text-center" style={{ backgroundColor: p }}>
+      <section
+        className="py-16 text-white text-center"
+        style={{ background: `linear-gradient(135deg, ${config.colors.primaryDark} 0%, ${p} 100%)` }}
+      >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">Kom gerust langs of neem contact op</h2>
           <p className="text-lg opacity-90 mb-8">

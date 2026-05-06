@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
+const OFF_WHITE = '#f6f8f5';
+
 export const Contact = () => {
   const p = config.colors.primary;
   const hours = config.contact.hours;
@@ -28,7 +30,7 @@ export const Contact = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: OFF_WHITE }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Contact info */}
@@ -63,7 +65,6 @@ export const Contact = () => {
                 </div>
               ))}
 
-              {/* Opening hours */}
               <div className="flex gap-4 pt-2">
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
@@ -105,67 +106,50 @@ export const Contact = () => {
             {/* Contact form */}
             <div className="lg:col-span-3">
               {sent ? (
-                <div className="text-center py-16 px-8 border border-gray-100 rounded-2xl">
+                <div className="text-center py-16 px-8 bg-white rounded-2xl" style={{ border: '1px solid #d4dbd3' }}>
                   <div className="text-5xl mb-4">✅</div>
                   <h3 className="text-2xl font-bold mb-2" style={{ color: config.colors.text }}>
                     Bericht ontvangen!
                   </h3>
-                  <p className="text-gray-500">
-                    Wij nemen zo snel mogelijk contact met u op.
-                  </p>
+                  <p className="text-gray-500">Wij nemen zo snel mogelijk contact met u op.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                        Naam *
-                      </label>
+                      <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>Naam *</label>
                       <input
-                        type="text"
-                        required
-                        value={form.naam}
+                        type="text" required value={form.naam}
                         onChange={(e) => setForm({ ...form, naam: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:border-transparent"
                         placeholder="Uw naam"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                        Telefoon
-                      </label>
+                      <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>Telefoon</label>
                       <input
-                        type="tel"
-                        value={form.telefoon}
+                        type="tel" value={form.telefoon}
                         onChange={(e) => setForm({ ...form, telefoon: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2"
+                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2"
                         placeholder="Uw telefoonnummer"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                      E-mailadres *
-                    </label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>E-mailadres *</label>
                     <input
-                      type="email"
-                      required
-                      value={form.email}
+                      type="email" required value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2"
                       placeholder="uw@email.nl"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                      Uw bericht *
-                    </label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>Uw bericht *</label>
                     <textarea
-                      required
-                      rows={5}
-                      value={form.bericht}
+                      required rows={5} value={form.bericht}
                       onChange={(e) => setForm({ ...form, bericht: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 resize-none"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 resize-none"
                       placeholder="Hoe kunnen wij u helpen?"
                     />
                   </div>
@@ -187,7 +171,7 @@ export const Contact = () => {
       </section>
 
       {/* Map placeholder */}
-      <section className="h-64" style={{ backgroundColor: config.colors.primaryLight }}>
+      <section className="h-64" style={{ backgroundColor: '#edf1ec' }}>
         <div className="h-full flex items-center justify-center">
           <div className="text-center">
             <div className="text-4xl mb-3">📍</div>
