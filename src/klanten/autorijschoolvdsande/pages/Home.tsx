@@ -4,95 +4,70 @@ import { config } from '../config';
 
 const c = config.colors;
 
+// Shared gradient backgrounds
+const gradHero  = `linear-gradient(135deg, ${c.gradientFrom} 0%, ${c.gradientMid} 50%, ${c.gradientLight} 100%)`;
+const gradDark  = `linear-gradient(135deg, ${c.accent} 0%, ${c.gradientFrom} 100%)`;
+const gradMid   = `linear-gradient(135deg, ${c.gradientFrom}DD 0%, ${c.gradientMid}DD 100%)`;
+
 export const Home = () => (
   <Layout>
+
     {/* ── HERO ─────────────────────────────────────────────────── */}
-    <section
-      className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden"
-      style={{
-        background: `linear-gradient(135deg, ${c.gradientFrom} 0%, ${c.gradientMid} 45%, ${c.gradientLight} 100%)`,
-      }}
-    >
-      {/* Subtiel raster-patroon overlay voor premium gevoel */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: '32px 32px',
-        }}
-      />
+    <section className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden" style={{ background: gradHero }}>
+      {/* dot grid overlay */}
+      <div className="absolute inset-0 opacity-[0.07]"
+        style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
 
-      <div className="relative container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Tekst */}
+      <div className="relative container mx-auto px-4 py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 tracking-wider uppercase"
-              style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: 'white' }}
-            >
-              <span className="w-2 h-2 rounded-full bg-white inline-block" />
+            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-white/60 mb-6">
+              <span className="w-6 h-px bg-white/40" />
               Geleen · Sittard-Geleen · Limburg
-            </div>
-
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-5">
-              Jouw rijbewijs,<br />
+            </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6">
+              Jouw rijbewijs,<br/>
               <span style={{ color: c.gradientLight }}>onze trots.</span>
             </h1>
-
-            <p className="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
-              30+ jaar ervaring. Moderne Mercedes lesauto. En het hoogste slagingspercentage van de regio — <strong className="text-white">90% slaagt de eerste keer.</strong>
+            <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-md">
+              30+ jaar ervaring. Moderne Mercedes lesauto. <strong className="text-white font-semibold">90% slaagt de eerste keer</strong> — ver boven het regionale gemiddelde.
             </p>
-
             <div className="flex flex-wrap gap-4">
-              <Link
-                to={config.basePath + '/contact'}
-                className="px-8 py-4 font-bold text-sm rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
-                style={{ backgroundColor: 'white', color: c.gradientFrom }}
-              >
-                Aanmelden — gratis gesprek
+              <Link to={config.basePath + '/contact'}
+                className="px-8 py-4 font-bold text-sm rounded-2xl shadow-xl transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+                style={{ backgroundColor: 'white', color: c.accent }}>
+                Gratis kennismakingsgesprek
               </Link>
-              <Link
-                to={config.basePath + '/over-van-der-sande'}
-                className="px-8 py-4 font-semibold text-sm rounded-xl border-2 border-white/50 text-white hover:border-white hover:bg-white/10 transition-all"
-              >
+              <Link to={config.basePath + '/over-van-der-sande'}
+                className="px-8 py-4 font-semibold text-sm rounded-2xl border border-white/30 text-white hover:bg-white/10 transition-all">
                 Even voorstellen →
               </Link>
             </div>
           </div>
-
-          {/* Logo */}
           <div className="flex justify-center lg:justify-end">
-            <img
-              src={config.logoUrl}
-              alt="Autorijschool van der Sande"
-              className="w-72 h-72 object-contain"
-              style={{ filter: 'brightness(0) invert(1) opacity(0.85)' }}
-            />
+            <img src={config.logoUrl} alt="Autorijschool van der Sande"
+              className="w-64 h-64 md:w-80 md:h-80 object-contain opacity-80"
+              style={{ filter: 'brightness(0) invert(1)' }} />
           </div>
         </div>
       </div>
 
-      {/* Golvende overgang naar volgende sectie */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" fill={c.background} />
+      {/* wave */}
+      <div className="absolute bottom-0 left-0 right-0 leading-none">
+        <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 48L1440 48L1440 16C1080 48 720 0 360 24C180 36 90 12 0 16Z" fill={c.primaryLight}/>
         </svg>
       </div>
     </section>
 
-    {/* ── STATS BALK ───────────────────────────────────────────── */}
-    <section style={{ backgroundColor: c.background }} className="py-16">
+    {/* ── STATS ────────────────────────────────────────────────── */}
+    <section style={{ backgroundColor: c.primaryLight }} className="py-20">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px rounded-3xl overflow-hidden"
+          style={{ backgroundColor: `${c.gradientFrom}33` }}>
           {config.stats.map((s, i) => (
-            <div
-              key={i}
-              className="text-center rounded-2xl p-8"
-              style={{ background: `linear-gradient(135deg, ${c.gradientFrom}18, ${c.gradientLight})` }}
-            >
-              <div className="text-5xl font-extrabold mb-2" style={{ color: c.gradientFrom }}>
-                {s.value}
-              </div>
+            <div key={i} className="py-12 px-8 text-center" style={{ backgroundColor: c.primaryLight }}>
+              <div className="text-6xl font-extrabold leading-none mb-3" style={{ color: c.gradientFrom }}>{s.value}</div>
               <p className="text-sm font-medium" style={{ color: c.textBody }}>{s.label}</p>
             </div>
           ))}
@@ -100,94 +75,98 @@ export const Home = () => (
       </div>
     </section>
 
-    {/* ── SECTIES OVERZICHT ────────────────────────────────────── */}
-    <section style={{ backgroundColor: c.primaryLight }} className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: c.text }}>
-            Alles wat je nodig hebt
+    {/* ── SECTIES — modern numbered list ───────────────────────── */}
+    <section style={{ background: gradMid }} className="py-24 relative overflow-hidden">
+      {/* faint circle decoration */}
+      <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full border border-white/10 opacity-40" />
+      <div className="absolute -right-16 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full border border-white/10 opacity-40" />
+
+      <div className="relative container mx-auto px-4">
+        <div className="max-w-3xl">
+          <span className="text-xs font-bold tracking-widest uppercase text-white/40 mb-4 block">Wat wij bieden</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 leading-tight">
+            Van nul tot rijbewijs —<br/>wij regelen het.
           </h2>
-          <p className="max-w-lg mx-auto text-sm" style={{ color: c.textBody }}>
-            Van kennismaking tot geslaagd — bij Autorijschool van der Sande in Geleen staat alles voor je klaar.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {config.sections.map((s) => (
-            <Link
-              key={s.path}
-              to={config.basePath + s.path}
-              className="group block rounded-2xl p-7 transition-all hover:-translate-y-1 hover:shadow-lg"
-              style={{ backgroundColor: 'white' }}
-            >
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 transition-colors"
-                style={{ backgroundColor: `${c.gradientFrom}18` }}
-              >
-                {s.icon}
+        <div className="divide-y" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
+          {config.sections.map((s, i) => (
+            <Link key={s.path} to={config.basePath + s.path}
+              className="group flex items-center gap-8 py-7 transition-all hover:pl-2"
+              style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
+              {/* number */}
+              <span className="text-5xl font-black leading-none select-none flex-shrink-0 w-16 text-right"
+                style={{ color: 'rgba(255,255,255,0.15)' }}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              {/* text */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-lg font-bold text-white mb-1 group-hover:text-white/90">{s.label}</h3>
+                <p className="text-sm text-white/50 group-hover:text-white/70 transition-colors">{s.desc}</p>
               </div>
-              <h3 className="font-bold text-base mb-2 group-hover:underline" style={{ color: c.text }}>
-                {s.label}
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: c.textBody }}>{s.desc}</p>
-              <p className="mt-4 text-xs font-semibold" style={{ color: c.primary }}>
-                Bekijk meer →
-              </p>
+              {/* arrow */}
+              <span className="text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all text-2xl flex-shrink-0">→</span>
             </Link>
           ))}
         </div>
       </div>
     </section>
 
-    {/* ── WAAROM VAN DER SANDE ─────────────────────────────────── */}
-    <section style={{ backgroundColor: c.background }} className="py-20">
+    {/* ── WAAROM VAN DER SANDE — geen kaartjes, clean rijen ────── */}
+    <section style={{ backgroundColor: c.primaryLight }} className="py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: c.text }}>
-            Waarom kiezen voor van der Sande?
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {config.features.map((f, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-7 text-center"
-              style={{
-                background: `linear-gradient(160deg, ${c.gradientFrom}14 0%, ${c.gradientLight} 100%)`,
-                border: `1px solid ${c.gradientFrom}22`,
-              }}
-            >
-              <div className="text-4xl mb-4">{f.icon}</div>
-              <h3 className="font-bold text-sm mb-2" style={{ color: c.text }}>{f.title}</h3>
-              <p className="text-xs leading-relaxed" style={{ color: c.textBody }}>{f.description}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+          <div className="lg:col-span-2">
+            <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: c.primary }}>
+              Waarom van der Sande?
+            </span>
+            <h2 className="text-4xl font-extrabold leading-tight mb-6" style={{ color: c.text }}>
+              Meer dan een rijschool.
+            </h2>
+            <p className="text-sm leading-relaxed mb-8" style={{ color: c.textBody }}>
+              Bij Autorijschool van der Sande draait het niet alleen om slagen. Het gaat om vertrouwen opbouwen, goed rijgedrag aanleren en je 100% klaarstomen voor de weg.
+            </p>
+            <Link to={config.basePath + '/over-van-der-sande'}
+              className="inline-flex items-center gap-2 text-sm font-bold transition-all hover:gap-3"
+              style={{ color: c.primary }}>
+              Leer Mike kennen →
+            </Link>
+          </div>
+          <div className="lg:col-span-3 space-y-0 divide-y" style={{ borderColor: `${c.gradientFrom}22` }}>
+            {config.features.map((f, i) => (
+              <div key={i} className="flex items-start gap-5 py-7 first:pt-0 last:pb-0">
+                <span className="text-3xl mt-1 flex-shrink-0">{f.icon}</span>
+                <div>
+                  <h3 className="font-bold text-base mb-1" style={{ color: c.text }}>{f.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: c.textBody }}>{f.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
 
     {/* ── CTA BANNER ───────────────────────────────────────────── */}
-    <section
-      className="py-20 text-white text-center"
-      style={{
-        background: `linear-gradient(135deg, ${c.accent} 0%, ${c.gradientFrom} 100%)`,
-      }}
-    >
-      <div className="container mx-auto px-4 max-w-2xl">
-        <div className="text-4xl mb-4">🚗</div>
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-          Klaar om te starten in Geleen?
-        </h2>
-        <p className="text-white/80 mb-8 text-lg leading-relaxed">
-          Plan een vrijblijvend kennismakingsgesprek en ontdek hoe snel jij jouw rijbewijs kunt halen.
+    <section className="py-24 text-white relative overflow-hidden" style={{ background: gradDark }}>
+      <div className="absolute inset-0 opacity-[0.05]"
+        style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 0)', backgroundSize: '28px 28px' }} />
+      <div className="relative container mx-auto px-4 text-center max-w-2xl">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-5">Klaar om te starten?</h2>
+        <p className="text-white/70 text-lg mb-10 leading-relaxed">
+          Neem vandaag nog contact op voor een gratis en vrijblijvend gesprek over jouw rijopleiding in Geleen.
         </p>
-        <Link
-          to={config.basePath + '/contact'}
-          className="inline-block px-10 py-4 font-bold rounded-xl transition-all hover:shadow-xl hover:-translate-y-0.5"
-          style={{ backgroundColor: 'white', color: c.accent }}
-        >
-          Neem contact op
-        </Link>
+        <div className="flex flex-wrap gap-4 justify-center">
+          <Link to={config.basePath + '/contact'}
+            className="px-10 py-4 font-bold rounded-2xl transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+            style={{ backgroundColor: 'white', color: c.accent }}>
+            Maak een afspraak
+          </Link>
+          <Link to={config.basePath + '/prijzen'}
+            className="px-10 py-4 font-semibold rounded-2xl border border-white/30 hover:bg-white/10 transition-all">
+            Bekijk prijzen
+          </Link>
+        </div>
       </div>
     </section>
   </Layout>
