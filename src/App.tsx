@@ -8,6 +8,7 @@ import { BeatrixNails } from './klanten/beatrix-nails';
 import { TonDirkxFotografie } from './klanten/ton-dirkx-fotografie';
 import { AutorijschoolVdSande } from './klanten/autorijschoolvdsande';
 import { Stylesatlife } from './klanten/stylesatlife';
+import { SchoonmaakbedrijfErwin } from './klanten/schoonmaakbedrijf-erwin';
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
         <Route path="/preview/autorijschoolvdsande/*" element={<AutorijschoolVdSande />} />
         <Route path="/preview/stylesatlife" element={<Stylesatlife />} />
         <Route path="/preview/stylesatlife/*" element={<Stylesatlife />} />
+        <Route path="/preview/schoonmaakbedrijf-erwin" element={<SchoonmaakbedrijfErwin />} />
+        <Route path="/preview/schoonmaakbedrijf-erwin/*" element={<SchoonmaakbedrijfErwin />} />
       </Routes>
     </BrowserRouter>
   );

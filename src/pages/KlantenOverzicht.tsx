@@ -73,6 +73,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Schoonmaakbedrijf Erwin',
+    branche: 'Glazenwassen · Schilderwerk · Geleen',
+    beschrijving: 'Professioneel glazenwassen voor particulieren en bedrijven in Zuid-Limburg. Al actief sinds 2009. KvK 14110743.',
+    pad: '/preview/schoonmaakbedrijf-erwin',
+    kleur: '#1E3A8A',
+    accent: '#1D4ED8',
+    icon: '🪟',
+    status: 'concept',
+  },
+  {
     naam: 'Sjabloon',
     branche: 'Generiek Template',
     beschrijving: 'Het basis-sjabloon voor nieuwe klanten. Kopieer deze map en pas config.ts aan om te starten.',
