@@ -5,9 +5,10 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   linkTo?: string;
   variant?: 'default' | 'white';
+  align?: 'left' | 'center';
 }
 
-export const Logo = ({ size = 'md', linkTo, variant = 'default' }: LogoProps) => {
+export const Logo = ({ size = 'md', linkTo, variant = 'default', align = 'center' }: LogoProps) => {
   const sizes = {
     sm: { top: '1.25rem', bottom: '0.62rem', spacing: '0.18em' },
     md: { top: '1.5rem', bottom: '0.75rem', spacing: '0.2em' },
@@ -19,7 +20,7 @@ export const Logo = ({ size = 'md', linkTo, variant = 'default' }: LogoProps) =>
   const bottomColor = variant === 'white' ? 'rgba(255,255,255,0.85)' : config.colors.darkPink;
 
   const inner = (
-    <div className="flex flex-col items-center leading-none select-none">
+    <div className={`flex flex-col ${align === 'left' ? 'items-start' : 'items-center'} leading-none select-none`}>
       <span
         style={{
           fontFamily: "'Cinzel Decorative', 'Playfair Display', serif",
