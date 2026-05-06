@@ -29,7 +29,6 @@ export const config: AlfaTaxiConfig = {
 
   navigation: [
     { label: 'Tarieven', path: '/tarieven' },
-    { label: 'Boeken', path: '/boeken' },
     { label: 'Contact', path: '/contact' },
   ],
 
@@ -47,22 +46,22 @@ export const config: AlfaTaxiConfig = {
     {
       icon: '⏱️',
       title: 'Altijd Op Tijd',
-      description: 'Wij volgen uw vlucht of afspraak en zijn er op tijd. Punctualiteit is onze prioriteit.',
+      description: 'Wij volgen uw vlucht of afspraak nauwkeurig op de voet. Punctualiteit is geen bijzaak — het is onze standaard.',
     },
     {
-      icon: '🚖',
-      title: 'Comfortabele Auto\'s',
-      description: 'Moderne, nette voertuigen voor een prettige en ontspannen rit naar uw bestemming.',
+      icon: '🤝',
+      title: 'Betrouwbaar & Transparant',
+      description: 'Uw reis is onze hoogste prioriteit. Wij komen al onze afspraken na en zijn altijd transparant in communicatie en prijzen. Geen onaangename verrassingen.',
     },
     {
-      icon: '📱',
-      title: 'Eenvoudig Boeken',
-      description: 'Boek snel en eenvoudig via ons formulier, telefoon of e-mail. Bevestiging direct.',
+      icon: '👔',
+      title: 'Professioneel',
+      description: 'Al onze chauffeurs zijn gediplomeerde professionals. Altijd goed gekleed, correct Nederlands en Engels, bagage inladen en deur openhouden is vanzelfsprekend.',
     },
     {
       icon: '🔒',
       title: 'Vaste Tarieven',
-      description: 'Geen verrassingen achteraf. U weet vooraf precies wat de rit kost.',
+      description: 'U weet vooraf precies wat de rit kost. Geen verborgen kosten, geen verrassingen achteraf — gewoon eerlijk en duidelijk.',
     },
   ],
 

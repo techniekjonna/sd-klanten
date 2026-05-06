@@ -7,7 +7,7 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => (
-  <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#F8F9FA' }}>
+  <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#0B1D3E' }}>
     <Header />
     <main className="flex-grow">{children}</main>
     <Footer />
