@@ -17,7 +17,7 @@ export const Home = () => {
 
   return (
     <Layout>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section
         className="relative min-h-[90vh] flex items-center"
         style={{
@@ -62,23 +62,64 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* Openingstijden + klikbare diensten-tabs */}
-      <section style={{ backgroundColor: OFF_WHITE }}>
-        <div className="container mx-auto px-4 py-14">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+      {/* ── Waarom Ton Dirkx ── */}
+      <section style={{ backgroundColor: OFF_WHITE_2 }} className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: p }}>
+              Waarom Ton Dirkx
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: config.colors.text }}>
+              Vakmanschap met een persoonlijk gezicht
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              Al meer dan 10 jaar uw betrouwbare fotograaf in Stadbroek, Sittard.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {config.features.map((f, i) => (
+              <div
+                key={i}
+                className="text-center p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                style={{ border: '1px solid #d4dbd3' }}
+              >
+                <div className="text-4xl mb-4">{f.icon}</div>
+                <h3 className="text-base font-bold mb-2" style={{ color: config.colors.text }}>{f.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* ── Onze Diensten (openingstijden + klikbare tabs) ── */}
+      <section style={{ backgroundColor: OFF_WHITE }} className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: p }}>
+              Wat wij bieden
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: config.colors.text }}>
+              Onze Diensten
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+              {config.description}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
             {/* Openingstijden */}
-            <div className="text-center lg:text-left">
-              <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
+            <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid #d4dbd3' }}>
+              <div className="flex items-center gap-3 mb-5">
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-xl"
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-xl flex-shrink-0"
                   style={{ backgroundColor: `${p}22` }}
                 >
                   🕐
                 </div>
-                <h2 className="text-lg font-bold" style={{ color: config.colors.text }}>Openingstijden</h2>
+                <h3 className="text-base font-bold" style={{ color: config.colors.text }}>Openingstijden</h3>
               </div>
-              <ul className="space-y-2.5 text-sm max-w-[230px] mx-auto lg:mx-0">
+              <ul className="space-y-2.5 text-sm">
                 {(
                   [
                     ['Maandag', hours.maandag],
@@ -90,14 +131,14 @@ export const Home = () => {
                   ] as [string, string][]
                 ).map(([day, time]) => (
                   <li key={day} className="flex justify-between gap-4">
-                    <span className="text-gray-500">{day}</span>
+                    <span className="text-gray-400">{day}</span>
                     <span className={time === 'Gesloten' ? 'text-red-500 font-medium' : 'font-medium'} style={time !== 'Gesloten' ? { color: config.colors.text } : {}}>
                       {time}
                     </span>
                   </li>
                 ))}
               </ul>
-              <p className="text-xs text-gray-400 mt-4 max-w-[230px] mx-auto lg:mx-0">
+              <p className="text-xs text-gray-400 mt-4 pt-4" style={{ borderTop: '1px solid #e8ede7' }}>
                 Open om 08:45 — ideaal vóór uw afspraak bij het gemeentehuis.
               </p>
             </div>
@@ -127,8 +168,8 @@ export const Home = () => {
 
               {/* Tab content */}
               <div
-                className="p-6 rounded-xl"
-                style={{ backgroundColor: 'white', border: '1px solid #d4dbd3' }}
+                className="p-6 rounded-xl bg-white"
+                style={{ border: '1px solid #d4dbd3' }}
               >
                 <div className="flex items-start gap-3 mb-4">
                   <span className="text-3xl">{activeService.icon}</span>
@@ -171,91 +212,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* Waarom ons */}
-      <section style={{ backgroundColor: OFF_WHITE_2 }} className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: p }}>
-              Waarom Ton Dirkx
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: config.colors.text }}>
-              Vakmanschap met een persoonlijk gezicht
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Al meer dan 10 jaar uw betrouwbare fotograaf in Stadbroek, Sittard.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {config.features.map((f, i) => (
-              <div
-                key={i}
-                className="text-center p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
-                style={{ border: '1px solid #d4dbd3' }}
-              >
-                <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="text-base font-bold mb-2" style={{ color: config.colors.text }}>{f.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Diensten overzicht */}
-      <section style={{ backgroundColor: OFF_WHITE }} className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: p }}>
-              Wat wij bieden
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: config.colors.text }}>
-              Onze Diensten
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-              {config.description}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {config.services.map((s) => (
-              <div
-                key={s.id}
-                className="rounded-2xl p-6 bg-white transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group"
-                style={{ border: '1px solid #d4dbd3' }}
-                onClick={() => open(s.id)}
-              >
-                <div
-                  className="text-3xl w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: config.colors.primaryLight }}
-                >
-                  {s.icon}
-                </div>
-                <h3 className="text-base font-bold mb-2" style={{ color: config.colors.text }}>{s.name}</h3>
-                <p className="text-gray-500 text-xs mb-3 leading-relaxed line-clamp-3">{s.description}</p>
-                {s.priceLabel && (
-                  <p className="font-semibold text-sm" style={{ color: p }}>{s.priceLabel}</p>
-                )}
-                <p
-                  className="text-xs mt-3 font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ color: p }}
-                >
-                  Afspraak maken →
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              to={config.basePath + '/diensten'}
-              className="inline-block px-8 py-4 font-semibold text-white rounded-xl transition-opacity hover:opacity-90"
-              style={{ backgroundColor: p }}
-            >
-              Alle Diensten Bekijken →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
+      {/* ── Wat onze klanten zeggen ── */}
       <section style={{ backgroundColor: OFF_WHITE_2 }} className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
@@ -289,7 +246,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* CTA banner */}
+      {/* ── Kom langs CTA ── */}
       <section
         className="py-20 text-white text-center relative overflow-hidden"
         style={{ background: `linear-gradient(135deg, ${config.colors.primaryDark} 0%, ${p} 100%)` }}
