@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Alfa Taxi Limo Sittard',
+    branche: 'Taxi & Limousine',
+    beschrijving: 'Betrouwbaar taxivervoer en limousinediensten in de regio Sittard-Geleen. 24/7 beschikbaar, vaste tarieven en online boeken.',
+    pad: '/preview/alfa-taxi-limo-sittard',
+    kleur: '#1E293B',
+    accent: '#DC2626',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Care4Cars Sittard',
     branche: 'Garage & APK',
     beschrijving: 'RDW erkend garagebedrijf in Sittard. APK, onderhoud, banden, airco, diagnose en campers.',
