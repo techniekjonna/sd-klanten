@@ -21,9 +21,9 @@ export const config: ErwinConfig = {
 
   contact: {
     address: 'Geleen, Zuid-Limburg',
-    phone: '+31 6 00 00 00 00',
+    phone: '06-47023035',
     email: 'info@schoonmaakbedrijf-erwin.nl',
-    whatsapp: '+31600000000',
+    whatsapp: '+31647023035',
     hours: {
       weekday: '07:00 - 18:00',
       weekend: 'Op afspraak',
@@ -31,10 +31,8 @@ export const config: ErwinConfig = {
   },
 
   navigation: [
-    { label: 'Home', path: '/' },
     { label: 'Diensten', path: '/diensten' },
     { label: 'Over Ons', path: '/over-ons' },
-    { label: 'Afspraak', path: '/afspraak' },
     { label: 'Contact', path: '/contact' },
   ],
 
@@ -42,7 +40,7 @@ export const config: ErwinConfig = {
     title: 'Kristalhelder Schone',
     highlight: 'Ramen & Gevel',
     subtitle: 'Professioneel glazenwassen voor particulieren en bedrijven in Geleen en omgeving. Meer dan 15 jaar vakmanschap — snel, netjes en voor een eerlijke prijs.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop',
+    image: 'https://slagwater.nl/img/20210916102401_IMG_1816.jpg',
     cta: 'Afspraak Maken',
     ctaLink: '/afspraak',
     ctaSecondary: 'Bekijk Diensten',
@@ -163,7 +161,7 @@ export const config: ErwinConfig = {
     title: 'Over Schoonmaakbedrijf Erwin',
     story: 'Schoonmaakbedrijf Erwin is op 1 februari 2009 opgericht en heeft sindsdien tientallen tevreden klanten in de regio Zuid-Limburg bediend. Als eenmanszaak staat Erwin zelf altijd voor u klaar — geen onderaannemers, maar direct contact met de vakman die uw werk uitvoert.',
     mission: 'Onze aanpak is eenvoudig: eerlijk werk voor een eerlijke prijs. We komen op de afgesproken tijd, werken netjes en verlaten uw terrein altijd schoner dan we het aantroffen. Dat is geen belofte — dat is gewoon hoe het hoort.',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=800&fit=crop',
+    image: 'https://rietbroek.blob.core.windows.net/web/prod/_2025x1268_crop_center-center_none/Glazenwasser-wisser-Maastoren-Rotterdam-Rietbroek-Glasbewassing.jpg',
     values: [
       'Al meer dan 15 jaar vakmanschap',
       'Persoonlijk contact — altijd dezelfde vakman',

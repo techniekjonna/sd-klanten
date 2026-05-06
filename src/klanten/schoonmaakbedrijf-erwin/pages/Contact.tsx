@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
+const c = config.colors;
+
+const inputClass =
+  'w-full px-4 py-3 rounded-xl text-sm text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-white/30 transition-shadow';
+const inputStyle = { backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' };
+const labelClass = 'block text-xs font-bold uppercase tracking-wide text-blue-300 mb-2';
+
 export const Contact = () => {
-  const p = config.colors.primary;
-  const pd = config.colors.primaryDark;
   const [form, setForm] = useState({ naam: '', email: '', telefoon: '', bericht: '' });
   const [sent, setSent] = useState(false);
 
@@ -17,187 +22,151 @@ export const Contact = () => {
   return (
     <Layout>
       {/* Page header */}
-      <section className="relative py-24 text-white text-center" style={{ backgroundColor: pd }}>
+      <section style={{ backgroundColor: c.primaryDark }} className="py-24 text-center">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Contact</h1>
-          <p className="text-blue-200 max-w-xl mx-auto">
-            Heeft u een vraag? Wij reageren altijd binnen 1 werkdag. Of neem gerust direct contact op.
+          <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Bereikbaarheid</p>
+          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Contact</h1>
+          <p className="text-blue-300 max-w-xl mx-auto">
+            Heeft u een vraag? Wij reageren altijd binnen 1 werkdag. Of neem direct contact op.
           </p>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section style={{ backgroundColor: c.primary }} className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Contact info */}
-            <div className="lg:col-span-2 space-y-6">
-              <h2 className="text-2xl font-bold" style={{ color: config.colors.text }}>
-                Onze Gegevens
-              </h2>
+            <div className="lg:col-span-2 space-y-5">
+              <h2 className="text-xl font-black text-white mb-6">Onze Gegevens</h2>
 
               {[
-                { icon: '📍', label: 'Adres', value: config.contact.address },
+                { icon: '📍', label: 'Adres', value: config.contact.address, href: undefined },
                 { icon: '📞', label: 'Telefoon', value: config.contact.phone, href: `tel:${config.contact.phone}` },
                 { icon: '✉️', label: 'E-mail', value: config.contact.email, href: `mailto:${config.contact.email}` },
               ].map(({ icon, label, value, href }) => (
-                <div key={label} className="flex gap-4">
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                    style={{ backgroundColor: config.colors.primaryLight }}
-                  >
-                    {icon}
-                  </div>
+                <div key={label} className="flex gap-4 items-center p-4 rounded-xl" style={{ backgroundColor: c.primaryDark }}>
+                  <div className="text-2xl w-10 text-center flex-shrink-0">{icon}</div>
                   <div>
-                    <p className="text-sm text-gray-400">{label}</p>
+                    <p className="text-blue-400 text-xs">{label}</p>
                     {href ? (
-                      <a href={href} className="font-medium hover:underline" style={{ color: p }}>
+                      <a href={href} className="font-semibold text-white hover:text-blue-200 transition-colors text-sm">
                         {value}
                       </a>
                     ) : (
-                      <p className="font-medium" style={{ color: config.colors.text }}>{value}</p>
+                      <p className="font-semibold text-white text-sm">{value}</p>
                     )}
                   </div>
                 </div>
               ))}
 
-              <div className="flex gap-4">
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0 bg-green-100"
-                >
-                  💬
-                </div>
-                <div>
-                  <p className="text-sm text-gray-400">WhatsApp</p>
-                  <a
-                    href={`https://wa.me/${config.contact.whatsapp.replace(/\D/g, '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-green-600 hover:underline"
-                  >
-                    Stuur een bericht
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex gap-4 pt-2">
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                  style={{ backgroundColor: config.colors.primaryLight }}
-                >
-                  🕐
-                </div>
-                <div>
-                  <p className="text-sm text-gray-400">Bereikbaar</p>
-                  <p className="font-medium" style={{ color: config.colors.text }}>
-                    Ma–Vr: {config.contact.hours.weekday}
-                  </p>
-                  <p className="font-medium" style={{ color: config.colors.text }}>
-                    Za–Zo: {config.contact.hours.weekend}
-                  </p>
-                </div>
-              </div>
-
-              {/* Bedrijfsgegevens blok */}
-              <div
-                className="p-5 rounded-xl mt-4 text-sm space-y-1"
-                style={{ backgroundColor: config.colors.primaryLight }}
+              <a
+                href={`https://wa.me/${config.contact.whatsapp.replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-4 items-center p-4 rounded-xl transition-opacity hover:opacity-90"
+                style={{ backgroundColor: '#25D366' }}
               >
-                <p className="font-bold mb-2" style={{ color: pd }}>Bedrijfsgegevens</p>
-                <p className="text-gray-600"><span className="text-gray-500">KvK:</span> {config.kvk}</p>
-                <p className="text-gray-600"><span className="text-gray-500">Rechtsvorm:</span> Eenmanszaak</p>
-                <p className="text-gray-600"><span className="text-gray-500">Vestiging:</span> Geleen, Zuid-Limburg</p>
+                <div className="text-2xl w-10 text-center flex-shrink-0">💬</div>
+                <div>
+                  <p className="text-green-100 text-xs">WhatsApp</p>
+                  <p className="font-semibold text-white text-sm">Stuur een bericht</p>
+                </div>
+              </a>
+
+              <div className="flex gap-4 p-4 rounded-xl" style={{ backgroundColor: c.primaryDark }}>
+                <div className="text-2xl w-10 text-center flex-shrink-0">🕐</div>
+                <div>
+                  <p className="text-blue-400 text-xs">Bereikbaar</p>
+                  <p className="text-white text-sm">Ma–Vr: {config.contact.hours.weekday}</p>
+                  <p className="text-white text-sm">Za–Zo: {config.contact.hours.weekend}</p>
+                </div>
               </div>
 
-              <div className="pt-2">
-                <Link
-                  to={config.basePath + '/afspraak'}
-                  className="inline-block px-6 py-3 font-semibold text-white rounded-xl text-sm transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: p }}
-                >
-                  Direct een afspraak maken →
-                </Link>
+              {/* Bedrijfsgegevens */}
+              <div className="p-5 rounded-2xl" style={{ backgroundColor: c.primaryDark }}>
+                <p className="font-black text-white text-xs uppercase tracking-widest mb-3">Bedrijfsgegevens</p>
+                <div className="space-y-1 text-sm">
+                  <p className="text-blue-300"><span className="text-blue-500">KvK:</span> {config.kvk}</p>
+                  <p className="text-blue-300"><span className="text-blue-500">Rechtsvorm:</span> Eenmanszaak</p>
+                  <p className="text-blue-300"><span className="text-blue-500">Vestiging:</span> Geleen, Zuid-Limburg</p>
+                </div>
               </div>
+
+              <Link
+                to={config.basePath + '/afspraak'}
+                className="inline-block px-6 py-3 font-bold text-white rounded-xl text-sm transition-all hover:scale-105"
+                style={{ backgroundColor: c.primaryDark, border: '2px solid rgba(255,255,255,0.2)' }}
+              >
+                Direct een afspraak maken →
+              </Link>
             </div>
 
             {/* Contact form */}
             <div className="lg:col-span-3">
               {sent ? (
-                <div className="text-center py-16 px-8 border border-gray-100 rounded-2xl">
+                <div
+                  className="text-center py-16 px-8 rounded-2xl"
+                  style={{ backgroundColor: c.primaryDark }}
+                >
                   <div className="text-5xl mb-4">✅</div>
-                  <h3 className="text-2xl font-bold mb-2" style={{ color: config.colors.text }}>
-                    Bericht ontvangen!
-                  </h3>
-                  <p className="text-gray-500">
-                    Wij nemen binnen 1 werkdag contact met u op. Tot snel!
-                  </p>
+                  <h3 className="text-2xl font-black text-white mb-2">Bericht ontvangen!</h3>
+                  <p className="text-blue-300">Wij nemen binnen 1 werkdag contact met u op. Tot snel!</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <h3 className="text-lg font-bold mb-2" style={{ color: config.colors.text }}>
-                    Stuur ons een bericht
-                  </h3>
+                <form
+                  onSubmit={handleSubmit}
+                  className="rounded-2xl p-8 space-y-5"
+                  style={{ backgroundColor: c.primaryDark }}
+                >
+                  <h3 className="text-lg font-black text-white mb-1">Stuur ons een bericht</h3>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                        Naam *
-                      </label>
+                      <label className={labelClass}>Naam *</label>
                       <input
-                        type="text"
-                        required
-                        value={form.naam}
+                        type="text" required value={form.naam}
                         onChange={(e) => setForm({ ...form, naam: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:border-transparent"
-                        placeholder="Uw naam"
+                        className={inputClass} style={inputStyle} placeholder="Uw naam"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                        Telefoon
-                      </label>
+                      <label className={labelClass}>Telefoon</label>
                       <input
-                        type="tel"
-                        value={form.telefoon}
+                        type="tel" value={form.telefoon}
                         onChange={(e) => setForm({ ...form, telefoon: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2"
-                        placeholder="+31 6 ..."
+                        className={inputClass} style={inputStyle} placeholder="06-..."
                       />
                     </div>
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                      E-mailadres *
-                    </label>
+                    <label className={labelClass}>E-mailadres *</label>
                     <input
-                      type="email"
-                      required
-                      value={form.email}
+                      type="email" required value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2"
-                      placeholder="uw@email.nl"
+                      className={inputClass} style={inputStyle} placeholder="uw@email.nl"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                      Uw bericht *
-                    </label>
+                    <label className={labelClass}>Uw bericht *</label>
                     <textarea
-                      required
-                      rows={6}
-                      value={form.bericht}
+                      required rows={6} value={form.bericht}
                       onChange={(e) => setForm({ ...form, bericht: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 resize-none"
+                      className={`${inputClass} resize-none`} style={inputStyle}
                       placeholder="Waar kunnen wij u mee helpen?"
                     />
                   </div>
+
                   <button
                     type="submit"
-                    className="w-full py-4 font-semibold text-white rounded-xl transition-opacity hover:opacity-90"
-                    style={{ backgroundColor: p }}
+                    className="w-full py-4 font-black text-white rounded-xl transition-all hover:scale-[1.01] shadow-xl"
+                    style={{ backgroundColor: c.primary }}
                   >
                     Verstuur Bericht
                   </button>
-                  <p className="text-xs text-gray-400 text-center">
-                    * Verplichte velden. Uw gegevens worden nooit gedeeld met derden. Zie onze privacyverklaring.
+                  <p className="text-xs text-blue-400 text-center">
+                    * Verplichte velden. Uw gegevens worden nooit gedeeld met derden.
                   </p>
                 </form>
               )}
