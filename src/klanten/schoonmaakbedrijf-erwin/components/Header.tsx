@@ -8,66 +8,57 @@ export const Header = () => {
 
   const isActive = (path: string) => {
     const fullPath = config.basePath + path;
-    if (path === '/') {
-      return location.pathname === config.basePath || location.pathname === config.basePath + '/';
-    }
     return location.pathname.startsWith(fullPath);
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md border-b-2" style={{ borderColor: config.colors.primary }}>
+    <header
+      className="sticky top-0 z-50 shadow-lg"
+      style={{ backgroundColor: config.colors.primary }}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link
-            to={config.basePath + '/'}
-            className="flex items-center gap-2 group"
-          >
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-white text-lg font-bold flex-shrink-0"
-              style={{ backgroundColor: config.colors.primary }}
-            >
-              E
-            </div>
-            <div className="leading-tight">
-              <p className="text-sm font-extrabold" style={{ color: config.colors.primaryDark }}>
-                Schoonmaakbedrijf
-              </p>
-              <p className="text-xs font-semibold" style={{ color: config.colors.primary }}>
-                Erwin
-              </p>
-            </div>
+        <div className="flex items-center justify-between h-18 py-3">
+          {/* Logo — geen icoon, tekst met Erwin prominent */}
+          <Link to={config.basePath + '/'} className="flex flex-col leading-none group">
+            <span className="text-xs font-medium text-blue-200 uppercase tracking-widest">
+              Schoonmaakbedrijf
+            </span>
+            <span className="text-2xl font-black text-white tracking-tight group-hover:text-blue-100 transition-colors">
+              Erwin
+            </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-2">
             {config.navigation.map((link) => (
               <Link
                 key={link.path}
                 to={config.basePath + link.path}
-                className={`text-sm font-medium transition-colors ${
+                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-colors ${
                   isActive(link.path)
-                    ? 'border-b-2 pb-0.5'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-white/20 text-white'
+                    : 'text-blue-100 hover:bg-white/10 hover:text-white'
                 }`}
-                style={isActive(link.path) ? { color: config.colors.primary, borderColor: config.colors.primary } : {}}
               >
                 {link.label}
               </Link>
             ))}
+
+            <div className="w-px h-5 bg-white/20 mx-2" />
+
             <a
               href={`https://wa.me/${config.contact.whatsapp.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90 flex items-center gap-1.5"
+              className="px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90"
               style={{ backgroundColor: '#25D366' }}
             >
-              <span>WhatsApp</span>
+              WhatsApp
             </a>
             <Link
               to={config.basePath + '/afspraak'}
-              className="px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90"
-              style={{ backgroundColor: config.colors.primary }}
+              className="px-4 py-2 text-sm font-bold rounded-lg transition-colors"
+              style={{ backgroundColor: config.colors.primaryDark, color: '#fff' }}
             >
               Afspraak Maken
             </Link>
@@ -75,7 +66,7 @@ export const Header = () => {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors"
+            className="md:hidden p-2 text-white transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu openen"
           >
@@ -83,9 +74,9 @@ export const Header = () => {
               <span className="text-2xl leading-none">✕</span>
             ) : (
               <div>
-                <span className="block w-5 h-0.5 bg-current mb-1" />
-                <span className="block w-5 h-0.5 bg-current mb-1" />
-                <span className="block w-5 h-0.5 bg-current" />
+                <span className="block w-6 h-0.5 bg-white mb-1.5" />
+                <span className="block w-6 h-0.5 bg-white mb-1.5" />
+                <span className="block w-6 h-0.5 bg-white" />
               </div>
             )}
           </button>
@@ -93,27 +84,29 @@ export const Header = () => {
 
         {/* Mobile nav */}
         {menuOpen && (
-          <nav className="md:hidden border-t border-gray-100 py-4 flex flex-col gap-1">
+          <nav
+            className="md:hidden border-t py-4 flex flex-col gap-1"
+            style={{ borderColor: 'rgba(255,255,255,0.15)' }}
+          >
             {config.navigation.map((link) => (
               <Link
                 key={link.path}
                 to={config.basePath + link.path}
                 onClick={() => setMenuOpen(false)}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isActive(link.path) ? 'text-white' : 'text-gray-600 hover:bg-gray-50'
+                className={`px-4 py-2.5 text-sm font-semibold rounded-lg transition-colors ${
+                  isActive(link.path) ? 'bg-white/20 text-white' : 'text-blue-100 hover:bg-white/10'
                 }`}
-                style={isActive(link.path) ? { backgroundColor: config.colors.primary } : {}}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="flex gap-2 mx-4 mt-2">
+            <div className="flex gap-2 mt-3">
               <a
                 href={`https://wa.me/${config.contact.whatsapp.replace(/\D/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="flex-1 py-2 text-sm font-semibold text-white rounded-lg text-center"
+                className="flex-1 py-2.5 text-sm font-semibold text-white rounded-lg text-center"
                 style={{ backgroundColor: '#25D366' }}
               >
                 WhatsApp
@@ -121,10 +114,10 @@ export const Header = () => {
               <Link
                 to={config.basePath + '/afspraak'}
                 onClick={() => setMenuOpen(false)}
-                className="flex-1 py-2 text-sm font-semibold text-white rounded-lg text-center transition-opacity hover:opacity-90"
-                style={{ backgroundColor: config.colors.primary }}
+                className="flex-1 py-2.5 text-sm font-bold text-white rounded-lg text-center transition-colors"
+                style={{ backgroundColor: config.colors.primaryDark }}
               >
-                Afspraak
+                Afspraak Maken
               </Link>
             </div>
           </nav>

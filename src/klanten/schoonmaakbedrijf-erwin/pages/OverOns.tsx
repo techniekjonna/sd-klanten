@@ -2,185 +2,184 @@ import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
-export const OverOns = () => {
-  const p = config.colors.primary;
-  const pd = config.colors.primaryDark;
+const c = config.colors;
 
-  return (
-    <Layout>
-      {/* Page header */}
-      <section
-        className="relative py-24 text-white text-center"
-        style={{ backgroundColor: pd }}
-      >
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{config.about.title}</h1>
-          <p className="text-blue-200 max-w-xl mx-auto">{config.tagline}</p>
-        </div>
-      </section>
+const bedrijfsgegevens = [
+  { label: 'Bedrijfsnaam', value: 'Schoonmaakbedrijf Erwin' },
+  { label: 'KvK-nummer', value: config.kvk },
+  { label: 'Rechtsvorm', value: 'Eenmanszaak' },
+  { label: 'Hoofdbranche', value: 'Glazenwassen (SBI 81221)' },
+  { label: 'Nevenbranche 1', value: 'Schilderwerk (SBI 43340)' },
+  { label: 'Nevenbranche 2', value: 'Schoonmaak gebouwen (SBI 8121)' },
+  { label: 'Organisatiegrootte', value: '1 werknemer' },
+  { label: 'COROP-regio', value: 'Zuid-Limburg' },
+  { label: 'Oprichtingsdatum', value: '1 februari 2009' },
+  { label: 'Vestigingsplaats', value: 'Geleen' },
+];
 
-      {/* Ons verhaal */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div>
-              <div
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-6 px-4 py-2 rounded-full"
-                style={{ backgroundColor: config.colors.primaryLight, color: p }}
-              >
-                Actief sinds {config.opgericht}
-              </div>
-              <h2 className="text-3xl font-bold mb-6" style={{ color: config.colors.text }}>
-                Het Verhaal van Erwin
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6">{config.about.story}</p>
-              <p className="text-gray-600 leading-relaxed">{config.about.mission}</p>
+export const OverOns = () => (
+  <Layout>
+    {/* Page header */}
+    <section style={{ backgroundColor: c.primaryDark }} className="py-24 text-center">
+      <div className="container mx-auto px-4">
+        <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Wie zijn wij</p>
+        <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{config.about.title}</h1>
+        <p className="text-blue-300 max-w-xl mx-auto">{config.tagline}</p>
+      </div>
+    </section>
 
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: config.colors.primaryLight }}>
-                  <p className="text-3xl font-extrabold mb-1" style={{ color: p }}>15+</p>
-                  <p className="text-sm text-gray-600">Jaar ervaring</p>
-                </div>
-                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: config.colors.primaryLight }}>
-                  <p className="text-3xl font-extrabold mb-1" style={{ color: p }}>100%</p>
-                  <p className="text-sm text-gray-600">Tevreden klanten</p>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src={config.about.image}
-                alt="Schoonmaakbedrijf Erwin aan het werk"
-                className="w-full h-96 object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+    {/* Verhaal */}
+    <section style={{ backgroundColor: c.primary }} className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div>
+            <span
+              className="inline-block text-xs font-bold uppercase tracking-widest mb-6 px-4 py-2 rounded-full text-white"
+              style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
+            >
+              Actief sinds {config.opgericht}
+            </span>
+            <h2 className="text-3xl font-black text-white mb-6">Het Verhaal van Erwin</h2>
+            <p className="text-blue-100 leading-relaxed mb-5">{config.about.story}</p>
+            <p className="text-blue-100 leading-relaxed">{config.about.mission}</p>
 
-      {/* Bedrijfsgegevens */}
-      <section className="py-16" style={{ backgroundColor: config.colors.primaryLight }}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-10" style={{ color: pd }}>
-            Bedrijfsgegevens
-          </h2>
-          <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden">
-            {[
-              { label: 'Bedrijfsnaam', value: 'Schoonmaakbedrijf Erwin' },
-              { label: 'KvK-nummer', value: config.kvk },
-              { label: 'Rechtsvorm', value: 'Eenmanszaak' },
-              { label: 'Hoofdbranche', value: 'Glazenwassen (SBI 81221)' },
-              { label: 'Nevenbranche 1', value: 'Schilderwerk (SBI 43340)' },
-              { label: 'Nevenbranche 2', value: 'Schoonmaak gebouwen (SBI 8121)' },
-              { label: 'Organisatiegrootte', value: '1 werknemer' },
-              { label: 'COROP-regio', value: 'Zuid-Limburg' },
-              { label: 'Oprichtingsdatum', value: '1 februari 2009' },
-              { label: 'Vestigingsplaats', value: 'Geleen' },
-            ].map(({ label, value }, i) => (
-              <div
-                key={label}
-                className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? 'bg-white' : 'bg-blue-50'}`}
-              >
-                <span className="font-medium text-gray-500">{label}</span>
-                <span className="font-semibold text-right" style={{ color: config.colors.text }}>{value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Kernwaarden */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-14" style={{ color: config.colors.text }}>
-            Onze Kernwaarden
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {config.about.values.map((value, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-4 rounded-xl p-6 shadow-sm border border-gray-100"
-              >
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              {[
+                { getal: '15+', label: 'Jaar ervaring' },
+                { getal: '100%', label: 'Persoonlijk contact' },
+              ].map(({ getal, label }) => (
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
-                  style={{ backgroundColor: p }}
+                  key={label}
+                  className="p-5 rounded-2xl text-center"
+                  style={{ backgroundColor: c.primaryDark }}
                 >
-                  {i + 1}
+                  <p className="text-3xl font-black text-white mb-1">{getal}</p>
+                  <p className="text-blue-300 text-sm">{label}</p>
                 </div>
-                <p className="font-medium" style={{ color: config.colors.text }}>{value}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src={config.about.image}
+              alt="Professioneel glazenwassen"
+              className="w-full h-96 object-cover"
+            />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Werkgebied */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-6" style={{ color: config.colors.text }}>
-            Ons Werkgebied
-          </h2>
-          <p className="text-gray-500 text-center max-w-lg mx-auto mb-10">
-            Gevestigd in Geleen bedienen wij heel Zuid-Limburg. Hieronder de plaatsen waar wij actief zijn.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
-            {config.werkgebied.map((stad) => (
-              <span
-                key={stad}
-                className="px-4 py-2 rounded-full text-sm font-medium border"
-                style={{ borderColor: p, color: p, backgroundColor: config.colors.primaryLight }}
+    {/* Bedrijfsgegevens */}
+    <section style={{ backgroundColor: c.primaryDark }} className="py-16">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Officieel</p>
+          <h2 className="text-2xl font-black text-white">Bedrijfsgegevens</h2>
+        </div>
+        <div className="max-w-2xl mx-auto rounded-2xl overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          {bedrijfsgegevens.map(({ label, value }, i) => (
+            <div
+              key={label}
+              className="flex justify-between px-6 py-4 text-sm"
+              style={{ borderBottom: i < bedrijfsgegevens.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}
+            >
+              <span className="text-blue-400">{label}</span>
+              <span className="font-semibold text-white text-right">{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Kernwaarden */}
+    <section style={{ backgroundColor: c.primary }} className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-14">
+          <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-3">Waar wij voor staan</p>
+          <h2 className="text-3xl font-black text-white">Onze Kernwaarden</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+          {config.about.values.map((value, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-4 rounded-xl p-5"
+              style={{ backgroundColor: c.primaryDark }}
+            >
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black flex-shrink-0 text-sm"
+                style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
               >
-                {stad}
-              </span>
-            ))}
-          </div>
-          <p className="text-center text-sm text-gray-400 mt-6">
-            Staat uw gemeente er niet bij? Neem contact op — we kijken graag mee!
-          </p>
-        </div>
-      </section>
-
-      {/* Wat ons onderscheidt */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-14" style={{ color: config.colors.text }}>
-            Wat ons onderscheidt
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {config.features.map((f, i) => (
-              <div key={i} className="text-center p-6">
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4"
-                  style={{ backgroundColor: config.colors.primaryLight }}
-                >
-                  {f.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: config.colors.text }}>
-                  {f.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
+                {i + 1}
               </div>
-            ))}
-          </div>
+              <p className="font-semibold text-white text-sm">{value}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* CTA */}
-      <section className="py-16 text-white text-center" style={{ backgroundColor: p }}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Maak kennis met Erwin</h2>
-          <p className="text-lg opacity-90 mb-8">
-            Plan een afspraak en ontdek wat wij voor uw ramen kunnen betekenen.
-          </p>
-          <Link
-            to={config.basePath + '/afspraak'}
-            className="inline-block px-10 py-4 bg-white font-semibold rounded-xl hover:bg-gray-100 transition-colors"
-            style={{ color: p }}
-          >
-            Afspraak Maken
-          </Link>
+    {/* Werkgebied */}
+    <section style={{ backgroundColor: c.primaryDark }} className="py-16">
+      <div className="container mx-auto px-4 text-center">
+        <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Werkgebied</p>
+        <h2 className="text-2xl font-black text-white mb-3">Actief in heel Zuid-Limburg</h2>
+        <p className="text-blue-300 max-w-lg mx-auto mb-10 text-sm">
+          Gevestigd in Geleen bedienen wij de hele regio. Staat uw gemeente er niet bij? Neem contact op.
+        </p>
+        <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
+          {config.werkgebied.map((stad) => (
+            <span
+              key={stad}
+              className="px-4 py-2 rounded-full text-sm font-semibold text-white"
+              style={{ backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
+            >
+              {stad}
+            </span>
+          ))}
         </div>
-      </section>
-    </Layout>
-  );
-};
+      </div>
+    </section>
+
+    {/* Wat ons onderscheidt */}
+    <section style={{ backgroundColor: c.primary }} className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-14">
+          <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-3">Voordelen</p>
+          <h2 className="text-3xl font-black text-white">Wat ons onderscheidt</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {config.features.map((f, i) => (
+            <div
+              key={i}
+              className="text-center p-7 rounded-2xl"
+              style={{ backgroundColor: c.primaryDark }}
+            >
+              <div className="text-4xl mb-4">{f.icon}</div>
+              <h3 className="text-sm font-bold text-white mb-2">{f.title}</h3>
+              <p className="text-blue-300 text-sm leading-relaxed">{f.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section style={{ backgroundColor: c.primaryDark }} className="py-16 text-center">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-black text-white mb-4">Maak kennis met Erwin</h2>
+        <p className="text-blue-300 mb-8">
+          Plan een afspraak en ontdek wat wij voor uw ramen kunnen betekenen.
+        </p>
+        <Link
+          to={config.basePath + '/afspraak'}
+          className="inline-block px-10 py-4 font-bold text-white rounded-xl transition-all hover:scale-105"
+          style={{ backgroundColor: c.primary }}
+        >
+          Afspraak Maken
+        </Link>
+      </div>
+    </section>
+  </Layout>
+);
