@@ -31,7 +31,7 @@ export const Home = () => {
         ))}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(135deg, rgba(136,14,79,0.82) 0%, rgba(45,15,30,0.60) 100%)' }}
+          style={{ background: 'linear-gradient(to right, rgba(45,15,30,0.88) 0%, rgba(45,15,30,0.55) 60%, rgba(45,15,30,0.20) 100%)' }}
         />
 
         <div className="relative container mx-auto px-4 py-16">
