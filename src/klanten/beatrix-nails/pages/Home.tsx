@@ -29,15 +29,21 @@ export const Home = () => {
             }}
           />
         ))}
+        {/* Donkere overlay voor leesbaarheid */}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(to right, rgba(45,15,30,0.88) 0%, rgba(45,15,30,0.55) 60%, rgba(45,15,30,0.20) 100%)' }}
+          style={{ background: 'linear-gradient(to right, rgba(45,15,30,0.86) 0%, rgba(45,15,30,0.52) 55%, rgba(45,15,30,0.18) 100%)' }}
+        />
+        {/* Subtiele roze gloed – sluit aan op de header */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(194,24,91,0.28) 0%, rgba(194,24,91,0.08) 100%)' }}
         />
 
         <div className="relative container mx-auto px-4 py-16">
-          {/* Logo bovenaan in hero – wit */}
+          {/* Logo links boven de tekst – wit */}
           <div className="mb-10">
-            <Logo size="lg" variant="white" />
+            <Logo size="lg" variant="white" align="left" />
           </div>
 
           <p className="text-sm font-medium uppercase tracking-widest mb-4 text-white/70">
