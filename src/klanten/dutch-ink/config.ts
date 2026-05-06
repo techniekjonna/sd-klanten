@@ -16,21 +16,18 @@ export const config: DutchInkConfig = {
   },
 
   logo: 'https://dutchink.nl/wp-content/uploads/2025/10/wijzijndutchink.png',
+  logoGold: 'https://dutchink.nl/wp-content/uploads/2025/09/Logo_DutchInk_goud.png',
 
   navigation: [
     { label: 'Over Dutch Ink', path: '/over-ons' },
-    { label: 'Blog', path: '/over-ons' },
-    { label: 'Uitgebreide Tattoo-gids', path: '/diensten' },
-    { label: 'Tattoos', path: '/diensten' },
-    { label: 'Piercing', path: '/diensten' },
-    { label: 'Permanente make-up', path: '/diensten' },
+    { label: 'Diensten', path: '/diensten' },
     { label: 'Contact', path: '/contact' },
   ],
 
   hero: {
     titel: 'Tattoos voor het leven.\nDutch Ink voor altijd.',
     subtitel: 'Topkwaliteit tattoos, piercings en PMU bij Dutch Ink — de tattoo company van Nederland. Walk-in welkom, vaste prijzen, geen verrassingen.',
-    afbeelding: 'https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=1920&h=1080&fit=crop',
+    afbeelding: 'https://images.unsplash.com/photo-1562631409-0994e9e0e4df?w=1920&h=1080&fit=crop',
     cta: 'Plan jouw Piercingafspraak',
     ctaLink: '/contact',
     ctaSecundair: 'Wie zijn wij?',
