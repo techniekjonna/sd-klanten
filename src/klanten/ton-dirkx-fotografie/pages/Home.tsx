@@ -4,9 +4,11 @@ import { Layout } from '../components/Layout';
 import { config } from '../config';
 import { useAfspraak } from '../components/AfspraakContext';
 
+const OFF_WHITE = '#f6f8f5';
+const OFF_WHITE_2 = '#edf1ec';
+
 export const Home = () => {
   const p = config.colors.primary;
-  const dark = config.colors.primaryDark;
   const hours = config.contact.hours;
   const { open } = useAfspraak();
   const [activeTab, setActiveTab] = useState(0);
@@ -54,16 +56,14 @@ export const Home = () => {
             </div>
           </div>
         </div>
-
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40">
           <span className="text-white text-xs tracking-widest uppercase">Scroll</span>
           <div className="w-px h-8 bg-white/50" />
         </div>
       </section>
 
-      {/* ── Openingstijden + klikbare diensten-tabs ── */}
-      <section style={{ backgroundColor: '#111827' }}>
+      {/* Openingstijden + klikbare diensten-tabs */}
+      <section style={{ backgroundColor: OFF_WHITE }}>
         <div className="container mx-auto px-4 py-14">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
 
@@ -76,7 +76,7 @@ export const Home = () => {
                 >
                   🕐
                 </div>
-                <h2 className="text-lg font-bold text-white">Openingstijden</h2>
+                <h2 className="text-lg font-bold" style={{ color: config.colors.text }}>Openingstijden</h2>
               </div>
               <ul className="space-y-2.5 text-sm max-w-[230px] mx-auto lg:mx-0">
                 {(
@@ -90,14 +90,14 @@ export const Home = () => {
                   ] as [string, string][]
                 ).map(([day, time]) => (
                   <li key={day} className="flex justify-between gap-4">
-                    <span className="text-gray-400">{day}</span>
-                    <span className={time === 'Gesloten' ? 'text-red-400 font-medium' : 'text-white font-medium'}>
+                    <span className="text-gray-500">{day}</span>
+                    <span className={time === 'Gesloten' ? 'text-red-500 font-medium' : 'font-medium'} style={time !== 'Gesloten' ? { color: config.colors.text } : {}}>
                       {time}
                     </span>
                   </li>
                 ))}
               </ul>
-              <p className="text-xs text-gray-500 mt-4 max-w-[230px] mx-auto lg:mx-0">
+              <p className="text-xs text-gray-400 mt-4 max-w-[230px] mx-auto lg:mx-0">
                 Open om 08:45 — ideaal vóór uw afspraak bij het gemeentehuis.
               </p>
             </div>
@@ -106,8 +106,8 @@ export const Home = () => {
             <div className="lg:col-span-2">
               {/* Tab bar */}
               <div
-                className="flex rounded-xl overflow-x-auto mb-0"
-                style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+                className="flex rounded-xl overflow-x-auto mb-1"
+                style={{ backgroundColor: '#e4e9e3', border: '1px solid #d4dbd3' }}
               >
                 {config.services.map((s, i) => (
                   <button
@@ -117,7 +117,7 @@ export const Home = () => {
                     style={
                       activeTab === i
                         ? { color: 'white', backgroundColor: p }
-                        : { color: '#9ca3af' }
+                        : { color: '#4b5e45' }
                     }
                   >
                     {s.name}
@@ -127,23 +127,23 @@ export const Home = () => {
 
               {/* Tab content */}
               <div
-                className="mt-1 p-6 rounded-xl"
-                style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+                className="p-6 rounded-xl"
+                style={{ backgroundColor: 'white', border: '1px solid #d4dbd3' }}
               >
                 <div className="flex items-start gap-3 mb-4">
                   <span className="text-3xl">{activeService.icon}</span>
                   <div>
-                    <h3 className="font-bold text-white text-lg">{activeService.name}</h3>
+                    <h3 className="font-bold text-lg" style={{ color: config.colors.text }}>{activeService.name}</h3>
                     {activeService.priceLabel && (
                       <span className="text-sm font-semibold" style={{ color: p }}>{activeService.priceLabel}</span>
                     )}
                   </div>
                 </div>
-                <p className="text-gray-400 text-sm mb-4 leading-relaxed">{activeService.description}</p>
+                <p className="text-gray-500 text-sm mb-4 leading-relaxed">{activeService.description}</p>
                 {activeService.features && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5">
                     {activeService.features.map((f) => (
-                      <p key={f} className="text-sm text-gray-300 flex items-center gap-2">
+                      <p key={f} className="text-sm text-gray-600 flex items-center gap-2">
                         <span style={{ color: p }}>✓</span> {f}
                       </p>
                     ))}
@@ -159,8 +159,8 @@ export const Home = () => {
                   </button>
                   <Link
                     to={config.basePath + '/diensten'}
-                    className="px-5 py-2.5 text-sm font-semibold rounded-lg border transition-colors"
-                    style={{ borderColor: 'rgba(255,255,255,0.2)', color: '#d1d5db' }}
+                    className="px-5 py-2.5 text-sm font-semibold rounded-lg border transition-colors text-gray-600 hover:text-gray-900"
+                    style={{ borderColor: '#c8d1c7' }}
                   >
                     Meer Info →
                   </Link>
@@ -171,17 +171,17 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ── Waarom ons ── */}
-      <section style={{ backgroundColor: dark }} className="py-20">
+      {/* Waarom ons */}
+      <section style={{ backgroundColor: OFF_WHITE_2 }} className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: p }}>
               Waarom Ton Dirkx
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: config.colors.text }}>
               Vakmanschap met een persoonlijk gezicht
             </h2>
-            <p className="text-green-300 max-w-xl mx-auto opacity-70">
+            <p className="text-gray-500 max-w-xl mx-auto">
               Al meer dan 10 jaar uw betrouwbare fotograaf in Stadbroek, Sittard.
             </p>
           </div>
@@ -189,29 +189,29 @@ export const Home = () => {
             {config.features.map((f, i) => (
               <div
                 key={i}
-                className="text-center p-6 rounded-2xl transition-all hover:-translate-y-1"
-                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+                className="text-center p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                style={{ border: '1px solid #d4dbd3' }}
               >
                 <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="text-base font-bold mb-2 text-white">{f.title}</h3>
-                <p className="text-green-200 text-sm leading-relaxed opacity-75">{f.description}</p>
+                <h3 className="text-base font-bold mb-2" style={{ color: config.colors.text }}>{f.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Diensten overzicht ── */}
-      <section style={{ backgroundColor: '#1a2332' }} className="py-20">
+      {/* Diensten overzicht */}
+      <section style={{ backgroundColor: OFF_WHITE }} className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: p }}>
               Wat wij bieden
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: config.colors.text }}>
               Onze Diensten
             </h2>
-            <p className="max-w-xl mx-auto text-sm leading-relaxed" style={{ color: '#94a3b8' }}>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
               {config.description}
             </p>
           </div>
@@ -219,18 +219,18 @@ export const Home = () => {
             {config.services.map((s) => (
               <div
                 key={s.id}
-                className="rounded-2xl p-6 transition-all hover:-translate-y-1 cursor-pointer group"
-                style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)' }}
+                className="rounded-2xl p-6 bg-white transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group"
+                style={{ border: '1px solid #d4dbd3' }}
                 onClick={() => open(s.id)}
               >
                 <div
                   className="text-3xl w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: `${p}22` }}
+                  style={{ backgroundColor: config.colors.primaryLight }}
                 >
                   {s.icon}
                 </div>
-                <h3 className="text-base font-bold mb-2 text-white">{s.name}</h3>
-                <p className="text-gray-400 text-xs mb-3 leading-relaxed line-clamp-3">{s.description}</p>
+                <h3 className="text-base font-bold mb-2" style={{ color: config.colors.text }}>{s.name}</h3>
+                <p className="text-gray-500 text-xs mb-3 leading-relaxed line-clamp-3">{s.description}</p>
                 {s.priceLabel && (
                   <p className="font-semibold text-sm" style={{ color: p }}>{s.priceLabel}</p>
                 )}
@@ -255,17 +255,17 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <section style={{ backgroundColor: '#0f1a0b' }} className="py-20">
+      {/* Testimonials */}
+      <section style={{ backgroundColor: OFF_WHITE_2 }} className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: p }}>
               Klantbeoordelingen
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: config.colors.text }}>
               Wat onze klanten zeggen
             </h2>
-            <p className="mt-3" style={{ color: p }}>
+            <p className="mt-3 text-sm font-semibold" style={{ color: p }}>
               ★★★★½ &nbsp; 4.4 / 5 — 27 beoordelingen
             </p>
           </div>
@@ -273,26 +273,26 @@ export const Home = () => {
             {config.testimonials.map((t) => (
               <div
                 key={t.id}
-                className="rounded-2xl p-7"
-                style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)' }}
+                className="rounded-2xl p-7 bg-white shadow-sm"
+                style={{ border: '1px solid #d4dbd3' }}
               >
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className="text-base" style={{ color: i < t.rating ? p : '#374151' }}>★</span>
+                    <span key={i} className="text-base" style={{ color: i < t.rating ? p : '#d1d5db' }}>★</span>
                   ))}
                 </div>
-                <p className="text-gray-300 italic mb-5 leading-relaxed text-sm">"{t.text}"</p>
-                <p className="font-semibold text-white text-sm">{t.name}</p>
+                <p className="text-gray-600 italic mb-5 leading-relaxed text-sm">"{t.text}"</p>
+                <p className="font-semibold text-sm" style={{ color: config.colors.text }}>{t.name}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA banner ── */}
+      {/* CTA banner */}
       <section
         className="py-20 text-white text-center relative overflow-hidden"
-        style={{ background: `linear-gradient(135deg, ${dark} 0%, ${p} 100%)` }}
+        style={{ background: `linear-gradient(135deg, ${config.colors.primaryDark} 0%, ${p} 100%)` }}
       >
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="relative container mx-auto px-4">

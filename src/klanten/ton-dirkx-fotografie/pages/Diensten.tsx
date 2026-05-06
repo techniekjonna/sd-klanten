@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
+const OFF_WHITE = '#f6f8f5';
+const OFF_WHITE_2 = '#edf1ec';
+
 export const Diensten = () => {
   const p = config.colors.primary;
 
@@ -19,13 +22,14 @@ export const Diensten = () => {
       </section>
 
       {/* Services grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: OFF_WHITE }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {config.services.map((s) => (
               <div
                 key={s.id}
-                className="border border-gray-100 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all"
+                className="bg-white rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all"
+                style={{ border: '1px solid #d4dbd3' }}
               >
                 <div className="flex items-start gap-5">
                   <div
@@ -68,7 +72,7 @@ export const Diensten = () => {
       </section>
 
       {/* Pasfoto highlight */}
-      <section className="py-16" style={{ backgroundColor: config.colors.primaryLight }}>
+      <section className="py-16" style={{ backgroundColor: OFF_WHITE_2 }}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-5xl mb-4">📸</div>
@@ -87,7 +91,7 @@ export const Diensten = () => {
       </section>
 
       {/* Reportage detail */}
-      <section className="py-16 bg-white">
+      <section className="py-16" style={{ backgroundColor: OFF_WHITE }}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold mb-6 text-center" style={{ color: config.colors.text }}>
@@ -100,7 +104,7 @@ export const Diensten = () => {
                 { icon: '🏢', title: 'Bedrijf', desc: 'Professionele bedrijfsfotografie voor uw website of materialen.' },
                 { icon: '🕊️', title: 'Overig', desc: 'Begrafenis, jubileum, feest — wij zijn er bij.' },
               ].map((item) => (
-                <div key={item.title} className="flex gap-4 p-5 rounded-xl" style={{ backgroundColor: config.colors.primaryLight }}>
+                <div key={item.title} className="flex gap-4 p-5 rounded-xl bg-white" style={{ border: '1px solid #d4dbd3' }}>
                   <div className="text-3xl">{item.icon}</div>
                   <div>
                     <h3 className="font-bold mb-1" style={{ color: config.colors.text }}>{item.title}</h3>
@@ -114,18 +118,21 @@ export const Diensten = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16" style={{ backgroundColor: config.colors.primaryDark }}>
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">
+      <section
+        className="py-16 text-white text-center"
+        style={{ background: `linear-gradient(135deg, ${config.colors.primaryDark} 0%, ${p} 100%)` }}
+      >
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">
             Heeft u een vraag over onze diensten?
           </h2>
-          <p className="text-green-200 mb-8 max-w-xl mx-auto">
+          <p className="text-green-100 mb-8 max-w-xl mx-auto opacity-90">
             Neem vrijblijvend contact op. Wij helpen u graag de juiste keuze te maken.
           </p>
           <Link
             to={config.basePath + '/contact'}
-            className="inline-block px-10 py-4 font-semibold text-white rounded-xl transition-opacity hover:opacity-90"
-            style={{ backgroundColor: p }}
+            className="inline-block px-10 py-4 bg-white font-semibold rounded-xl hover:bg-gray-100 transition-colors"
+            style={{ color: p }}
           >
             Neem Contact Op
           </Link>
