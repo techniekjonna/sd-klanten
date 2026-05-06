@@ -112,38 +112,42 @@ export const Home = () => (
       </div>
     </section>
 
-    {/* ── WAAROM VAN DER SANDE — geen kaartjes, clean rijen ────── */}
+    {/* ── WAAROM VAN DER SANDE — bold typographic stats ────────── */}
     <section style={{ backgroundColor: c.primaryLight }} className="py-24">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-          <div className="lg:col-span-2">
-            <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: c.primary }}>
-              Waarom van der Sande?
-            </span>
-            <h2 className="text-4xl font-extrabold leading-tight mb-6" style={{ color: c.text }}>
-              Meer dan een rijschool.
-            </h2>
-            <p className="text-sm leading-relaxed mb-8" style={{ color: c.textBody }}>
-              Bij Autorijschool van der Sande draait het niet alleen om slagen. Het gaat om vertrouwen opbouwen, goed rijgedrag aanleren en je 100% klaarstomen voor de weg.
-            </p>
-            <Link to={config.basePath + '/over-van-der-sande'}
-              className="inline-flex items-center gap-2 text-sm font-bold transition-all hover:gap-3"
-              style={{ color: c.primary }}>
-              Leer Mike kennen →
-            </Link>
-          </div>
-          <div className="lg:col-span-3 space-y-0 divide-y" style={{ borderColor: `${c.gradientFrom}22` }}>
-            {config.features.map((f, i) => (
-              <div key={i} className="flex items-start gap-5 py-7 first:pt-0 last:pb-0">
-                <span className="text-3xl mt-1 flex-shrink-0">{f.icon}</span>
-                <div>
-                  <h3 className="font-bold text-base mb-1" style={{ color: c.text }}>{f.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: c.textBody }}>{f.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="flex flex-col lg:flex-row gap-4 items-baseline mb-16">
+          <span className="text-xs font-bold tracking-widest uppercase" style={{ color: c.primary }}>Waarom van der Sande?</span>
+          <div className="flex-1 h-px hidden lg:block" style={{ backgroundColor: `${c.gradientFrom}30` }} />
+          <Link to={config.basePath + '/over-van-der-sande'}
+            className="text-xs font-bold tracking-wide hover:opacity-70 transition-opacity"
+            style={{ color: c.primary }}>Leer Mike kennen →</Link>
         </div>
+
+        {/* 4 feiten als grote typografische rijen */}
+        {[
+          { stat: '90%',   label: 'slaagt de eerste keer',    desc: 'Ver boven het regionale gemiddelde van 55–60% in Sittard-Geleen.' },
+          { stat: '30+',   label: 'jaar rijervaring',         desc: 'Doorgewinterde kennis die zorgt dat jij aantoonbaar minder lessen nodig hebt.' },
+          { stat: 'MB',    label: 'Moderne Mercedes lesauto', desc: 'Gloednieuw voertuig met de nieuwste veiligheidssystemen en airco.' },
+          { stat: '100%',  label: 'inzet voor jouw rijbewijs', desc: 'Op maat begeleiding — regulier of spoed — in jouw tempo.' },
+        ].map(({ stat, label, desc }, i) => (
+          <div key={i}
+            className="grid grid-cols-12 gap-6 py-8 border-t items-center"
+            style={{ borderColor: `${c.gradientFrom}22` }}>
+            {/* Groot stat getal */}
+            <div className="col-span-3 lg:col-span-2">
+              <span className="text-4xl md:text-5xl font-extrabold leading-none" style={{ color: c.gradientFrom }}>
+                {stat}
+              </span>
+            </div>
+            {/* Label + beschrijving */}
+            <div className="col-span-9 lg:col-span-7">
+              <h3 className="text-lg font-extrabold mb-1" style={{ color: c.text }}>{label}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: c.textBody }}>{desc}</p>
+            </div>
+            {/* Rechter accent-lijn */}
+            <div className="hidden lg:block col-span-3 h-px" style={{ backgroundColor: `${c.gradientFrom}20` }} />
+          </div>
+        ))}
       </div>
     </section>
 
