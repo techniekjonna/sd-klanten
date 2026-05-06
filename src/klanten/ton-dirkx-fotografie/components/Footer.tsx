@@ -9,15 +9,12 @@ export const Footer = () => {
     <footer style={{ backgroundColor: config.colors.primaryDark }} className="text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Branding */}
+          {/* Branding als tekst */}
           <div className="md:col-span-1">
-            <div className="bg-white rounded-xl p-2 inline-block mb-3">
-              <img
-                src={config.logo}
-                alt={config.name}
-                className="h-12 w-auto object-contain"
-              />
-            </div>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: config.colors.primary }}>
+              Fotografie
+            </p>
+            <h3 className="text-2xl font-extrabold text-white mb-2">Ton Dirkx</h3>
             <p className="text-green-200 text-sm leading-relaxed">{config.tagline}</p>
           </div>
 
