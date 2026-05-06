@@ -52,6 +52,16 @@ const klanten: KlantCard[] = [
     icon: '📋',
     status: 'concept',
   },
+  {
+    naam: 'Fotografie Ton Dirkx',
+    branche: 'Fotografie & Pasfoto\'s',
+    beschrijving: "Vakkundige fotostudio in Sittard. Officiële pasfoto's zonder afspraak, fotolijsten, 3D crystal en reportages.",
+    pad: '/preview/ton-dirkx-fotografie',
+    kleur: '#1a4d0e',
+    accent: '#3e8c28',
+    icon: '📸',
+    status: 'concept',
+  },
 ];
 
 export const KlantenOverzicht = () => (
