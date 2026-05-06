@@ -4,6 +4,7 @@ import { Sjabloon } from './klanten/sjabloon';
 import { DutchInk } from './klanten/dutch-ink';
 import { Care4CarsSittard } from './klanten/care4carssittard';
 import { AlfaTaxi } from './klanten/alfa-taxi';
+import { TonDirkxFotografie } from './klanten/ton-dirkx-fotografie';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/preview/care4carssittard/*" element={<Care4CarsSittard />} />
         <Route path="/preview/alfa-taxi" element={<AlfaTaxi />} />
         <Route path="/preview/alfa-taxi/*" element={<AlfaTaxi />} />
+        <Route path="/preview/ton-dirkx-fotografie" element={<TonDirkxFotografie />} />
+        <Route path="/preview/ton-dirkx-fotografie/*" element={<TonDirkxFotografie />} />
       </Routes>
     </BrowserRouter>
   );
