@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxibedrijf Knol',
+    branche: 'Taxivervoer · Brunssum',
+    beschrijving: 'Betrouwbaar personen- en zakelijk vervoer in Brunssum en omgeving. Straattaxi, vliegveld transfers, zorgvervoer en zakelijk vervoer. Online rit aanvragen.',
+    pad: '/preview/taxibedrijf-knol',
+    kleur: '#1C1C2E',
+    accent: '#F97316',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'OneTaxi Zuid-Limburg',
     branche: 'Taxivervoer · Heerlen',
     beschrijving: 'Betrouwbaar taxivervoer in Zuid-Limburg. Straattaxi, vliegveld transfers naar MST, Eindhoven en Düsseldorf, zakelijk vervoer en retourritten.',
