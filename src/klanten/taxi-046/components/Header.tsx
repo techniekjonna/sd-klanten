@@ -3,22 +3,36 @@ import { Link, useLocation } from 'react-router-dom';
 import { config } from '../config';
 
 const Logo = () => (
-  <Link to={config.basePath + '/'} className="flex items-center gap-0 hover:opacity-80 transition-opacity">
-    <span className="font-black text-2xl tracking-tight text-black leading-none">TAXI</span>
-    <span className="relative inline-flex items-center ml-2">
-      <span className="font-black text-2xl tracking-tight text-black leading-none">046</span>
+  <Link to={config.basePath + '/'} className="hover:opacity-80 transition-opacity inline-flex items-center">
+    {/*
+      Recreate the Taxi 046 logo: "TAXI 046" text with a large C-arc
+      overlapping from the right. The arc is taller than the text and
+      sits partially behind it, opening to the top-left.
+    */}
+    <span className="relative inline-flex items-center">
+      {/* Text sits in front (z-10) */}
+      <span className="font-black text-[1.6rem] tracking-tight text-black leading-none z-10 relative">
+        TAXI 046
+      </span>
+      {/* Large arc: absolute, extends above and below the text */}
       <svg
-        viewBox="0 0 36 36"
-        className="ml-1 w-8 h-8"
+        viewBox="0 0 56 72"
+        className="absolute -right-6 h-14 w-auto"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        style={{ top: '50%', transform: 'translateY(-50%)' }}
       >
+        {/*
+          Circle center: (28, 36), radius 28.
+          Arc from top (28, 8) sweeping clockwise ~300° to top-left gap.
+          Opens at top-left (roughly 11 o'clock position).
+        */}
         <path
-          d="M18 3 A15 15 0 1 1 3 18"
+          d="M 28 8 A 28 28 0 1 1 7 19"
           stroke="black"
-          strokeWidth="5"
-          fill="none"
+          strokeWidth="6"
           strokeLinecap="round"
+          fill="none"
         />
       </svg>
     </span>
