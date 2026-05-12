@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Omega Taxi',
+    branche: 'Taxivervoer · Sittard',
+    beschrijving: 'Betrouwbaar taxivervoer vanuit Sittard. Taxi Service, Zakelijke Service, Airport Service en online boekingsformulier. 24/7 bereikbaar.',
+    pad: '/preview/omega-taxi',
+    kleur: '#2E2E2E',
+    accent: '#F5C842',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Alfa Taxi',
     branche: 'Taxivervoer',
     beschrijving: 'Betrouwbaar en comfortabel taxivervoer 24/7. Vaste tarieven voor particulieren en zakelijk.',
