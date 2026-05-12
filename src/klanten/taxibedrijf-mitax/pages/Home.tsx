@@ -106,35 +106,37 @@ export const Home = () => {
             {/* Right: booking widget */}
             <div
               className="rounded-2xl shadow-2xl overflow-hidden"
-              style={{ backgroundColor: '#FAB32B' }}
+              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(16px)' }}
             >
-              <div className="px-6 pt-6 pb-4">
-                <h2 className="text-2xl font-extrabold text-white mb-1">Boek eenvoudig je taxirit</h2>
+              {/* Widget header */}
+              <div className="px-6 pt-6 pb-5 border-b border-white/10">
+                <h2 className="text-xl font-extrabold text-white">Boek eenvoudig uw taxirit</h2>
+                <p className="text-xs text-white/50 mt-1">Vul in en wij bevestigen binnen 30 min</p>
               </div>
 
-              <div className="bg-yellow-300/40 mx-4 mb-1 rounded-xl px-5 py-4">
+              <div className="px-6 pt-5 pb-2">
                 {/* Waar wil je heen */}
-                <p className="text-sm font-bold text-white mb-3">Waar wil je heen?</p>
+                <p className="text-xs font-bold text-white/70 uppercase tracking-widest mb-3">Waar wil je heen?</p>
 
                 {/* Van */}
-                <div className="relative flex items-center mb-0">
-                  <div className="absolute left-3 w-3 h-3 rounded-full border-2 border-white z-10 bg-transparent" />
+                <div className="relative flex items-center">
+                  <div className="absolute left-3.5 w-3 h-3 rounded-full border-2 z-10 bg-transparent" style={{ borderColor: ORANGE }} />
                   <input
                     type="text"
                     value={form.van}
                     onChange={(e) => set('van', e.target.value)}
-                    className="w-full pl-9 pr-4 py-3 text-sm bg-white rounded-t-xl focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 placeholder-gray-400"
+                    className="w-full pl-9 pr-10 py-3 text-sm rounded-t-xl focus:outline-none text-gray-800 placeholder-gray-400 bg-white"
                     placeholder="van   straatnaam met huisnummer"
+                    style={{ borderRadius: '10px 10px 0 0' }}
                   />
-                  {/* Swap button */}
                   <button
                     type="button"
-                    onClick={() => set('van', form.naar) || set('naar', form.van)}
-                    className="absolute right-3 w-7 h-7 rounded-full flex items-center justify-center transition-all hover:scale-110"
-                    style={{ backgroundColor: NAVY }}
+                    onClick={() => setForm((p) => ({ ...p, van: p.naar, naar: p.van }))}
+                    className="absolute right-2.5 w-7 h-7 rounded-full flex items-center justify-center transition-all hover:scale-110 shadow"
+                    style={{ backgroundColor: ORANGE }}
                     title="Omwisselen"
                   >
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                    <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
                     </svg>
                   </button>
@@ -142,20 +144,20 @@ export const Home = () => {
 
                 {/* Tussenstop */}
                 <div
-                  className="flex items-center gap-2 px-4 py-2 text-xs cursor-pointer bg-white/60 border-x border-gray-200 hover:bg-white/80 transition-colors"
+                  className="flex items-center gap-2 px-3.5 py-2 text-xs cursor-pointer border-x border-b border-gray-200 hover:bg-gray-50 transition-colors bg-gray-50"
                   onClick={() => setShowTussenstop(!showTussenstop)}
                 >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} style={{ color: NAVY }}>
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} style={{ color: ORANGE }}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                   </svg>
-                  <span className="font-medium" style={{ color: NAVY }}>tussenstop toevoegen</span>
+                  <span className="font-semibold" style={{ color: ORANGE }}>tussenstop toevoegen</span>
                 </div>
                 {showTussenstop && (
                   <input
                     type="text"
                     value={tussenstop}
                     onChange={(e) => setTussenstop(e.target.value)}
-                    className="w-full px-4 py-2.5 text-sm bg-white border-x border-gray-200 focus:outline-none text-gray-800 placeholder-gray-400"
+                    className="w-full px-4 py-2.5 text-sm bg-white border-x border-b border-gray-200 focus:outline-none text-gray-800 placeholder-gray-400"
                     placeholder="tussenstop adres"
                   />
                 )}
@@ -163,7 +165,7 @@ export const Home = () => {
                 {/* Naar */}
                 <div className="relative flex items-center">
                   <div className="absolute left-3 z-10">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" style={{ color: NAVY }}>
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" style={{ color: ORANGE }}>
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -171,23 +173,24 @@ export const Home = () => {
                     type="text"
                     value={form.naar}
                     onChange={(e) => set('naar', e.target.value)}
-                    className="w-full pl-9 pr-4 py-3 text-sm bg-white rounded-b-xl border-t border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 placeholder-gray-400"
+                    className="w-full pl-9 pr-4 py-3 text-sm bg-white border border-gray-200 focus:outline-none text-gray-800 placeholder-gray-400"
                     placeholder="naar   straatnaam met huisnummer"
+                    style={{ borderRadius: '0 0 10px 10px' }}
                   />
                 </div>
               </div>
 
               {/* Bagage */}
-              <div className="px-5 pb-4">
-                <p className="text-xs font-medium text-white/80 mb-2">Reis je met bagage?</p>
+              <div className="px-6 py-3">
+                <p className="text-xs font-semibold text-white/60 mb-2">Reis je met bagage?</p>
                 <div className="flex gap-5">
                   {([true, false] as const).map((v) => (
-                    <label key={String(v)} className="flex items-center gap-2 cursor-pointer text-sm text-white">
+                    <label key={String(v)} className="flex items-center gap-2 cursor-pointer text-sm text-white/85">
                       <span
-                        className="w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0"
+                        className="w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all"
                         style={{
-                          borderColor: form.bagage === v ? NAVY : 'rgba(255,255,255,0.5)',
-                          backgroundColor: form.bagage === v ? NAVY : 'transparent',
+                          borderColor: form.bagage === v ? ORANGE : 'rgba(255,255,255,0.35)',
+                          backgroundColor: form.bagage === v ? ORANGE : 'transparent',
                         }}
                         onClick={() => set('bagage', v)}
                       >
@@ -200,26 +203,26 @@ export const Home = () => {
               </div>
 
               {/* Divider */}
-              <div className="border-t border-white/20 mx-4" />
+              <div className="border-t border-white/10 mx-6" />
 
               {/* Datum / Retour / Reizigers */}
-              <div className="px-5 py-4 grid grid-cols-2 gap-4">
+              <div className="px-6 py-4 grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wide">Ophaalmoment taxi</p>
+                  <p className="text-xs font-semibold text-white/60 mb-1.5 uppercase tracking-wide">Ophaalmoment</p>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm">📅</span>
+                    <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-sm">📅</span>
                     <input
                       type="datetime-local"
                       value={form.datum}
                       onChange={(e) => set('datum', e.target.value)}
-                      className="w-full pl-9 pr-3 py-2.5 text-sm bg-white rounded-xl focus:outline-none text-gray-800"
+                      className="w-full pl-8 pr-2 py-2.5 text-xs bg-white rounded-xl focus:outline-none text-gray-800 border border-gray-200"
                       style={{ colorScheme: 'light' }}
                     />
                   </div>
                   <label className="flex items-center gap-2 mt-3 cursor-pointer">
                     <div
                       className="w-10 h-5 rounded-full relative transition-all flex-shrink-0"
-                      style={{ backgroundColor: form.retour ? NAVY : 'rgba(255,255,255,0.3)' }}
+                      style={{ backgroundColor: form.retour ? ORANGE : 'rgba(255,255,255,0.2)' }}
                       onClick={() => set('retour', !form.retour)}
                     >
                       <div
@@ -227,32 +230,32 @@ export const Home = () => {
                         style={{ left: form.retour ? '22px' : '2px' }}
                       />
                     </div>
-                    <span className="text-sm text-white font-medium">Retour</span>
+                    <span className="text-sm text-white/80 font-medium">Retour</span>
                   </label>
                   {form.retour ? (
                     <div className="relative mt-2">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm">📅</span>
+                      <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-sm">📅</span>
                       <input
                         type="datetime-local"
-                        className="w-full pl-9 pr-3 py-2.5 text-sm bg-white rounded-xl focus:outline-none text-gray-800"
+                        className="w-full pl-8 pr-2 py-2.5 text-xs bg-white rounded-xl focus:outline-none text-gray-800 border border-gray-200"
                         style={{ colorScheme: 'light' }}
                       />
                     </div>
                   ) : (
-                    <div className="mt-2 px-3 py-2.5 rounded-xl text-sm text-gray-400 bg-white/50">
+                    <div className="mt-2 px-3 py-2.5 rounded-xl text-xs text-white/30 bg-white/5 border border-white/10">
                       📅 Enkele reis
                     </div>
                   )}
                 </div>
 
                 <div>
-                  <p className="text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wide">Aantal reizigers</p>
-                  <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white">
+                  <p className="text-xs font-semibold text-white/60 mb-1.5 uppercase tracking-wide">Reizigers</p>
+                  <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white border border-gray-200">
                     <button
                       type="button"
                       onClick={() => set('reizigers', Math.max(1, form.reizigers - 1))}
                       className="w-6 h-6 rounded-full font-bold flex items-center justify-center text-white transition-all hover:opacity-80"
-                      style={{ backgroundColor: form.reizigers > 1 ? NAVY : '#ccc' }}
+                      style={{ backgroundColor: form.reizigers > 1 ? ORANGE : '#ccc' }}
                     >
                       −
                     </button>
@@ -261,7 +264,7 @@ export const Home = () => {
                       type="button"
                       onClick={() => set('reizigers', Math.min(8, form.reizigers + 1))}
                       className="w-6 h-6 rounded-full font-bold flex items-center justify-center text-white transition-all hover:opacity-80"
-                      style={{ backgroundColor: NAVY }}
+                      style={{ backgroundColor: ORANGE }}
                     >
                       +
                     </button>
@@ -270,13 +273,13 @@ export const Home = () => {
               </div>
 
               {/* Submit */}
-              <div className="px-5 pb-6">
+              <div className="px-6 pb-6">
                 <Link
                   to={config.basePath + '/boeken'}
                   className="block w-full py-4 text-center font-bold text-white rounded-xl transition-all hover:scale-[1.01] shadow-lg text-sm"
-                  style={{ backgroundColor: '#1FA463' }}
+                  style={{ backgroundColor: ORANGE }}
                 >
-                  Bereken mijn ritprijs
+                  Bereken mijn ritprijs →
                 </Link>
               </div>
             </div>
