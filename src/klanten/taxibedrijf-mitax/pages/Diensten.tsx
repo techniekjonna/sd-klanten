@@ -10,8 +10,16 @@ const BGLIGHT = config.colors.bgLight;
 export const Diensten = () => (
   <Layout>
     {/* Header */}
-    <section className="py-24 text-white text-center" style={{ backgroundColor: NAVY }}>
-      <div className="container mx-auto px-4">
+    <section
+      className="relative py-28 text-white text-center"
+      style={{
+        backgroundImage: 'url(https://images.unsplash.com/photo-1493238792000-8113da705763?w=1920&h=600&fit=crop)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(27,58,107,0.88)' }} />
+      <div className="relative container mx-auto px-4">
         <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ORANGE }}>
           Onze services
         </p>
