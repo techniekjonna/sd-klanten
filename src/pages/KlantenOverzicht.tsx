@@ -53,6 +53,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Taxibedrijf Mitax',
+    branche: 'Taxivervoer · Urmond',
+    beschrijving: 'Modern taxibedrijf gevestigd in Urmond. Lokaal & regionaal vervoer, vliegveldtransfers, zakelijk en evenementenvervoer. Inclusief online boekingsformulier.',
+    pad: '/preview/taxibedrijf-mitax',
+    kleur: '#1B3A6B',
+    accent: '#E85D04',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Alfa Taxi',
     branche: 'Taxivervoer',
     beschrijving: 'Betrouwbaar en comfortabel taxivervoer 24/7. Vaste tarieven voor particulieren en zakelijk.',
