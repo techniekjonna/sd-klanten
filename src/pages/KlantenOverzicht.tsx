@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'OneTaxi Zuid-Limburg',
+    branche: 'Taxivervoer · Heerlen',
+    beschrijving: 'Betrouwbaar taxivervoer in Zuid-Limburg. Straattaxi, vliegveld transfers naar MST, Eindhoven en Düsseldorf, zakelijk vervoer en retourritten.',
+    pad: '/preview/onetaxi-zuidlimburg',
+    kleur: '#111111',
+    accent: '#FFB800',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Taxi Centrale Geleen',
     branche: 'Taxivervoer · Sittard-Geleen',
     beschrijving: 'Betrouwbaar taxivervoer in de regio Westelijke Mijnstreek. Particulier, zakelijk, airport transfers en groepsvervoer. 24/7 beschikbaar.',
