@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxi Sittard',
+    branche: 'Taxivervoer · Sittard-Geleen',
+    beschrijving: 'Hoge service, lage prijs. Betrouwbaar taxivervoer 24/7 in Sittard-Geleen. Luchthaventrips, zakelijk vervoer en rolstoeltaxi.',
+    pad: '/preview/taxi-sittard',
+    kleur: '#0f2044',
+    accent: '#3db8e4',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Taxi Centrale Geleen',
     branche: 'Taxivervoer · Sittard-Geleen',
     beschrijving: 'Betrouwbaar taxivervoer in de regio Westelijke Mijnstreek. Particulier, zakelijk, airport transfers en groepsvervoer. 24/7 beschikbaar.',
