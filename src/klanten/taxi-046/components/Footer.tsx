@@ -10,18 +10,12 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo + tagline */}
           <div className="md:col-span-2">
-            <div className="inline-flex items-center mb-4">
-              <span className="relative inline-flex items-center">
-                <span className="font-black text-[1.6rem] tracking-tight leading-none z-10 relative">
-                  TAXI 046
-                </span>
-                <svg
-                  viewBox="0 0 56 72"
-                  className="absolute -right-6 h-14 w-auto"
-                  fill="none"
-                  style={{ top: '50%', transform: 'translateY(-50%)' }}
-                >
-                  <path d="M 28 8 A 28 28 0 1 1 7 19" stroke="white" strokeWidth="6" strokeLinecap="round" fill="none" />
+            <div className="flex items-center gap-1 mb-4">
+              <span className="font-black text-2xl tracking-tight leading-none">TAXI</span>
+              <span className="relative inline-flex items-center ml-2">
+                <span className="font-black text-2xl tracking-tight leading-none">046</span>
+                <svg viewBox="0 0 36 36" className="ml-1 w-7 h-7" fill="none">
+                  <path d="M18 3 A15 15 0 1 1 3 18" stroke="white" strokeWidth="5" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
             </div>
