@@ -41,7 +41,7 @@ export const config: OmegaTaxiConfig = {
   hero: {
     title: 'Uw betrouwbare taxi in Sittard',
     subtitle: 'Altijd op tijd, professioneel en comfortabel. Vaste tarieven voor particulieren en zakelijk — 24/7 beschikbaar.',
-    image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&h=1080&fit=crop',
+    image: 'https://autogaleria.pl/content/uploads/2020/01/TAXI.jpg',
     cta: 'Direct Bestellen',
     ctaLink: '/bestellen',
   },
