@@ -39,7 +39,7 @@ export const config: KnolConfig = {
     title: 'Uw vertrouwde taxi in',
     highlight: 'Brunssum',
     subtitle: 'Knol staat klaar voor al uw ritten — van deur tot deur, op tijd en met een glimlach.',
-    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=1920&h=1080&fit=crop',
   },
 
   features: [
