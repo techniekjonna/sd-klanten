@@ -12,9 +12,6 @@ import { SchoonmaakbedrijfErwin } from './klanten/schoonmaakbedrijf-erwin';
 import { OmegaTaxi } from './klanten/omega-taxi';
 import { Taxi046 } from './klanten/taxi-046';
 import { TaxiCentraleGeleen } from './klanten/taxi-centrale-geleen';
-import { OneTaxiZuidLimburg } from './klanten/onetaxi-zuidlimburg';
-import { TaxibedrijfKnol } from './klanten/taxibedrijf-knol';
-import { TaxibedrijfMitax } from './klanten/taxibedrijf-mitax';
 import { TaxiSittard } from './klanten/taxi-sittard';
 
 function App() {
@@ -46,12 +43,6 @@ function App() {
         <Route path="/preview/taxi-046/*" element={<Taxi046 />} />
         <Route path="/preview/taxi-centrale-geleen" element={<TaxiCentraleGeleen />} />
         <Route path="/preview/taxi-centrale-geleen/*" element={<TaxiCentraleGeleen />} />
-        <Route path="/preview/onetaxi-zuidlimburg" element={<OneTaxiZuidLimburg />} />
-        <Route path="/preview/onetaxi-zuidlimburg/*" element={<OneTaxiZuidLimburg />} />
-        <Route path="/preview/taxibedrijf-knol" element={<TaxibedrijfKnol />} />
-        <Route path="/preview/taxibedrijf-knol/*" element={<TaxibedrijfKnol />} />
-        <Route path="/preview/taxibedrijf-mitax" element={<TaxibedrijfMitax />} />
-        <Route path="/preview/taxibedrijf-mitax/*" element={<TaxibedrijfMitax />} />
         <Route path="/preview/taxi-sittard" element={<TaxiSittard />} />
         <Route path="/preview/taxi-sittard/*" element={<TaxiSittard />} />
       </Routes>
