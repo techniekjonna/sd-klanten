@@ -10,6 +10,7 @@ import { AutorijschoolVdSande } from './klanten/autorijschoolvdsande';
 import { Stylesatlife } from './klanten/stylesatlife';
 import { SchoonmaakbedrijfErwin } from './klanten/schoonmaakbedrijf-erwin';
 import { OmegaTaxi } from './klanten/omega-taxi';
+import { Taxi046 } from './klanten/taxi-046';
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
         <Route path="/preview/schoonmaakbedrijf-erwin/*" element={<SchoonmaakbedrijfErwin />} />
         <Route path="/preview/omega-taxi" element={<OmegaTaxi />} />
         <Route path="/preview/omega-taxi/*" element={<OmegaTaxi />} />
+        <Route path="/preview/taxi-046" element={<Taxi046 />} />
+        <Route path="/preview/taxi-046/*" element={<Taxi046 />} />
       </Routes>
     </BrowserRouter>
   );

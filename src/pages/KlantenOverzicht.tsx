@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxi 046',
+    branche: 'Taxivervoer · Geleen',
+    beschrijving: 'Betrouwbaar taxivervoer in Zuid-Limburg. Straat taxi, zorgvervoer, airport transfers en zakelijk vervoer. 24/7 beschikbaar.',
+    pad: '/preview/taxi-046',
+    kleur: '#111111',
+    accent: '#FFFFFF',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Omega Taxi',
     branche: 'Taxivervoer · Sittard',
     beschrijving: 'Betrouwbaar taxivervoer vanuit Sittard. Taxi Service, Zakelijke Service, Airport Service en online boekingsformulier. 24/7 bereikbaar.',
