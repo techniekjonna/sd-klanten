@@ -15,6 +15,7 @@ import { TaxiCentraleGeleen } from './klanten/taxi-centrale-geleen';
 import { OneTaxiZuidLimburg } from './klanten/onetaxi-zuidlimburg';
 import { TaxibedrijfKnol } from './klanten/taxibedrijf-knol';
 import { TaxiSittard } from './klanten/taxi-sittard';
+import { TaxibedrijfMitax } from './klanten/taxibedrijf-mitax';
 
 function App() {
   return (
@@ -51,6 +52,8 @@ function App() {
         <Route path="/preview/taxibedrijf-knol/*" element={<TaxibedrijfKnol />} />
         <Route path="/preview/taxi-sittard" element={<TaxiSittard />} />
         <Route path="/preview/taxi-sittard/*" element={<TaxiSittard />} />
+        <Route path="/preview/taxibedrijf-mitax" element={<TaxibedrijfMitax />} />
+        <Route path="/preview/taxibedrijf-mitax/*" element={<TaxibedrijfMitax />} />
       </Routes>
     </BrowserRouter>
   );
