@@ -11,7 +11,7 @@ export const config: KnolConfig = {
     primary: '#F97316',
     primaryHover: '#EA6C0A',
     primaryLight: '#FFF7ED',
-    dark: '#1C1C2E',
+    dark: '#0F0F0F',
     text: '#111827',
     background: '#FFFFFF',
   },
@@ -39,22 +39,22 @@ export const config: KnolConfig = {
     title: 'Uw vertrouwde taxi in',
     highlight: 'Brunssum',
     subtitle: 'Knol staat klaar voor al uw ritten — van deur tot deur, op tijd en met een glimlach.',
-    image: 'https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&h=1080&fit=crop',
   },
 
   features: [
     {
-      icon: '⏱️',
+      icon: '⏱',
       title: 'Altijd op tijd',
       description: 'Wij rijden strak op schema. U hoeft niet te wachten — wij staan klaar.',
     },
     {
-      icon: '🗺️',
+      icon: '🗺',
       title: 'Regio kennis',
       description: 'Jarenlange ervaring in Brunssum en de wijde omgeving van Zuid-Limburg.',
     },
     {
-      icon: '🛡️',
+      icon: '🛡',
       title: 'Veilig & verzekerd',
       description: 'Gecertificeerde chauffeurs, goed onderhouden voertuigen en volledige verzekering.',
     },
@@ -93,7 +93,7 @@ export const config: KnolConfig = {
     {
       id: 'zorgvervoer',
       name: 'Zorgvervoer',
-      description: 'Vervoer naar het ziekenhuis, kliniek of revalidatiecentrum. Rustig, geduldig en betrouwbaar voor mensen die extra zorg nodig hebben.',
+      description: 'Vervoer naar het ziekenhuis, kliniek of revalidatiecentrum. Rustig, geduldig en betrouwbaar.',
       priceLabel: 'WMO mogelijk',
       icon: '🏥',
       features: ['Zorgvuldig & geduldig', 'Rolstoel vervoer', 'WMO-vervoer', 'Vaste vertrektijden'],
