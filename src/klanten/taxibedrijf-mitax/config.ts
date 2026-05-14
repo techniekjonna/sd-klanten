@@ -41,7 +41,7 @@ export const config: MitaxConfig = {
   hero: {
     title: 'Snel & Betrouwbaar Taxivervoer',
     subtitle: 'Taxibedrijf Mitax rijdt voor u vanuit Urmond door heel Zuid-Limburg en daarbuiten. Vaste tarieven, vriendelijke chauffeurs, 24/7 beschikbaar.',
-    image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop',
     cta: 'Boek Uw Rit',
     ctaLink: '/boeken',
   },
@@ -191,6 +191,6 @@ export const config: MitaxConfig = {
       'Persoonlijke en vriendelijke service',
       'Schone en veilige voertuigen',
     ],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1518563172008-e56c5dfbaef6?w=1200&h=800&fit=crop',
   },
 };
