@@ -9,9 +9,9 @@ export const config: AlfaTaxiConfig = {
     'Alfa Taxi Limo Sittard biedt professioneel taxivervoer en limousinediensten in de regio Sittard-Geleen. Of u nu naar het vliegveld, een zakelijke afspraak of een feest moet – wij zijn er voor u.',
 
   colors: {
-    primary: '#1E40AF',
-    primaryHover: '#1D4ED8',
-    primaryLight: '#DBEAFE',
+    primary: '#1D4ED8',
+    primaryHover: '#1E40AF',
+    primaryLight: '#EFF6FF',
     accent: '#F97316',
     accentHover: '#EA6C00',
     dark: '#0F172A',
@@ -38,42 +38,38 @@ export const config: AlfaTaxiConfig = {
   ],
 
   hero: {
-    title: 'Uw betrouwbare',
-    highlight: 'Taxi in Sittard',
+    title: 'Snel, betrouwbaar',
+    highlight: '& voordelig',
     subtitle:
-      'Professioneel taxivervoer en limousinediensten in de regio Sittard-Geleen. Altijd op tijd, altijd comfortabel — dag en nacht beschikbaar.',
+      'Professioneel taxivervoer in de regio Sittard-Geleen. Van lokale rit tot luchthaventrip — wij staan dag en nacht voor u klaar.',
     image:
       'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop',
-    cta: 'Direct Boeken',
+    cta: 'Boek Uw Rit',
     ctaLink: '/tarieven',
-    ctaSecondary: 'Bel Ons Nu',
+    ctaSecondary: 'Bel Direct',
     ctaSecondaryLink: '/contact',
   },
 
   features: [
     {
+      icon: '⚡',
+      title: 'Snel ter plaatse',
+      description: 'Binnen 15 minuten bij u in Sittard, Geleen en omgeving.',
+    },
+    {
       icon: '🕐',
-      title: '24/7 Beschikbaar',
-      description:
-        'Dag en nacht bereikbaar voor uw rit. Vroeg vliegtuig of laat feest — wij zijn er altijd.',
+      title: '24/7 beschikbaar',
+      description: 'Dag en nacht rijden wij. Geen rit is te vroeg of te laat.',
     },
     {
-      icon: '✅',
-      title: 'Altijd Op Tijd',
-      description:
-        'Punctualiteit is onze prioriteit. Wij halen u op tijd op en brengen u veilig op uw bestemming.',
+      icon: '💶',
+      title: 'Vaste tarieven',
+      description: 'Transparante prijzen zonder verrassingen achteraf.',
     },
     {
-      icon: '💼',
-      title: 'Zakelijk & Privé',
-      description:
-        'Van zakelijke ritten naar luchthaven tot persoonlijk vervoer — altijd professioneel.',
-    },
-    {
-      icon: '🚘',
-      title: 'Comfort Voertuigen',
-      description:
-        "Ruime, schone taxi's en limousines voor maximaal rijcomfort. Keus uit 4- of 8-persoonswagen.",
+      icon: '✈️',
+      title: 'Luchthaven specialist',
+      description: 'Vaste all-in prijzen naar Schiphol, Eindhoven, Brussel en meer.',
     },
   ],
 
@@ -82,14 +78,14 @@ export const config: AlfaTaxiConfig = {
       id: 'airport',
       name: 'Luchthaven Vervoer',
       description:
-        'Stressvrij naar Eindhoven Airport, Maastricht Aachen Airport, Schiphol of andere luchthavens. Wij volgen uw vlucht en wachten op u.',
+        'Stressvrij naar Eindhoven, Maastricht Aachen Airport, Schiphol of andere luchthavens. Wij volgen uw vlucht en wachten op u.',
       priceLabel: 'Vaste prijs',
       icon: '✈️',
       features: [
-        'Vluchttracering',
+        'Vluchttracering inbegrepen',
         'Gratis wachttijd bij vertraging',
         'Ruime kofferruimte',
-        'Vaste, transparante prijs',
+        'Vaste transparante prijs',
       ],
     },
     {
@@ -101,9 +97,9 @@ export const config: AlfaTaxiConfig = {
       icon: '💼',
       features: [
         'Keurig verzorgde chauffeur',
-        'WiFi beschikbaar',
         'Factuur mogelijk',
         'Maandrekening voor bedrijven',
+        'Vaste chauffeur op aanvraag',
       ],
     },
     {
@@ -124,7 +120,7 @@ export const config: AlfaTaxiConfig = {
       id: 'ritje',
       name: 'Standaard Taxi',
       description:
-        'Gewoon een betrouwbaar ritje nodig in de regio Sittard-Geleen? Bel ons of boek online en wij staan klaar.',
+        "Gewoon een betrouwbaar ritje nodig in de regio? Bel ons of boek online en wij staan klaar.",
       priceLabel: 'Metertarief',
       icon: '🚕',
       features: [

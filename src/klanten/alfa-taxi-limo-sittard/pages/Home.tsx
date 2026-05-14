@@ -1,13 +1,131 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
-const stats = [
-  { value: '10+', label: 'Jaar ervaring' },
-  { value: '24/7', label: 'Bereikbaar' },
-  { value: '100%', label: 'Betrouwbaar' },
-  { value: '4 & 8', label: 'Persoonswagens' },
-];
+type Betaalmethode = 'contant' | 'pinnen' | 'tikkie' | 'creditcard';
+
+const QuickBook = () => {
+  const { primary, accent } = config.colors;
+  const [van, setVan] = useState('');
+  const [naar, setNaar] = useState('');
+  const [datum, setDatum] = useState('');
+  const [retour, setRetour] = useState(false);
+  const [bagage, setBagage] = useState(true);
+  const [reizigers, setReizigers] = useState(1);
+
+  return (
+    <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-md">
+      <h2 className="text-lg font-black mb-5" style={{ color: config.colors.text }}>
+        Boek eenvoudig je taxirit
+      </h2>
+
+      {/* Van/Naar */}
+      <div className="space-y-2 mb-4">
+        <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
+          <span className="text-blue-500 text-xs">◉</span>
+          <input
+            type="text"
+            placeholder="straatnaam met huisnummer"
+            value={van}
+            onChange={(e) => setVan(e.target.value)}
+            className="flex-1 text-sm outline-none text-gray-700 placeholder-gray-400"
+          />
+        </div>
+        <button className="text-xs font-semibold ml-4 transition-colors" style={{ color: primary }}>
+          + tussenstop toevoegen
+        </button>
+        <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
+          <span className="text-red-500 text-xs">📍</span>
+          <input
+            type="text"
+            placeholder="straatnaam met huisnummer"
+            value={naar}
+            onChange={(e) => setNaar(e.target.value)}
+            className="flex-1 text-sm outline-none text-gray-700 placeholder-gray-400"
+          />
+        </div>
+      </div>
+
+      {/* Datum + retour */}
+      <div className="grid grid-cols-2 gap-3 mb-4">
+        <div className="border border-gray-200 rounded-xl px-4 py-3 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all col-span-2">
+          <label className="text-[10px] font-bold uppercase tracking-wide text-gray-400 block mb-0.5">Ophaalmoment taxi</label>
+          <input
+            type="datetime-local"
+            value={datum}
+            onChange={(e) => setDatum(e.target.value)}
+            className="w-full text-sm outline-none text-gray-700"
+          />
+        </div>
+        <div className="col-span-2 flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setRetour(!retour)}
+            className="relative w-10 h-5 rounded-full transition-colors flex-shrink-0"
+            style={{ backgroundColor: retour ? primary : '#E2E8F0' }}
+          >
+            <span
+              className="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform"
+              style={{ transform: retour ? 'translateX(20px)' : 'translateX(0)' }}
+            />
+          </button>
+          <span className="text-sm text-gray-600 font-medium">Retour</span>
+          {!retour && <span className="text-xs text-gray-400">Enkele reis</span>}
+        </div>
+      </div>
+
+      {/* Bagage + reizigers */}
+      <div className="grid grid-cols-2 gap-4 mb-5">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Reis je met bagage?</p>
+          <div className="flex gap-3">
+            {[{ val: true, label: 'Ja' }, { val: false, label: 'Nee, ik heb geen bagage' }].map(({ val, label }) => (
+              <label key={label} className="flex items-center gap-1.5 cursor-pointer">
+                <span
+                  className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
+                  style={{ borderColor: bagage === val ? accent : '#D1D5DB' }}
+                  onClick={() => setBagage(val)}
+                >
+                  {bagage === val && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: accent }} />}
+                </span>
+                <span className="text-xs text-gray-600">{label}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Aantal reizigers</p>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setReizigers(Math.max(1, reizigers - 1))}
+              className="w-7 h-7 rounded-lg border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 transition-colors text-sm"
+            >
+              -
+            </button>
+            <span className="text-sm font-bold w-4 text-center" style={{ color: config.colors.text }}>{reizigers}</span>
+            <button
+              type="button"
+              onClick={() => setReizigers(Math.min(8, reizigers + 1))}
+              className="w-7 h-7 rounded-lg border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 transition-colors text-sm"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <Link
+        to={config.basePath + '/tarieven'}
+        className="block w-full py-4 text-center font-bold text-white rounded-xl transition-opacity hover:opacity-90 text-sm"
+        style={{ backgroundColor: primary }}
+      >
+        Bereken mijn ritprijs →
+      </Link>
+    </div>
+  );
+};
 
 export const Home = () => {
   const { primary, accent, dark, text, primaryLight } = config.colors;
@@ -15,91 +133,89 @@ export const Home = () => {
   return (
     <Layout>
       {/* ── HERO ── */}
-      <section className="relative min-h-[92vh] flex flex-col justify-end md:justify-center overflow-hidden">
-        {/* background image */}
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${config.hero.image})` }}
         />
-        {/* gradient overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `linear-gradient(105deg, ${dark}F0 40%, ${dark}88 70%, transparent 100%)`,
-          }}
-        />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${dark}E8 50%, ${dark}60 80%, transparent 100%)` }} />
 
-        <div className="relative container mx-auto px-4 pt-20 pb-16 md:pt-0 md:pb-0">
-          <div className="max-w-2xl">
-            {/* badge */}
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-5 uppercase tracking-widest"
-              style={{ backgroundColor: `${accent}30`, color: accent, border: `1px solid ${accent}50` }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: accent }} />
-              Sittard-Geleen & Omgeving
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-white mb-5">
-              {config.hero.title}{' '}
-              <span
-                className="block"
-                style={{ color: accent }}
+        <div className="relative container mx-auto px-4 py-16">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+            {/* Left: text */}
+            <div className="max-w-xl">
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold mb-5 border"
+                style={{ backgroundColor: `${accent}20`, color: accent, borderColor: `${accent}40` }}
               >
-                {config.hero.highlight}
-              </span>
-            </h1>
+                <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                24/7 BESCHIKBAAR
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-3">
+                {config.hero.title}
+                <span className="block italic" style={{ color: accent }}>
+                  {config.hero.highlight}
+                </span>
+              </h1>
+              <p className="text-gray-300 text-base leading-relaxed mb-8 max-w-lg">
+                {config.hero.subtitle}
+              </p>
 
-            <p className="text-lg text-white/75 mb-8 leading-relaxed max-w-lg">
-              {config.hero.subtitle}
-            </p>
+              {/* USPs */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                {config.features.slice(0, 3).map((f) => (
+                  <div
+                    key={f.title}
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white border border-white/20 backdrop-blur-sm"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+                  >
+                    <span>{f.icon}</span>
+                    <span>{f.title}</span>
+                  </div>
+                ))}
+              </div>
 
-            {/* CTA buttons */}
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to={config.basePath + config.hero.ctaLink}
-                className="px-7 py-3.5 font-bold text-white rounded-xl text-base transition-opacity hover:opacity-90 shadow-xl"
-                style={{ backgroundColor: accent }}
-              >
-                {config.hero.cta} →
-              </Link>
+              {/* Phone */}
               <a
                 href={`tel:${config.contact.phone}`}
-                className="px-7 py-3.5 font-bold text-white rounded-xl text-base border-2 border-white/30 hover:border-white/60 transition-colors backdrop-blur-sm"
+                className="flex items-center gap-3 text-white group"
               >
-                📞 {config.contact.phone}
+                <div
+                  className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-lg"
+                  style={{ backgroundColor: accent }}
+                >
+                  📞
+                </div>
+                <div>
+                  <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide">Bel direct</p>
+                  <p className="text-xl font-black group-hover:underline" style={{ color: accent }}>
+                    {config.contact.phone}
+                  </p>
+                </div>
               </a>
             </div>
 
-            {/* trust badges */}
-            <div className="flex flex-wrap gap-5 mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}>
-              {['✓ Geen reserveringskosten', '✓ Vaste transparante prijs', '✓ Direct bevestigd'].map((b) => (
-                <span key={b} className="text-sm text-white/60 font-medium">{b}</span>
-              ))}
+            {/* Right: booking widget */}
+            <div className="w-full lg:w-auto lg:flex-shrink-0">
+              <QuickBook />
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Stats bar — overlays hero bottom on desktop */}
-        <div className="relative mt-auto md:absolute md:bottom-0 md:left-0 md:right-0 md:mt-0">
-          <div
-            className="container mx-auto px-4"
-          >
-            <div
-              className="grid grid-cols-2 md:grid-cols-4 rounded-t-2xl md:rounded-2xl md:mb-0 overflow-hidden shadow-2xl"
-              style={{ backgroundColor: primary }}
-            >
-              {stats.map((s, i) => (
-                <div
-                  key={i}
-                  className="py-5 px-6 text-center"
-                  style={{ borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none' }}
-                >
-                  <p className="text-2xl md:text-3xl font-black text-white">{s.value}</p>
-                  <p className="text-xs text-white/60 mt-0.5 font-medium uppercase tracking-wide">{s.label}</p>
+      {/* ── FEATURES STRIP ── */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+            {config.features.map((f, i) => (
+              <div key={i} className="py-6 px-6 flex items-start gap-3">
+                <span className="text-2xl mt-0.5">{f.icon}</span>
+                <div>
+                  <p className="text-sm font-bold" style={{ color: text }}>{f.title}</p>
+                  <p className="text-xs text-gray-400 leading-snug mt-0.5">{f.description}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -107,44 +223,33 @@ export const Home = () => {
       {/* ── DIENSTEN ── */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: accent }}>
-              Onze Diensten
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black mb-3" style={{ color: text }}>
-              Waarvoor kunt u ons bellen?
-            </h2>
-            <p className="text-gray-500 max-w-lg mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: primary }}>Onze Diensten</p>
+            <h2 className="text-3xl md:text-4xl font-black" style={{ color: text }}>Waarvoor kunt u ons bellen?</h2>
+            <p className="text-gray-500 mt-3 max-w-lg mx-auto text-sm">
               Van vliegveldrit tot bruiloft — wij rijden u comfortabel en op tijd.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {config.services.map((s) => (
               <div
                 key={s.id}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100"
+                className="group bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-5 transition-transform group-hover:scale-110"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4"
                   style={{ backgroundColor: primaryLight }}
                 >
                   {s.icon}
                 </div>
-                <h3 className="text-lg font-black mb-2" style={{ color: text }}>{s.name}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{s.description}</p>
-                <div className="flex items-center justify-between">
-                  <span
-                    className="text-xs font-bold px-3 py-1 rounded-full"
-                    style={{ backgroundColor: primaryLight, color: primary }}
-                  >
+                <h3 className="text-base font-black mb-1.5" style={{ color: text }}>{s.name}</h3>
+                <p className="text-gray-400 text-xs leading-relaxed mb-4">{s.description}</p>
+                <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full" style={{ backgroundColor: primaryLight, color: primary }}>
                     {s.priceLabel}
                   </span>
-                  <Link
-                    to={config.basePath + '/tarieven'}
-                    className="text-xs font-bold hover:underline transition-colors"
-                    style={{ color: accent }}
-                  >
+                  <Link to={config.basePath + '/tarieven'} className="text-xs font-bold transition-colors hover:underline" style={{ color: accent }}>
                     Boek →
                   </Link>
                 </div>
@@ -154,181 +259,119 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ── HOE WERKT HET ── */}
-      <section className="py-20" style={{ backgroundColor: dark }}>
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: accent }}>Zo eenvoudig</p>
-            <h2 className="text-3xl md:text-4xl font-black text-white">Hoe werkt het?</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              { step: '01', title: 'Boek of bel', desc: 'Vul ons online formulier in of bel direct op +31 46-2600100. Wij zijn 24/7 bereikbaar.', icon: '📋' },
-              { step: '02', title: 'Bevestiging', desc: 'U ontvangt direct een bevestiging. Wij staan op tijd voor uw deur — gegarandeerd.', icon: '✅' },
-              { step: '03', title: 'Geniet van uw rit', desc: 'Stap in en ontspan. Onze chauffeur brengt u veilig en comfortabel op uw bestemming.', icon: '🚕' },
-            ].map((item) => (
-              <div key={item.step} className="text-center relative">
-                <div
-                  className="text-5xl font-black mb-4 block opacity-10 absolute -top-3 left-1/2 -translate-x-1/2 leading-none"
-                  style={{ color: accent }}
-                >
-                  {item.step}
-                </div>
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-5"
-                  style={{ backgroundColor: `${primary}40`, border: `2px solid ${primary}` }}
-                >
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-black text-white mb-2">{item.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to={config.basePath + '/tarieven'}
-              className="inline-block px-8 py-4 font-bold text-white rounded-xl text-base transition-opacity hover:opacity-90"
-              style={{ backgroundColor: accent }}
-            >
-              Direct Boeken →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WAAROM ONS ── */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: accent }}>
-                Waarom Alfa Taxi?
-              </p>
-              <h2 className="text-3xl md:text-4xl font-black mb-6" style={{ color: text }}>
-                Uw betrouwbare taxipartner in de regio
-              </h2>
-              <p className="text-gray-500 leading-relaxed mb-8">
-                Sinds 2015 vertrouwen inwoners van Sittard-Geleen op Alfa Taxi voor al hun vervoersbehoeften.
-                Wij kennen de regio als onze broekzak en garanderen altijd een stipte, comfortabele rit.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {config.features.map((f, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 p-4 rounded-xl"
-                    style={{ backgroundColor: primaryLight }}
-                  >
-                    <span className="text-2xl">{f.icon}</span>
-                    <div>
-                      <p className="font-bold text-sm mb-1" style={{ color: text }}>{f.title}</p>
-                      <p className="text-xs text-gray-500 leading-relaxed">{f.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: image + floating card */}
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&h=600&fit=crop"
-                  alt="Taxi Sittard"
-                  className="w-full h-80 object-cover"
-                />
-              </div>
-              {/* Floating badge */}
-              <div
-                className="absolute -bottom-5 -left-5 rounded-2xl p-5 shadow-xl"
-                style={{ backgroundColor: dark }}
-              >
-                <p className="text-3xl font-black text-white">24/7</p>
-                <p className="text-xs text-white/50 mt-0.5">Bereikbaar voor u</p>
-                <a
-                  href={`tel:${config.contact.phone}`}
-                  className="mt-3 block text-xs font-bold hover:underline"
-                  style={{ color: accent }}
-                >
-                  {config.contact.phone}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── LUCHTHAVENS ── */}
-      <section className="py-14" style={{ backgroundColor: primaryLight }}>
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-2xl border border-gray-100 bg-gray-50">
             <div>
               <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: primary }}>
-                Luchthaven vervoer
+                Luchthaven specialist
               </p>
-              <h3 className="text-2xl font-black" style={{ color: text }}>
-                Wij rijden u naar alle luchthavens
-              </h3>
+              <h3 className="text-xl font-black" style={{ color: text }}>Wij rijden naar alle luchthavens</h3>
+              <p className="text-sm text-gray-400 mt-1">Vaste all-in prijs, inclusief vluchttracering en wachttijd.</p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              {['✈️ Eindhoven Airport', '✈️ Maastricht Aachen', '✈️ Schiphol', '✈️ Düsseldorf', '✈️ Brussel'].map(
-                (lp) => (
-                  <span
-                    key={lp}
-                    className="px-4 py-2 bg-white rounded-xl text-sm font-semibold shadow-sm"
-                    style={{ color: text }}
-                  >
-                    {lp}
-                  </span>
-                )
-              )}
+            <div className="flex flex-wrap gap-2">
+              {['✈️ Eindhoven', '✈️ Maastricht', '✈️ Schiphol', '✈️ Düsseldorf', '✈️ Brussel'].map((lp) => (
+                <span key={lp} className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs font-semibold text-gray-600 shadow-sm">
+                  {lp}
+                </span>
+              ))}
             </div>
             <Link
               to={config.basePath + '/tarieven'}
-              className="flex-shrink-0 px-6 py-3 font-bold text-white rounded-xl transition-opacity hover:opacity-90"
+              className="flex-shrink-0 px-6 py-3 font-bold text-white rounded-xl text-sm transition-opacity hover:opacity-90"
               style={{ backgroundColor: primary }}
             >
-              Boek Vliegveldrit
+              Vliegveld Boeken
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOE WERKT HET ── */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: primary }}>Zo eenvoudig</p>
+            <h2 className="text-3xl md:text-4xl font-black" style={{ color: text }}>Hoe werkt het?</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+            {[
+              { n: '1', icon: '📋', title: 'Boek of bel', desc: 'Vul ons online formulier in of bel +31 46-2600100. Wij zijn 24/7 bereikbaar.' },
+              { n: '2', icon: '✅', title: 'Bevestiging', desc: 'U ontvangt direct een bevestiging. Wij staan op tijd voor uw deur.' },
+              { n: '3', icon: '🚕', title: 'Geniet van uw rit', desc: 'Stap in en ontspan. Onze chauffeur brengt u veilig op uw bestemming.' },
+            ].map((item) => (
+              <div key={item.n} className="bg-white rounded-2xl p-7 border border-gray-100 text-center">
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl font-black mx-auto mb-4"
+                  style={{ backgroundColor: primary }}
+                >
+                  {item.n}
+                </div>
+                <p className="text-2xl mb-3">{item.icon}</p>
+                <h3 className="text-base font-black mb-2" style={{ color: text }}>{item.title}</h3>
+                <p className="text-xs text-gray-400 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: accent }}>
-              Ervaringen
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black" style={{ color: text }}>
-              Wat onze klanten zeggen
-            </h2>
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: primary }}>Ervaringen</p>
+            <h2 className="text-3xl md:text-4xl font-black" style={{ color: text }}>Wat onze klanten zeggen</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {config.testimonials.map((t) => (
-              <div key={t.id} className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                <div className="flex gap-0.5 mb-4">
+              <div key={t.id} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                <div className="flex gap-0.5 mb-3">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <span key={i} style={{ color: accent }}>★</span>
                   ))}
                 </div>
-                <p className="text-gray-600 italic mb-5 leading-relaxed text-sm">"{t.text}"</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-5 italic">"{t.text}"</p>
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-black text-white"
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-black"
                     style={{ backgroundColor: primary }}
                   >
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-bold text-sm" style={{ color: text }}>{t.name}</p>
+                    <p className="text-sm font-bold" style={{ color: text }}>{t.name}</p>
                     {t.role && <p className="text-xs text-gray-400">{t.role}</p>}
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-16" style={{ backgroundColor: primary }}>
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-black text-white mb-3">Klaar voor uw rit?</h2>
+          <p className="text-blue-200 text-sm mb-8 max-w-md mx-auto">
+            Bel ons of boek online — wij zijn 24/7 beschikbaar voor u.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href={`tel:${config.contact.phone}`}
+              className="px-8 py-3.5 font-bold text-white rounded-xl hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: accent }}
+            >
+              📞 {config.contact.phone}
+            </a>
+            <Link
+              to={config.basePath + '/tarieven'}
+              className="px-8 py-3.5 font-bold text-white rounded-xl border-2 border-white/40 hover:border-white/80 transition-colors"
+            >
+              Online Boeken →
+            </Link>
           </div>
         </div>
       </section>
