@@ -8,103 +8,111 @@ const dark = config.colors.dark;
 export const Diensten = () => (
   <Layout>
     {/* Header */}
-    <section
-      className="relative py-24 text-white text-center"
-      style={{ backgroundColor: dark }}
-    >
-      <div
-        className="absolute bottom-0 left-0 right-0 h-1"
-        style={{ backgroundColor: p }}
-      />
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-3">Onze Diensten</h1>
-        <p className="text-gray-400 max-w-lg mx-auto text-sm">
-          Van een korte rit door Brunssum tot een vlucht transfer — Taxibedrijf Knol regelt het.
-        </p>
+    <section className="pt-20 pb-16 px-6" style={{ backgroundColor: dark }}>
+      <div className="max-w-7xl mx-auto">
+        <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: p }}>Wat wij bieden</p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <h1 className="text-5xl md:text-6xl font-black text-white leading-none">Onze<br/>Diensten</h1>
+          <p className="text-gray-400 max-w-sm text-sm leading-relaxed">
+            Van een korte rit door Brunssum tot een transfer naar Schiphol — Taxibedrijf Knol regelt het snel en betrouwbaar.
+          </p>
+        </div>
       </div>
     </section>
 
     {/* Services */}
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {config.services.map((s, idx) => (
+    <section className="py-20 px-6">
+      <div className="max-w-7xl mx-auto space-y-5">
+        {config.services.map((s, i) => (
+          <div
+            key={s.id}
+            className="group grid grid-cols-1 md:grid-cols-12 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
+          >
+            {/* Number + icon */}
             <div
-              key={s.id}
-              className="rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow"
+              className="md:col-span-2 flex flex-row md:flex-col items-center justify-center gap-4 p-6"
+              style={{ backgroundColor: i % 2 === 0 ? dark : '#F9FAFB' }}
             >
-              <div className="h-1.5" style={{ backgroundColor: idx % 2 === 0 ? p : dark }} />
-              <div className="p-8">
-                <div className="flex items-start justify-between mb-5">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
-                    style={{ backgroundColor: config.colors.primaryLight }}
+              <span
+                className="text-5xl font-black leading-none"
+                style={{ color: i % 2 === 0 ? p + '40' : p + '25' }}
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="text-3xl">{s.icon}</span>
+            </div>
+
+            {/* Content */}
+            <div className="md:col-span-7 p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <h3 className="text-2xl font-black" style={{ color: dark }}>{s.name}</h3>
+                {s.priceLabel && (
+                  <span
+                    className="text-xs font-bold px-3 py-1 rounded-full"
+                    style={{ backgroundColor: p + '15', color: p }}
                   >
-                    {s.icon}
-                  </div>
-                  {s.priceLabel && (
-                    <span
-                      className="text-xs font-bold px-3 py-1.5 rounded-full"
-                      style={{ backgroundColor: config.colors.primaryLight, color: p }}
-                    >
-                      {s.priceLabel}
-                    </span>
-                  )}
-                </div>
-                <h3 className="text-xl font-bold mb-3" style={{ color: dark }}>{s.name}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">{s.description}</p>
-                {s.features && (
-                  <ul className="space-y-2">
-                    {s.features.map((feat, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-sm text-gray-600">
-                        <span className="w-5 h-5 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0" style={{ backgroundColor: p }}>✓</span>
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
+                    {s.priceLabel}
+                  </span>
                 )}
               </div>
+              <p className="text-gray-500 text-sm leading-relaxed">{s.description}</p>
             </div>
-          ))}
-        </div>
+
+            {/* Features */}
+            <div className="md:col-span-3 p-6 border-l border-gray-100 flex flex-col justify-center">
+              {s.features && (
+                <ul className="space-y-2.5">
+                  {s.features.map((feat, fi) => (
+                    <li key={fi} className="flex items-center gap-2 text-xs text-gray-500">
+                      <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-white text-[9px] font-bold" style={{ backgroundColor: p }}>✓</span>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
     {/* Info strip */}
-    <section className="py-14 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {[
-            { icon: '🗓️', title: 'Reserveer van tevoren', desc: 'Plan uw rit rustig in via telefoon of ons contactformulier.' },
-            { icon: '💳', title: 'Betalen', desc: 'Contant, pin en factuur (zakelijk) zijn allemaal mogelijk.' },
-            { icon: '📞', title: 'Direct bellen', desc: `Bel ons op ${config.contact.phoneDisplay} voor een onmiddellijke rit.` },
-          ].map((item, i) => (
-            <div key={i}>
-              <div className="text-4xl mb-3">{item.icon}</div>
-              <h4 className="font-bold text-base mb-2" style={{ color: dark }}>{item.title}</h4>
-              <p className="text-gray-500 text-sm">{item.desc}</p>
+    <section className="py-16 px-6" style={{ backgroundColor: '#F9FAFB' }}>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: 'Reserveer van tevoren', desc: 'Plan uw rit via telefoon of ons contactformulier voor de zekerste service.', icon: '🗓' },
+          { title: 'Betaalmogelijkheden', desc: 'Contant, pin of zakelijke factuur — wij passen ons aan uw voorkeur aan.', icon: '💳' },
+          { title: 'Spoed? Bel direct.', desc: `Direct bereikbaar op ${config.contact.phoneDisplay} voor een onmiddellijke rit.`, icon: '⚡' },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4">
+            <div className="text-2xl">{item.icon}</div>
+            <div>
+              <p className="font-bold text-sm mb-1" style={{ color: dark }}>{item.title}</p>
+              <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
 
     {/* CTA */}
-    <section className="py-16 text-white text-center" style={{ backgroundColor: p }}>
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-3">Klaar om te rijden?</h2>
-        <p className="opacity-90 mb-8 max-w-md mx-auto">Neem contact op of bel direct. We staan voor u klaar.</p>
-        <div className="flex flex-wrap justify-center gap-4">
+    <section className="py-20 px-6" style={{ backgroundColor: dark }}>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        <div>
+          <h2 className="text-3xl font-black text-white mb-2">Klaar om te rijden?</h2>
+          <p className="text-gray-400 text-sm">Neem contact op — we staan voor u klaar.</p>
+        </div>
+        <div className="flex flex-wrap gap-4">
           <a
             href={`tel:${config.contact.phone}`}
-            className="px-8 py-4 bg-white font-bold rounded-xl hover:bg-gray-100 transition-colors"
-            style={{ color: p }}
+            className="flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white transition-opacity hover:opacity-90"
+            style={{ backgroundColor: p }}
           >
             📞 {config.contact.phoneDisplay}
           </a>
           <Link
             to={config.basePath + '/contact'}
-            className="px-8 py-4 bg-white/20 font-semibold rounded-xl hover:bg-white/30 transition-colors border border-white/40"
+            className="px-6 py-3.5 rounded-xl font-semibold border border-white/20 text-white hover:bg-white/5 transition-colors"
           >
             Rit aanvragen
           </Link>
