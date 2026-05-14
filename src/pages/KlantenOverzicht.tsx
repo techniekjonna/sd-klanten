@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxi Sittard',
+    branche: 'Taxivervoer · Sittard-Geleen',
+    beschrijving: 'Hoge service, lage prijs. Betrouwbaar taxivervoer 24/7 in Sittard-Geleen. Luchthaventrips, zakelijk vervoer en rolstoeltaxi.',
+    pad: '/preview/taxi-sittard',
+    kleur: '#0f2044',
+    accent: '#3db8e4',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Taxibedrijf Knol',
     branche: 'Taxivervoer · Brunssum',
     beschrijving: 'Betrouwbaar personen- en zakelijk vervoer in Brunssum en omgeving. Straattaxi, vliegveld transfers, zorgvervoer en zakelijk vervoer. Online rit aanvragen.',
