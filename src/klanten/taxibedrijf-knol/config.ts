@@ -39,7 +39,7 @@ export const config: KnolConfig = {
     title: 'Uw vertrouwde taxi in',
     highlight: 'Brunssum',
     subtitle: 'Knol staat klaar voor al uw ritten — van deur tot deur, op tijd en met een glimlach.',
-    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&h=1080&fit=crop',
+    image: 'https://images.pexels.com/photos/12777388/pexels-photo-12777388.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
   },
 
   features: [
@@ -104,7 +104,7 @@ export const config: KnolConfig = {
     title: 'Over Taxibedrijf Knol',
     story: 'Taxibedrijf Knol B.V. is een vertrouwd taxibedrijf gevestigd in Brunssum, in het hart van Zuid-Limburg. Al jarenlang verzorgen wij personen- en zakelijk vervoer voor particulieren, bedrijven en zorginstellingen in de regio. Ons team kent de wegen van Brunssum en omgeving als geen ander.',
     mission: 'Wij geloven dat goed taxivervoer meer is dan iemand van A naar B brengen. Het gaat om veiligheid, punctualiteit en een vriendelijk gezicht achter het stuur. Die missie draagt elk lid van ons team elke dag met zich mee.',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&h=800&fit=crop',
+    image: 'https://images.pexels.com/photos/30882749/pexels-photo-30882749.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     founded: 'Brunssum',
     values: [
       'Betrouwbaarheid staat voorop',

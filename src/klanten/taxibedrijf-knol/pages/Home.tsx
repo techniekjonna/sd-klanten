@@ -354,8 +354,8 @@ export const Home = () => (
           <div className="relative">
             <div className="rounded-3xl overflow-hidden aspect-[4/3]">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-                alt="Chauffeur"
+                src="https://images.pexels.com/photos/15785325/pexels-photo-15785325.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt="Taxi vloot"
                 className="w-full h-full object-cover"
               />
             </div>
