@@ -36,6 +36,9 @@ export interface AlfaTaxiConfig {
     primary: string;
     primaryHover: string;
     primaryLight: string;
+    accent: string;
+    accentHover: string;
+    dark: string;
     text: string;
     background: string;
   };
