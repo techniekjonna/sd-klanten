@@ -32,59 +32,47 @@ interface StepThreeData {
   akkoordVoorwaarden: boolean;
 }
 
-const inputClass =
-  'w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent bg-white';
-
-const ProgressBar = ({ step }: { step: number }) => {
-  const pct = Math.round((step / 3) * 100);
-  return (
-    <div className="w-full h-1.5 bg-gray-200 rounded-full mb-6 overflow-hidden">
-      <div
-        className="h-full rounded-full transition-all duration-500"
-        style={{ width: `${pct}%`, backgroundColor: config.colors.primary }}
-      />
-    </div>
-  );
-};
-
-const RadioOption = ({
-  name,
-  value,
+const RadioPill = ({
   checked,
   onChange,
   label,
 }: {
-  name: string;
-  value: string;
   checked: boolean;
   onChange: () => void;
   label: string;
-}) => (
-  <label className="flex items-center gap-2 cursor-pointer select-none">
-    <div
-      className="w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors"
-      style={{
-        borderColor: checked ? config.colors.primary : '#D1D5DB',
-        backgroundColor: checked ? config.colors.primary : 'white',
-      }}
+}) => {
+  const { primary, accent } = config.colors;
+  return (
+    <button
+      type="button"
       onClick={onChange}
+      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 text-sm font-semibold transition-all"
+      style={
+        checked
+          ? { borderColor: primary, backgroundColor: `${primary}15`, color: primary }
+          : { borderColor: '#E2E8F0', backgroundColor: 'white', color: '#64748B' }
+      }
     >
-      {checked && <div className="w-2 h-2 rounded-full bg-white" />}
-    </div>
-    <input
-      type="radio"
-      name={name}
-      value={value}
-      checked={checked}
-      onChange={onChange}
-      className="sr-only"
-    />
-    <span className="text-sm font-medium text-gray-700">{label}</span>
-  </label>
-);
+      <span
+        className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all"
+        style={
+          checked
+            ? { borderColor: primary, backgroundColor: primary }
+            : { borderColor: '#CBD5E1' }
+        }
+      >
+        {checked && <span className="w-1.5 h-1.5 rounded-full bg-white block" />}
+      </span>
+      {label}
+    </button>
+  );
+};
+
+const inputClass =
+  'w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 bg-white text-gray-800 placeholder-gray-400 transition-colors';
 
 export const Tarieven = () => {
-  const p = config.colors.primary;
+  const { primary, accent, dark, text, primaryLight } = config.colors;
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
 
@@ -114,76 +102,77 @@ export const Tarieven = () => {
     akkoordVoorwaarden: false,
   });
 
-  const handleNext = () => setStep((s) => Math.min(s + 1, 3));
-  const handlePrev = () => setStep((s) => Math.max(s - 1, 1));
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
   };
 
-  const stepLabels = ['Gegevens heenreis', 'Uw gegevens', 'Speciale wensen'];
+  const stepTitles = [
+    'Gegevens heenreis',
+    'Uw gegevens',
+    'Speciale wensen',
+  ];
+
+  const stepIcons = ['📅', '👤', '🎯'];
 
   return (
     <Layout>
       {/* Page header */}
       <section
-        className="relative py-20 text-white text-center"
-        style={{ backgroundColor: config.colors.text }}
+        className="relative py-16 text-white"
+        style={{ background: `linear-gradient(135deg, ${dark} 0%, ${primary} 100%)` }}
       >
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Tarieven & Boeken</h1>
-          <p className="text-gray-300 max-w-xl mx-auto">
-            Boek uw rit eenvoudig online of bel ons direct op{' '}
-            <a href={`tel:${config.contact.phone}`} className="underline font-semibold hover:text-white">
+          <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: accent }}>
+            Tarieven & Boeken
+          </p>
+          <h1 className="text-4xl md:text-5xl font-black mb-3">Rit Bestellen</h1>
+          <p className="text-white/70 max-w-lg">
+            Boek uw rit in 3 eenvoudige stappen, of bel ons direct op{' '}
+            <a href={`tel:${config.contact.phone}`} className="font-bold underline" style={{ color: accent }}>
               {config.contact.phone}
             </a>
           </p>
         </div>
       </section>
 
-      {/* Tarieven */}
+      {/* Diensten & tarieven */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-10" style={{ color: config.colors.text }}>
-            Onze Diensten & Tarieven
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-black" style={{ color: text }}>
+              Onze Diensten & Tarieven
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             {config.services.map((s) => (
               <div
                 key={s.id}
-                className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all"
               >
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
-                    style={{ backgroundColor: config.colors.primaryLight }}
-                  >
-                    {s.icon}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between gap-3 mb-2">
-                      <h3 className="text-lg font-bold" style={{ color: config.colors.text }}>
-                        {s.name}
-                      </h3>
-                      <span
-                        className="text-xs font-bold px-3 py-1 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: config.colors.primaryLight, color: p }}
-                      >
-                        {s.priceLabel}
-                      </span>
-                    </div>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-3">{s.description}</p>
-                    <ul className="space-y-1">
-                      {s.features.map((f, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                          <span style={{ color: p }}>✓</span>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4"
+                  style={{ backgroundColor: primaryLight }}
+                >
+                  {s.icon}
                 </div>
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 className="text-base font-black" style={{ color: text }}>{s.name}</h3>
+                  <span
+                    className="text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0 mt-0.5"
+                    style={{ backgroundColor: primaryLight, color: primary }}
+                  >
+                    {s.priceLabel}
+                  </span>
+                </div>
+                <p className="text-gray-500 text-xs leading-relaxed mb-3">{s.description}</p>
+                <ul className="space-y-1">
+                  {s.features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-1.5 text-xs text-gray-600">
+                      <span style={{ color: primary }}>✓</span> {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -194,23 +183,52 @@ export const Tarieven = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold text-center mb-2" style={{ color: config.colors.text }}>
-              Rit Bestellen
-            </h2>
-            <p className="text-gray-500 text-center text-sm mb-8">
-              Vul het formulier in en wij bevestigen uw rit zo snel mogelijk.
-            </p>
+
+            {/* Step indicators */}
+            <div className="flex items-center mb-8">
+              {[1, 2, 3].map((n) => (
+                <div key={n} className="flex items-center flex-1 last:flex-none">
+                  <div className="flex flex-col items-center gap-1">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-black transition-all"
+                      style={
+                        n < step
+                          ? { backgroundColor: '#22C55E', color: 'white' }
+                          : n === step
+                          ? { backgroundColor: primary, color: 'white' }
+                          : { backgroundColor: '#F1F5F9', color: '#94A3B8' }
+                      }
+                    >
+                      {n < step ? '✓' : stepIcons[n - 1]}
+                    </div>
+                    <span
+                      className="text-xs font-semibold hidden md:block"
+                      style={{ color: n === step ? primary : n < step ? '#22C55E' : '#94A3B8' }}
+                    >
+                      {stepTitles[n - 1]}
+                    </span>
+                  </div>
+                  {n < 3 && (
+                    <div
+                      className="flex-1 h-0.5 mx-2 mb-5"
+                      style={{ backgroundColor: n < step ? '#22C55E' : '#E2E8F0' }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
 
             {submitted ? (
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-12 text-center">
+              <div
+                className="rounded-2xl p-12 text-center border-2"
+                style={{ borderColor: primary, backgroundColor: primaryLight }}
+              >
                 <div className="text-6xl mb-5">🎉</div>
-                <h3 className="text-2xl font-bold mb-3" style={{ color: config.colors.text }}>
-                  Rit aangevraagd!
-                </h3>
-                <p className="text-gray-500 mb-6 leading-relaxed">
-                  Bedankt voor uw boeking! Wij nemen zo snel mogelijk contact met u op om uw rit te
-                  bevestigen. U kunt ons ook direct bereiken op{' '}
-                  <a href={`tel:${config.contact.phone}`} className="font-bold underline" style={{ color: p }}>
+                <h3 className="text-2xl font-black mb-3" style={{ color: text }}>Rit aangevraagd!</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Bedankt voor uw boeking! Wij nemen zo snel mogelijk contact op ter bevestiging.
+                  U kunt ons ook bereiken op{' '}
+                  <a href={`tel:${config.contact.phone}`} className="font-bold" style={{ color: primary }}>
                     {config.contact.phone}
                   </a>
                   .
@@ -218,49 +236,53 @@ export const Tarieven = () => {
                 <button
                   onClick={() => { setSubmitted(false); setStep(1); }}
                   className="px-8 py-3 font-bold text-white rounded-xl"
-                  style={{ backgroundColor: p }}
+                  style={{ backgroundColor: accent }}
                 >
                   Nieuwe rit boeken
                 </button>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-                {/* Progress */}
-                <div className="px-8 pt-6 pb-0">
-                  <ProgressBar step={step} />
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">
+              <form
+                onSubmit={handleSubmit}
+                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+              >
+                {/* Form header */}
+                <div className="px-8 py-5" style={{ backgroundColor: primary }}>
+                  <p className="text-white/70 text-xs font-semibold uppercase tracking-widest">
                     Stap {step} van 3
                   </p>
-                  <h3 className="text-xl font-bold mb-6" style={{ color: config.colors.text }}>
-                    {step}. {stepLabels[step - 1]}
+                  <h3 className="text-xl font-black text-white mt-0.5">
+                    {step}. {stepTitles[step - 1]}
                   </h3>
+                  {/* progress bar */}
+                  <div className="mt-3 h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-white transition-all duration-500"
+                      style={{ width: `${(step / 3) * 100}%` }}
+                    />
+                  </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="px-8 pb-8">
+                <div className="px-8 py-8">
                   {/* ── STEP 1 ── */}
                   {step === 1 && (
                     <div className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        {/* Ophaaldatum */}
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                            Ophaaldatum <span style={{ color: p }}>*</span>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
+                            Ophaaldatum <span style={{ color: accent }}>*</span>
                           </label>
-                          <div className="relative">
-                            <input
-                              type="date"
-                              required
-                              value={step1.ophaaldatum}
-                              onChange={(e) => setStep1({ ...step1, ophaaldatum: e.target.value })}
-                              className={inputClass}
-                            />
-                          </div>
+                          <input
+                            type="date"
+                            required
+                            value={step1.ophaaldatum}
+                            onChange={(e) => setStep1({ ...step1, ophaaldatum: e.target.value })}
+                            className={inputClass}
+                          />
                         </div>
-
-                        {/* Ophaaltijd */}
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                            Ophaaltijd <span style={{ color: p }}>*</span>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
+                            Ophaaltijd <span style={{ color: accent }}>*</span>
                           </label>
                           <div className="flex gap-2">
                             <input
@@ -289,24 +311,24 @@ export const Tarieven = () => {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
                             Ophaallocatie
                           </label>
                           <input
                             type="text"
-                            placeholder="Ophaallocatie"
+                            placeholder="Van (adres of stad)"
                             value={step1.ophaallocatie}
                             onChange={(e) => setStep1({ ...step1, ophaallocatie: e.target.value })}
                             className={inputClass}
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
                             Eindbestemming
                           </label>
                           <input
                             type="text"
-                            placeholder="Eindbestemming"
+                            placeholder="Naar (adres of stad)"
                             value={step1.eindbestemming}
                             onChange={(e) => setStep1({ ...step1, eindbestemming: e.target.value })}
                             className={inputClass}
@@ -315,7 +337,7 @@ export const Tarieven = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
+                        <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
                           Tussenstop
                         </label>
                         <input
@@ -328,15 +350,13 @@ export const Tarieven = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: config.colors.text }}>
-                          Betaalmogelijkheid <span style={{ color: p }}>*</span>
+                        <label className="block text-sm font-bold mb-3" style={{ color: text }}>
+                          Betaalmogelijkheid <span style={{ color: accent }}>*</span>
                         </label>
-                        <div className="flex flex-wrap gap-5">
+                        <div className="flex flex-wrap gap-2">
                           {(['contant', 'pinnen', 'tikkie', 'creditcard'] as Betaalmethode[]).map((m) => (
-                            <RadioOption
+                            <RadioPill
                               key={m}
-                              name="betaalmethode"
-                              value={m}
                               checked={step1.betaalmethode === m}
                               onChange={() => setStep1({ ...step1, betaalmethode: m })}
                               label={m.charAt(0).toUpperCase() + m.slice(1)}
@@ -348,11 +368,11 @@ export const Tarieven = () => {
                       <div className="pt-2">
                         <button
                           type="button"
-                          onClick={handleNext}
-                          className="px-8 py-3 font-bold text-white rounded-xl transition-opacity hover:opacity-90 flex items-center gap-2"
-                          style={{ backgroundColor: p }}
+                          onClick={() => setStep(2)}
+                          className="px-8 py-3 font-bold text-white rounded-xl transition-opacity hover:opacity-90"
+                          style={{ backgroundColor: accent }}
                         >
-                          Volgende <span>→</span>
+                          Volgende →
                         </button>
                       </div>
                     </div>
@@ -361,22 +381,17 @@ export const Tarieven = () => {
                   {/* ── STEP 2 ── */}
                   {step === 2 && (
                     <div className="space-y-5">
-                      {/* Aanhef */}
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: config.colors.text }}>
+                        <label className="block text-sm font-bold mb-3" style={{ color: text }}>
                           Aanhef
                         </label>
-                        <div className="flex gap-6">
-                          <RadioOption
-                            name="aanhef"
-                            value="dhr"
+                        <div className="flex gap-2">
+                          <RadioPill
                             checked={step2.aanhef === 'dhr'}
                             onChange={() => setStep2({ ...step2, aanhef: 'dhr' })}
                             label="Dhr."
                           />
-                          <RadioOption
-                            name="aanhef"
-                            value="mevr"
+                          <RadioPill
                             checked={step2.aanhef === 'mevr'}
                             onChange={() => setStep2({ ...step2, aanhef: 'mevr' })}
                             label="Mevr."
@@ -384,22 +399,22 @@ export const Tarieven = () => {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
                             Volledige naam
                           </label>
                           <input
                             type="text"
-                            placeholder="Volledige naam"
+                            placeholder="Naam"
                             value={step2.naam}
                             onChange={(e) => setStep2({ ...step2, naam: e.target.value })}
                             className={inputClass}
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                            Telefoon <span style={{ color: p }}>*</span>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
+                            Telefoon <span style={{ color: accent }}>*</span>
                           </label>
                           <input
                             type="tel"
@@ -411,8 +426,8 @@ export const Tarieven = () => {
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
-                            Email <span style={{ color: p }}>*</span>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
+                            Email <span style={{ color: accent }}>*</span>
                           </label>
                           <input
                             type="email"
@@ -426,7 +441,7 @@ export const Tarieven = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
+                        <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
                           Adres
                         </label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -439,7 +454,7 @@ export const Tarieven = () => {
                           />
                           <input
                             type="text"
-                            placeholder="ZIP / Postcode"
+                            placeholder="Postcode"
                             value={step2.postcode}
                             onChange={(e) => setStep2({ ...step2, postcode: e.target.value })}
                             className={inputClass}
@@ -450,18 +465,18 @@ export const Tarieven = () => {
                       <div className="flex gap-3 pt-2">
                         <button
                           type="button"
-                          onClick={handlePrev}
-                          className="px-6 py-3 font-bold rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2"
+                          onClick={() => setStep(1)}
+                          className="px-6 py-3 font-bold rounded-xl border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition-colors"
                         >
                           ← Vorige
                         </button>
                         <button
                           type="button"
-                          onClick={handleNext}
-                          className="px-8 py-3 font-bold text-white rounded-xl transition-opacity hover:opacity-90 flex items-center gap-2"
-                          style={{ backgroundColor: p }}
+                          onClick={() => setStep(3)}
+                          className="px-8 py-3 font-bold text-white rounded-xl transition-opacity hover:opacity-90"
+                          style={{ backgroundColor: accent }}
                         >
-                          Volgende <span>→</span>
+                          Volgende →
                         </button>
                       </div>
                     </div>
@@ -472,7 +487,7 @@ export const Tarieven = () => {
                     <div className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
                             Aantal personen
                           </label>
                           <input
@@ -486,7 +501,7 @@ export const Tarieven = () => {
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-1.5" style={{ color: config.colors.text }}>
+                          <label className="block text-sm font-bold mb-1.5" style={{ color: text }}>
                             Aantal koffers
                           </label>
                           <input
@@ -501,125 +516,117 @@ export const Tarieven = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: config.colors.text }}>
-                          Soort auto: <span style={{ color: p }}>*</span>
+                        <label className="block text-sm font-bold mb-3" style={{ color: text }}>
+                          Soort auto <span style={{ color: accent }}>*</span>
                         </label>
-                        <div className="flex gap-8 mb-4">
-                          <RadioOption
-                            name="autoType"
-                            value="4"
-                            checked={step3.autoType === '4'}
-                            onChange={() => setStep3({ ...step3, autoType: '4' })}
-                            label="4"
-                          />
-                          <RadioOption
-                            name="autoType"
-                            value="8"
-                            checked={step3.autoType === '8'}
-                            onChange={() => setStep3({ ...step3, autoType: '8' })}
-                            label="8"
-                          />
-                        </div>
-
-                        {/* Car visual */}
-                        <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                          <img
-                            src={
-                              step3.autoType === '4'
-                                ? 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=200&h=80&fit=crop'
-                                : 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=80&fit=crop'
-                            }
-                            alt={`${step3.autoType}-persoons taxi`}
-                            className="w-28 h-16 object-cover rounded-lg"
-                          />
-                          <div>
-                            <p className="font-bold text-sm" style={{ color: config.colors.text }}>
-                              {step3.autoType}-persoons taxi
-                            </p>
-                            <p className="text-xs text-gray-400 mt-0.5">
-                              {step3.autoType === '4'
-                                ? 'Comfortabele sedan, tot 4 passagiers'
-                                : 'Ruime MPV/bus, tot 8 passagiers'}
-                            </p>
-                            <div className="flex gap-1 mt-2">
-                              {Array.from({ length: parseInt(step3.autoType) }).map((_, i) => (
-                                <span key={i} className="text-lg" style={{ color: '#6366f1' }}>
-                                  🧍
-                                </span>
-                              ))}
-                            </div>
-                          </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          {(['4', '8'] as AutoType[]).map((type) => (
+                            <button
+                              key={type}
+                              type="button"
+                              onClick={() => setStep3({ ...step3, autoType: type })}
+                              className="p-4 rounded-2xl border-2 text-left transition-all"
+                              style={
+                                step3.autoType === type
+                                  ? { borderColor: primary, backgroundColor: primaryLight }
+                                  : { borderColor: '#E2E8F0', backgroundColor: 'white' }
+                              }
+                            >
+                              <img
+                                src={
+                                  type === '4'
+                                    ? 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=160&fit=crop'
+                                    : 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=160&fit=crop'
+                                }
+                                alt={`${type}-persoons`}
+                                className="w-full h-20 object-cover rounded-xl mb-3"
+                              />
+                              <p
+                                className="font-black text-sm"
+                                style={{ color: step3.autoType === type ? primary : text }}
+                              >
+                                {type}-persoons taxi
+                              </p>
+                              <p className="text-xs text-gray-400 mt-0.5">
+                                {type === '4' ? 'Sedan, max. 4 passagiers' : 'MPV/bus, max. 8 passagiers'}
+                              </p>
+                              <div className="flex gap-0.5 mt-2">
+                                {Array.from({ length: parseInt(type) }).map((_, i) => (
+                                  <span key={i} className="text-sm">🧍</span>
+                                ))}
+                              </div>
+                            </button>
+                          ))}
                         </div>
                       </div>
 
                       {/* Voorwaarden */}
-                      <label className="flex items-start gap-3 cursor-pointer">
+                      <label className="flex items-start gap-3 cursor-pointer p-4 rounded-xl border-2 border-gray-100 hover:border-gray-200 transition-colors">
                         <div
-                          className="w-5 h-5 mt-0.5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-colors"
-                          style={{
-                            borderColor: step3.akkoordVoorwaarden ? p : '#D1D5DB',
-                            backgroundColor: step3.akkoordVoorwaarden ? p : 'white',
-                          }}
-                          onClick={() =>
-                            setStep3({ ...step3, akkoordVoorwaarden: !step3.akkoordVoorwaarden })
+                          className="w-5 h-5 mt-0.5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all"
+                          style={
+                            step3.akkoordVoorwaarden
+                              ? { borderColor: primary, backgroundColor: primary }
+                              : { borderColor: '#CBD5E1', backgroundColor: 'white' }
                           }
+                          onClick={() => setStep3({ ...step3, akkoordVoorwaarden: !step3.akkoordVoorwaarden })}
                         >
                           {step3.akkoordVoorwaarden && (
-                            <span className="text-white text-xs font-bold">✓</span>
+                            <span className="text-white text-xs font-black">✓</span>
                           )}
                         </div>
                         <input
                           type="checkbox"
                           required
                           checked={step3.akkoordVoorwaarden}
-                          onChange={(e) =>
-                            setStep3({ ...step3, akkoordVoorwaarden: e.target.checked })
-                          }
+                          onChange={(e) => setStep3({ ...step3, akkoordVoorwaarden: e.target.checked })}
                           className="sr-only"
                         />
-                        <span className="text-sm text-gray-600">
-                          Ik heb de algemene voorwaarden gelezen en ik ga akkoord.
+                        <span className="text-sm text-gray-600 leading-relaxed">
+                          Ik heb de algemene voorwaarden gelezen en ga akkoord.
                         </span>
                       </label>
 
                       <div className="flex gap-3 pt-2">
                         <button
                           type="button"
-                          onClick={handlePrev}
-                          className="px-6 py-3 font-bold rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2"
+                          onClick={() => setStep(2)}
+                          className="px-6 py-3 font-bold rounded-xl border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition-colors"
                         >
                           ← Vorige
                         </button>
                         <button
                           type="submit"
-                          className="px-8 py-3 font-bold text-white rounded-xl transition-opacity hover:opacity-90 flex items-center gap-2"
-                          style={{ backgroundColor: p }}
+                          className="flex-1 py-3 font-bold text-white rounded-xl transition-opacity hover:opacity-90"
+                          style={{ backgroundColor: accent }}
                         >
                           Rit Aanvragen →
                         </button>
                       </div>
                     </div>
                   )}
-                </form>
-              </div>
+                </div>
+              </form>
             )}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA bellen */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-500 mb-4">Liever direct bellen?</p>
-          <a
-            href={`tel:${config.contact.phone}`}
-            className="inline-flex items-center gap-3 px-10 py-4 font-bold text-white rounded-xl text-lg transition-opacity hover:opacity-90"
-            style={{ backgroundColor: p }}
-          >
-            <span>📞</span>
-            <span>{config.contact.phone}</span>
-            <span className="text-sm font-medium opacity-80">— 24/7 bereikbaar</span>
-          </a>
+            {/* Direct bellen */}
+            <div
+              className="mt-6 p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4"
+              style={{ backgroundColor: `${dark}08`, border: `1px solid ${dark}12` }}
+            >
+              <div>
+                <p className="font-black text-sm" style={{ color: text }}>Liever direct bellen?</p>
+                <p className="text-xs text-gray-400 mt-0.5">We zijn 24/7 bereikbaar voor u.</p>
+              </div>
+              <a
+                href={`tel:${config.contact.phone}`}
+                className="flex-shrink-0 px-6 py-3 font-bold text-white rounded-xl text-sm transition-opacity hover:opacity-90"
+                style={{ backgroundColor: primary }}
+              >
+                📞 {config.contact.phone}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>

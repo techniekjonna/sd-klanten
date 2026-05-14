@@ -9,9 +9,12 @@ export const config: AlfaTaxiConfig = {
     'Alfa Taxi Limo Sittard biedt professioneel taxivervoer en limousinediensten in de regio Sittard-Geleen. Of u nu naar het vliegveld, een zakelijke afspraak of een feest moet – wij zijn er voor u.',
 
   colors: {
-    primary: '#DC2626',
-    primaryHover: '#B91C1C',
-    primaryLight: '#FEE2E2',
+    primary: '#1E40AF',
+    primaryHover: '#1D4ED8',
+    primaryLight: '#DBEAFE',
+    accent: '#F97316',
+    accentHover: '#EA6C00',
+    dark: '#0F172A',
     text: '#1E293B',
     background: '#FFFFFF',
   },

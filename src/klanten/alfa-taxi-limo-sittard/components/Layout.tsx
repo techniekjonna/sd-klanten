@@ -9,7 +9,8 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => (
   <div className="min-h-screen flex flex-col">
     <Header />
-    <main className="flex-grow">{children}</main>
+    {/* pb-16 reserves space for mobile sticky bottom bar */}
+    <main className="flex-grow pb-16 md:pb-0">{children}</main>
     <Footer />
   </div>
 );
