@@ -30,6 +30,29 @@
     font-family: 'Teko', sans-serif;
   }
 
+  [data-client="beatrix-nails"] h1,
+  [data-client="beatrix-nails"] h2,
+  [data-client="beatrix-nails"] h3,
+  [data-client="beatrix-nails"] h4 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  [data-client="autorijschoolvdsande"],
+  [data-client="autorijschoolvdsande"] h1,
+  [data-client="autorijschoolvdsande"] h2,
+  [data-client="autorijschoolvdsande"] h3,
+  [data-client="autorijschoolvdsande"] h4,
+  [data-client="autorijschoolvdsande"] p,
+  [data-client="autorijschoolvdsande"] a,
+  [data-client="autorijschoolvdsande"] span,
+  [data-client="autorijschoolvdsande"] button,
+  [data-client="autorijschoolvdsande"] input,
+  [data-client="autorijschoolvdsande"] textarea,
+  [data-client="autorijschoolvdsande"] label,
+  [data-client="autorijschoolvdsande"] li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
   [data-client="dutch-ink"],
   [data-client="dutch-ink"] h1,
   [data-client="dutch-ink"] h2,

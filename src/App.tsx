@@ -3,7 +3,19 @@ import { KlantenOverzicht } from './pages/KlantenOverzicht';
 import { Sjabloon } from './klanten/sjabloon';
 import { DutchInk } from './klanten/dutch-ink';
 import { Care4CarsSittard } from './klanten/care4carssittard';
-import { AlfaTaxiLimoSittard } from './klanten/alfa-taxi-limo-sittard';
+import { AlfaTaxi } from './klanten/alfa-taxi';
+import { BeatrixNails } from './klanten/beatrix-nails';
+import { TonDirkxFotografie } from './klanten/ton-dirkx-fotografie';
+import { AutorijschoolVdSande } from './klanten/autorijschoolvdsande';
+import { Stylesatlife } from './klanten/stylesatlife';
+import { SchoonmaakbedrijfErwin } from './klanten/schoonmaakbedrijf-erwin';
+import { OmegaTaxi } from './klanten/omega-taxi';
+import { Taxi046 } from './klanten/taxi-046';
+import { TaxiCentraleGeleen } from './klanten/taxi-centrale-geleen';
+import { OneTaxiZuidLimburg } from './klanten/onetaxi-zuidlimburg';
+import { TaxibedrijfKnol } from './klanten/taxibedrijf-knol';
+import { TaxiSittard } from './klanten/taxi-sittard';
+import { TaxibedrijfMitax } from './klanten/taxibedrijf-mitax';
 
 function App() {
   return (
@@ -16,8 +28,32 @@ function App() {
         <Route path="/preview/dutch-ink/*" element={<DutchInk />} />
         <Route path="/preview/care4carssittard" element={<Care4CarsSittard />} />
         <Route path="/preview/care4carssittard/*" element={<Care4CarsSittard />} />
-        <Route path="/preview/alfa-taxi-limo-sittard" element={<AlfaTaxiLimoSittard />} />
-        <Route path="/preview/alfa-taxi-limo-sittard/*" element={<AlfaTaxiLimoSittard />} />
+        <Route path="/preview/alfa-taxi" element={<AlfaTaxi />} />
+        <Route path="/preview/alfa-taxi/*" element={<AlfaTaxi />} />
+        <Route path="/preview/beatrix-nails" element={<BeatrixNails />} />
+        <Route path="/preview/beatrix-nails/*" element={<BeatrixNails />} />
+        <Route path="/preview/ton-dirkx-fotografie" element={<TonDirkxFotografie />} />
+        <Route path="/preview/ton-dirkx-fotografie/*" element={<TonDirkxFotografie />} />
+        <Route path="/preview/autorijschoolvdsande" element={<AutorijschoolVdSande />} />
+        <Route path="/preview/autorijschoolvdsande/*" element={<AutorijschoolVdSande />} />
+        <Route path="/preview/stylesatlife" element={<Stylesatlife />} />
+        <Route path="/preview/stylesatlife/*" element={<Stylesatlife />} />
+        <Route path="/preview/schoonmaakbedrijf-erwin" element={<SchoonmaakbedrijfErwin />} />
+        <Route path="/preview/schoonmaakbedrijf-erwin/*" element={<SchoonmaakbedrijfErwin />} />
+        <Route path="/preview/omega-taxi" element={<OmegaTaxi />} />
+        <Route path="/preview/omega-taxi/*" element={<OmegaTaxi />} />
+        <Route path="/preview/taxi-046" element={<Taxi046 />} />
+        <Route path="/preview/taxi-046/*" element={<Taxi046 />} />
+        <Route path="/preview/taxi-centrale-geleen" element={<TaxiCentraleGeleen />} />
+        <Route path="/preview/taxi-centrale-geleen/*" element={<TaxiCentraleGeleen />} />
+        <Route path="/preview/onetaxi-zuidlimburg" element={<OneTaxiZuidLimburg />} />
+        <Route path="/preview/onetaxi-zuidlimburg/*" element={<OneTaxiZuidLimburg />} />
+        <Route path="/preview/taxibedrijf-knol" element={<TaxibedrijfKnol />} />
+        <Route path="/preview/taxibedrijf-knol/*" element={<TaxibedrijfKnol />} />
+        <Route path="/preview/taxi-sittard" element={<TaxiSittard />} />
+        <Route path="/preview/taxi-sittard/*" element={<TaxiSittard />} />
+        <Route path="/preview/taxibedrijf-mitax" element={<TaxibedrijfMitax />} />
+        <Route path="/preview/taxibedrijf-mitax/*" element={<TaxibedrijfMitax />} />
       </Routes>
     </BrowserRouter>
   );
