@@ -57,16 +57,8 @@ export const Boeken = () => {
   return (
     <Layout>
       {/* Header */}
-      <section
-        className="relative py-24 text-white text-center"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=500&fit=crop)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 40%',
-        }}
-      >
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(27,58,107,0.91)' }} />
-        <div className="relative container mx-auto px-4">
+      <section className="py-20 text-white text-center" style={{ backgroundColor: NAVY }}>
+        <div className="container mx-auto px-4">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ORANGE }}>
             Snel & eenvoudig
           </p>

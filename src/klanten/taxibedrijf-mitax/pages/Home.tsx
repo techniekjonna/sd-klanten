@@ -106,7 +106,7 @@ export const Home = () => {
             {/* Right: booking widget */}
             <div
               className="rounded-2xl shadow-2xl overflow-hidden"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(16px)' }}
+              style={{ backgroundColor: '#1B3A6B', border: '1px solid rgba(255,255,255,0.15)' }}
             >
               {/* Widget header */}
               <div className="px-6 pt-6 pb-5 border-b border-white/10">
