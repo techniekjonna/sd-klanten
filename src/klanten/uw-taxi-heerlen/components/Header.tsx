@@ -5,16 +5,24 @@ import { config } from '../config';
 const { darkBlue, yellow, lightBlue } = config.colors;
 
 const Logo = () => (
-  <Link to={config.basePath + '/'} className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-    <img
-      src="https://uwtaxiheerlen.nl/Trial%20kleur/images%20kleur/Hoofdlogo%20kleur2.gif"
-      alt="Uw Taxi Heerlen"
-      className="h-14 w-auto object-contain"
-      style={{ mixBlendMode: 'multiply' }}
-      onError={(e) => {
-        (e.currentTarget as HTMLImageElement).style.display = 'none';
-      }}
-    />
+  <Link to={config.basePath + '/'} className="flex items-center hover:opacity-90 transition-opacity">
+    <svg width="180" height="52" viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Left arrow shape (dark blue, pointing left) */}
+      <path d="M44 4 L12 26 L44 48 L44 36 L70 36 L70 16 L44 16 Z" fill={darkBlue} />
+      {/* Right arrow 1 (yellow) */}
+      <path d="M58 10 L58 20 L78 20 L78 10 Z" fill={yellow} />
+      <path d="M78 10 L90 16 L78 22 Z" fill={yellow} />
+      {/* Right arrow 2 (yellow, offset) */}
+      <path d="M58 30 L58 40 L78 40 L78 30 Z" fill={yellow} />
+      <path d="M78 30 L90 36 L78 42 Z" fill={yellow} />
+      {/* "Uw" text */}
+      <text x="96" y="22" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="700" fill={darkBlue} letterSpacing="0.5">Uw</text>
+      {/* "TAXI" text */}
+      <text x="94" y="38" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="900" fill={darkBlue} letterSpacing="1">TAXI</text>
+      {/* "HEERLEN" bar */}
+      <rect x="94" y="42" width="80" height="9" fill={darkBlue} rx="1" />
+      <text x="134" y="50" fontFamily="Arial, sans-serif" fontSize="7" fontWeight="700" fill={yellow} letterSpacing="2" textAnchor="middle">HEERLEN</text>
+    </svg>
   </Link>
 );
 
