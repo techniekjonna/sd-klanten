@@ -36,7 +36,7 @@ export const config: GrootveldConfig = {
   hero: {
     title: 'Uw specialist in\ntaxi & takelservice',
     subtitle: 'Van de weg naar uw bestemming, of van pech naar veiligheid — Grootveld staat 24/7 voor u klaar in Noord-Nederland.',
-    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop',
     cta: 'Rit Berekenen',
     ctaLink: '/contact',
   },
@@ -127,7 +127,7 @@ export const config: GrootveldConfig = {
     title: 'Over Grootveld',
     story: 'Takel- en Taxibedrijf Grootveld B.V. is al decennialang een vertrouwd gezicht in Noord-Nederland. Wat begon als een kleinschalig familiebedrijf is uitgegroeid tot een professioneel bedrijf dat dagelijks honderden ritten verzorgt en klaarstaat bij pech en bergingen.',
     mission: 'Onze kracht zit in de combinatie van taxi en takelservice onder één dak. Dat betekent dat wij niet alleen u veilig naar uw bestemming brengen, maar ook uw voertuig kunnen bergen als dat nodig is. Altijd met vaste tarieven en persoonlijk contact.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1200&h=800&fit=crop',
     values: [
       'Betrouwbaarheid in alles wat we doen',
       'Vaste tarieven, geen verrassingen',
