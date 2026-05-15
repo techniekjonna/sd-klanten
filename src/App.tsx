@@ -17,6 +17,7 @@ import { TaxibedrijfKnol } from './klanten/taxibedrijf-knol';
 import { TaxiSittard } from './klanten/taxi-sittard';
 import { TaxibedrijfMitax } from './klanten/taxibedrijf-mitax';
 import { TaxibedrijfSavelkoul } from './klanten/taxibedrijf-savelkoul';
+import { Grootveld } from './klanten/grootveld';
 
 function App() {
   return (
@@ -57,6 +58,8 @@ function App() {
         <Route path="/preview/taxibedrijf-mitax/*" element={<TaxibedrijfMitax />} />
         <Route path="/preview/taxibedrijf-savelkoul" element={<TaxibedrijfSavelkoul />} />
         <Route path="/preview/taxibedrijf-savelkoul/*" element={<TaxibedrijfSavelkoul />} />
+        <Route path="/preview/grootveld" element={<Grootveld />} />
+        <Route path="/preview/grootveld/*" element={<Grootveld />} />
       </Routes>
     </BrowserRouter>
   );
