@@ -2,105 +2,92 @@ import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { config } from '../config';
 
-export const OverOns = () => {
-  const p = config.colors.primary;
+const NAVY = '#1B3F6E';
+const ORANGE = '#F97316';
+const NAVY_LIGHT = '#EEF4FB';
 
-  return (
-    <Layout>
-      {/* Page header */}
-      <section
-        className="relative py-24 text-white text-center"
-        style={{ backgroundColor: config.colors.text }}
-      >
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{config.about.title}</h1>
-          <p className="text-gray-300 max-w-xl mx-auto">{config.tagline}</p>
-        </div>
-      </section>
+export const OverOns = () => (
+  <Layout>
+    <section className="py-16" style={{ backgroundColor: NAVY }}>
+      <div className="container mx-auto px-4 text-center">
+        <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ORANGE }}>Wie zijn wij?</p>
+        <h1 className="text-4xl font-extrabold text-white mb-4">Over D&amp;M Taxi Parkstad</h1>
+        <p className="text-blue-200 max-w-xl mx-auto">Persoonlijk, betrouwbaar en altijd beschikbaar — dát is D&amp;M Taxi Parkstad.</p>
+      </div>
+    </section>
 
-      {/* Ons verhaal */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6" style={{ color: config.colors.text }}>
-                Ons Verhaal
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6">{config.about.story}</p>
-              <p className="text-gray-600 leading-relaxed">{config.about.mission}</p>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src={config.about.image}
-                alt={config.name}
-                className="w-full h-80 object-cover"
-              />
-            </div>
+    {/* Story */}
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center max-w-5xl mx-auto">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ORANGE }}>Ons verhaal</p>
+            <h2 className="text-3xl font-bold mb-5" style={{ color: NAVY }}>{config.about.title}</h2>
+            <p className="text-gray-600 leading-relaxed mb-5">{config.about.story}</p>
+            <p className="text-gray-600 leading-relaxed">{config.about.mission}</p>
+          </div>
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop"
+              alt="D&M Taxi Parkstad voertuig"
+              className="w-full h-72 object-cover rounded-2xl shadow-lg"
+            />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Onze waarden */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-14" style={{ color: config.colors.text }}>
-            Onze Kernwaarden
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {config.about.values.map((value, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-4 bg-white rounded-xl p-6 shadow-sm"
-              >
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
-                  style={{ backgroundColor: p }}
-                >
-                  {i + 1}
-                </div>
-                <p className="font-medium" style={{ color: config.colors.text }}>{value}</p>
+    {/* Values */}
+    <section className="py-20" style={{ backgroundColor: NAVY_LIGHT }}>
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold" style={{ color: NAVY }}>Onze Waarden</h2>
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
+          {config.about.values.map((v, i) => (
+            <div key={i} className="text-center bg-white rounded-2xl p-6 shadow-sm">
+              <div className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-extrabold text-lg" style={{ backgroundColor: ORANGE }}>
+                {i + 1}
               </div>
+              <p className="font-semibold text-sm" style={{ color: NAVY }}>{v}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Service area */}
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ORANGE }}>Werkgebied</p>
+          <h2 className="text-3xl font-bold mb-5" style={{ color: NAVY }}>Actief in heel Parkstad</h2>
+          <p className="text-gray-600 mb-8">Wij rijden door de gehele Parkstad-regio en omliggende gebieden. Hieronder vindt u een overzicht van de gemeenten waar wij actief zijn.</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {['Heerlen', 'Landgraaf', 'Kerkrade', 'Brunssum', 'Nuth', 'Simpelveld', 'Voerendaal', 'Beekdaelen', 'Sittard-Geleen', 'Maastricht'].map(place => (
+              <span key={place} className="px-4 py-2 rounded-full text-sm font-semibold" style={{ backgroundColor: NAVY_LIGHT, color: NAVY }}>
+                📍 {place}
+              </span>
             ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Waarom ons */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-14" style={{ color: config.colors.text }}>
-            Wat ons onderscheidt
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {config.features.map((f, i) => (
-              <div key={i} className="text-center p-6">
-                <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: config.colors.text }}>
-                  {f.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 text-white text-center" style={{ backgroundColor: p }}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Leer ons persoonlijk kennen</h2>
-          <p className="text-lg opacity-90 mb-8">
-            Plan een vrijblijvend kennismakingsgesprek en ontdek wat wij voor u kunnen betekenen.
-          </p>
-          <Link
-            to={config.basePath + "/contact"}
-            className="inline-block px-10 py-4 bg-white font-semibold rounded-xl hover:bg-gray-100 transition-colors"
-            style={{ color: p }}
-          >
-            Maak Een Afspraak
+    {/* CTA */}
+    <section className="py-16 text-center" style={{ backgroundColor: NAVY }}>
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-white mb-3">Benieuwd wat wij voor u kunnen doen?</h2>
+        <p className="text-blue-200 mb-8 max-w-md mx-auto">Neem contact op of boek direct uw taxirit via ons formulier.</p>
+        <div className="flex flex-wrap gap-4 justify-center">
+          <a href="tel:+31455700300" className="px-8 py-4 font-bold rounded-xl text-white text-lg hover:opacity-90 transition" style={{ backgroundColor: ORANGE }}>
+            📞 045 570 03 00
+          </a>
+          <Link to={config.basePath + '/contact'} className="px-8 py-4 border-2 border-white/40 text-white font-bold rounded-xl hover:bg-white/10 transition">
+            Stuur een Bericht
           </Link>
         </div>
-      </section>
-    </Layout>
-  );
-};
+      </div>
+    </section>
+  </Layout>
+);
