@@ -49,7 +49,7 @@ export const config = {
     subtitle:
       'Global Taxi Heerlen staat voor Vervoersveiligheid, vertrouwde service en vervoerscomfort. Ervaren, gediplomeerde en vriendelijke chauffeurs staan 24/7 voor u klaar.',
     image:
-      'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop',
+      'https://globaltaxi.nl/wp-content/uploads/2022/07/cropped-dashboard-3510327_1920.jpg',
     cta: 'Boek een rit',
     ctaLink: '/#boeken',
     ctaSecondary: 'Bel ons nu',
