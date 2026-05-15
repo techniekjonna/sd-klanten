@@ -193,6 +193,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'D&M Taxi Parkstad',
+    branche: 'Taxivervoer · Landgraaf',
+    beschrijving: 'Betrouwbaar taxivervoer in de Parkstad-regio. Lokaal vervoer, vliegveldtransfers, ziekenhuisvervoer en zakelijk vervoer. 24/7 beschikbaar met vaste tarieven.',
+    pad: '/preview/dm-taxi-parkstad',
+    kleur: '#1B3F6E',
+    accent: '#F97316',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Sjabloon',
     branche: 'Generiek Template',
     beschrijving: 'Het basis-sjabloon voor nieuwe klanten. Kopieer deze map en pas config.ts aan om te starten.',
