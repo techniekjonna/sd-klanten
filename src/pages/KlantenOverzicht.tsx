@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxi MC',
+    branche: 'Taxivervoer · Heerlen',
+    beschrijving: 'Betrouwbaar, comfortabel & veilig vervoer op maat. Zakelijk vervoer, airportritten, treinstation transfers en Europees vervoer. 24/7 bereikbaar.',
+    pad: '/preview/taxi-mc',
+    kleur: '#0F0F0F',
+    accent: '#F5C200',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Taxi Sittard',
     branche: 'Taxivervoer · Sittard-Geleen',
     beschrijving: 'Hoge service, lage prijs. Betrouwbaar taxivervoer 24/7 in Sittard-Geleen. Luchthaventrips, zakelijk vervoer en rolstoeltaxi.',
