@@ -39,7 +39,7 @@ export const config = {
 
   hero: {
     subtitle: 'Uw betrouwbare partner voor comfortabel vervoer. Van zakelijke ritten tot luchthavens — wij brengen u veilig en op tijd.',
-    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?w=1920&h=1080&fit=crop',
   },
 
   features: [
