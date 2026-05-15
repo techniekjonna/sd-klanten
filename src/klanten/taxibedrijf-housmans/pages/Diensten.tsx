@@ -1,0 +1,166 @@
+import { Link } from 'react-router-dom';
+import { Layout } from '../components/Layout';
+import { config } from '../config';
+
+const PRIMARY = config.colors.primary;
+const ACCENT = config.colors.accent;
+const MUTED = '#64748B';
+
+const diensten = [
+  {
+    icon: '🚖',
+    title: 'Lokaal & Regionaal Vervoer',
+    description:
+      'Of u nu naar de supermarkt, een vriend of een zakelijke afspraak moet — wij rijden u door Echt, Sittard-Geleen, Roermond en heel Limburg. Altijd stipt op tijd.',
+    items: [
+      'Ritten binnen Echt en omgeving',
+      'Regionaal vervoer door Limburg',
+      'Avond- en nachtritten',
+      '24/7 beschikbaar',
+      'Vaste prijs, geen taxameter',
+    ],
+  },
+  {
+    icon: '✈️',
+    title: 'Luchthaven Vervoer',
+    description:
+      'Stressvrij naar het vliegveld. Wij volgen uw vlucht live zodat we altijd op tijd zijn, ook bij vertragingen. Ruime bagageruimte vanzelfsprekend.',
+    items: [
+      'Eindhoven Airport',
+      'Maastricht Aachen Airport',
+      'Schiphol Amsterdam',
+      'Düsseldorf & Keulen',
+      'Vluchttracking bij ophaalritten',
+      'Retourritten met vaste prijs',
+    ],
+  },
+  {
+    icon: '🏥',
+    title: 'Zorgvervoer',
+    description:
+      'Voor ziekenhuisbezoeken, fysiotherapie of andere medische afspraken rijden wij u rustig en veilig. Wij hebben geduld en zijn gewend aan passagiers die extra hulp nodig hebben.',
+    items: [
+      'Ziekenhuisritten (Roermond, Sittard e.o.)',
+      'Medische afspraken',
+      'Dialysevervoer op vaste tijden',
+      'Rollatorvriendelijk voertuig',
+      'Hulp in- en uitstappen',
+    ],
+  },
+  {
+    icon: '💼',
+    title: 'Zakelijk Vervoer',
+    description:
+      'Betrouwbaar en representatief vervoer voor bedrijven. Vaste chauffeur, maandelijkse facturatie en altijd op tijd bij uw klant of vergadering.',
+    items: [
+      'Maandelijkse facturatie',
+      'Vaste chauffeur op aanvraag',
+      'Vervoer voor teams en delegaties',
+      'Discreet en professioneel',
+      'Ruime voertuigen beschikbaar',
+    ],
+  },
+  {
+    icon: '🎉',
+    title: 'Evenementen & Uitjes',
+    description:
+      'Een bruiloft, concert, voetbalwedstrijd of stapdiner? Wij brengen u veilig heen én terug. Geen zorgen over parkeren of de filetijd.',
+    items: [
+      'Bruiloften en partijen',
+      'Concerten en festivals',
+      'Groepsvervoer (minibus)',
+      'Heen- en terugrit',
+      'Vroeg boeken = beste prijs',
+    ],
+  },
+  {
+    icon: '👴',
+    title: 'Seniorenvervoer',
+    description:
+      'Wij rijden graag voor ouderen die geen auto (meer) hebben of liever niet zelf rijden. Vriendelijk, rustig en op uw tempo.',
+    items: [
+      'Boodschappenritten',
+      'Bezoek aan familie of vrienden',
+      'Hulp bij in- en uitstappen',
+      'Geduldig en vriendelijk',
+      'Vaste chauffeur indien gewenst',
+    ],
+  },
+];
+
+export const Diensten = () => {
+  return (
+    <Layout>
+      {/* Header */}
+      <section className="py-20 text-white" style={{ backgroundColor: PRIMARY }}>
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>
+            Ons aanbod
+          </p>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Onze Diensten</h1>
+          <p className="max-w-xl mx-auto text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
+            Van een simpele rit naar het station tot een vlucht vanuit Schiphol — wij regelen het voor u.
+          </p>
+        </div>
+      </section>
+
+      {/* Diensten grid */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {diensten.map((d, i) => (
+              <div key={i} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-start gap-5">
+                  <div
+                    className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl flex-shrink-0"
+                    style={{ backgroundColor: `${PRIMARY}0D` }}
+                  >
+                    {d.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-2" style={{ color: PRIMARY }}>{d.title}</h3>
+                    <p className="text-sm leading-relaxed mb-4" style={{ color: MUTED }}>{d.description}</p>
+                    <ul className="space-y-1.5">
+                      {d.items.map((item, j) => (
+                        <li key={j} className="flex items-center gap-2 text-sm" style={{ color: MUTED }}>
+                          <span className="font-bold" style={{ color: ACCENT }}>✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 text-white text-center" style={{ backgroundColor: PRIMARY }}>
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-3">Rit aanvragen?</h2>
+          <p className="mb-8 text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>
+            Bel ons direct of stuur een bericht. Wij zijn dag en nacht bereikbaar.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href={`tel:${config.contact.phone}`}
+              className="px-8 py-3.5 font-bold rounded-xl transition-opacity hover:opacity-90"
+              style={{ backgroundColor: ACCENT, color: '#fff' }}
+            >
+              Bel {config.contact.phoneDisplay}
+            </a>
+            <Link
+              to={config.basePath + '/contact'}
+              className="px-8 py-3.5 font-bold rounded-xl border-2 text-white transition-all hover:bg-white/10"
+              style={{ borderColor: 'rgba(255,255,255,0.3)' }}
+            >
+              Stuur een bericht
+            </Link>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+};
