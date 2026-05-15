@@ -21,6 +21,7 @@ import { Grootveld } from './klanten/grootveld';
 import { GlobalTaxiHeerlen } from './klanten/global-taxi-heerlen';
 import { UwTaxiHeerlen } from './klanten/uw-taxi-heerlen';
 import { TaxibedrijfHousmans } from './klanten/taxibedrijf-housmans';
+import { TaxiCompleetMaastricht } from './klanten/taxi-compleet-maastricht';
 
 function App() {
   return (
@@ -69,6 +70,8 @@ function App() {
         <Route path="/preview/uw-taxi-heerlen/*" element={<UwTaxiHeerlen />} />
         <Route path="/preview/taxibedrijf-housmans" element={<TaxibedrijfHousmans />} />
         <Route path="/preview/taxibedrijf-housmans/*" element={<TaxibedrijfHousmans />} />
+        <Route path="/preview/taxi-compleet-maastricht" element={<TaxiCompleetMaastricht />} />
+        <Route path="/preview/taxi-compleet-maastricht/*" element={<TaxiCompleetMaastricht />} />
       </Routes>
     </BrowserRouter>
   );
