@@ -36,7 +36,7 @@ export const config: GrootveldConfig = {
   hero: {
     title: 'Uw specialist in\ntaxi & takelservice',
     subtitle: 'Van de weg naar uw bestemming, of van pech naar veiligheid — Grootveld staat 24/7 voor u klaar in Noord-Nederland.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-Um0OnHRvncI?w=1920&h=1080&fit=crop',
     cta: 'Rit Berekenen',
     ctaLink: '/contact',
   },
