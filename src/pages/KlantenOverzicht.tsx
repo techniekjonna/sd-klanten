@@ -153,6 +153,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Grootveld',
+    branche: 'Taxi & Takelservice · Noord-Nederland',
+    beschrijving: 'Takel- en Taxibedrijf Grootveld B.V. — betrouwbaar taxivervoer én professionele takelservice. 24/7 bereikbaar, vaste tarieven. Inclusief boekingswidget op de homepage.',
+    pad: '/preview/grootveld',
+    kleur: '#1A2B1E',
+    accent: '#1A5C38',
+    icon: '🚛',
+    status: 'concept',
+  },
+  {
     naam: 'Sjabloon',
     branche: 'Generiek Template',
     beschrijving: 'Het basis-sjabloon voor nieuwe klanten. Kopieer deze map en pas config.ts aan om te starten.',
