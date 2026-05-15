@@ -49,7 +49,7 @@ export const config = {
     subtitle:
       'Global Taxi Heerlen staat voor Vervoersveiligheid, vertrouwde service en vervoerscomfort. Ervaren, gediplomeerde en vriendelijke chauffeurs staan 24/7 voor u klaar.',
     image:
-      'https://images.unsplash.com/photo-1617531653332-bd46c16f4d68?w=1920&h=1080&fit=crop',
+      'https://www.raycatenaunion.com/wp-content/uploads/2019/03/2019-mercedes-benz-e-class-interior.jpg',
     cta: 'Boek een rit',
     ctaLink: '/#boeken',
     ctaSecondary: 'Bel ons nu',
