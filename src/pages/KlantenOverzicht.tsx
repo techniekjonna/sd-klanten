@@ -83,6 +83,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Pack Taxi',
+    branche: 'Taxivervoer · Heerlen',
+    beschrijving: 'Comfortabel en betrouwbaar taxivervoer in Heerlen en omgeving. Vaste prijzen, luchthaven transfers, 24/7 beschikbaar. Mercedes-voertuigen, pin betaling.',
+    pad: '/preview/pack-taxi',
+    kleur: '#1A1A2E',
+    accent: '#C9A84C',
+    icon: '🚘',
+    status: 'concept',
+  },
+  {
     naam: 'Taxibedrijf Mitax',
     branche: 'Taxivervoer · Urmond',
     beschrijving: 'Modern taxibedrijf gevestigd in Urmond. Lokaal & regionaal vervoer, vliegveldtransfers, zakelijk en evenementenvervoer. Inclusief online boekingsformulier.',
