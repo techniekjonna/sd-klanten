@@ -103,6 +103,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Taxi Compleet Maastricht',
+    branche: 'Taxivervoer · Maastricht',
+    beschrijving: 'Betrouwbaar taxibedrijf in Maastricht en omstreken. 24/7 beschikbaar voor stadsritten, luchthavens, zorgvervoer en groepsvervoer. Met online boekingswidget.',
+    pad: '/preview/taxi-compleet-maastricht',
+    kleur: '#1B3A6B',
+    accent: '#D4960A',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Taxibedrijf Housmans',
     branche: 'Taxivervoer · Echt',
     beschrijving: 'Betrouwbaar taxibedrijf gevestigd in Echt, Limburg. Lokale ritten, luchthaventransfers, zorgvervoer en seniorenvervoer. Met online boekingswidget.',
