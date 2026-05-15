@@ -103,6 +103,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Taxibedrijf Housmans',
+    branche: 'Taxivervoer · Echt',
+    beschrijving: 'Betrouwbaar taxibedrijf gevestigd in Echt, Limburg. Lokale ritten, luchthaventransfers, zorgvervoer en seniorenvervoer. Met online boekingswidget.',
+    pad: '/preview/taxibedrijf-housmans',
+    kleur: '#0F2044',
+    accent: '#F97316',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Alfa Taxi',
     branche: 'Taxivervoer',
     beschrijving: 'Betrouwbaar en comfortabel taxivervoer 24/7. Vaste tarieven voor particulieren en zakelijk.',
