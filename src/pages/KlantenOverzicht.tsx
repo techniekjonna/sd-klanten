@@ -73,6 +73,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Uw Taxi Heerlen',
+    branche: 'Taxivervoer · Heerlen',
+    beschrijving: 'Betrouwbaar taxivervoer in Heerlen en de Parkstad regio. Lokaal vervoer, airport transfers, zakelijk vervoer en zorgvervoer. 24/7 beschikbaar.',
+    pad: '/preview/uw-taxi-heerlen',
+    kleur: '#1B3472',
+    accent: '#F5C200',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Taxibedrijf Mitax',
     branche: 'Taxivervoer · Urmond',
     beschrijving: 'Modern taxibedrijf gevestigd in Urmond. Lokaal & regionaal vervoer, vliegveldtransfers, zakelijk en evenementenvervoer. Inclusief online boekingsformulier.',
