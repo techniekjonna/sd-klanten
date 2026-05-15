@@ -12,14 +12,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Branding */}
           <div>
-            <img
-              src="https://uwtaxiheerlen.nl/Trial%20kleur/images%20kleur/Hoofdlogo%20kleur2.gif"
-              alt="Uw Taxi Heerlen"
-              className="h-16 w-auto object-contain mb-4"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = 'none';
-              }}
-            />
+            <h3 className="text-xl font-black mb-3" style={{ color: yellow }}>Uw Taxi Heerlen</h3>
             <p className="text-sm leading-relaxed" style={{ color: lightBlue }}>
               {config.tagline}
             </p>

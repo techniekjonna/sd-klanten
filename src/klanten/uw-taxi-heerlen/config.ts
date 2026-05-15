@@ -36,7 +36,7 @@ export const config = {
 
   hero: {
     subtitle: 'Snel, veilig en comfortabel van A naar B. Dag en nacht beschikbaar in Heerlen en omgeving.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0729?w=1920&h=1080&fit=crop',
   },
 
   features: [
