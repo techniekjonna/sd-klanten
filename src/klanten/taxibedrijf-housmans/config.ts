@@ -8,11 +8,11 @@ export const config: HousmansConfig = {
   description: 'Taxibedrijf Housmans verzorgt al jaren betrouwbaar en betaalbaar taxivervoer vanuit Echt. Van luchthaventritten tot zorgvervoer — wij zijn er voor u.',
 
   colors: {
-    primary: '#0F2044',
-    primaryDark: '#080F22',
-    accent: '#F97316',
-    accentHover: '#EA6C0A',
-    text: '#0F172A',
+    primary: '#134E2A',
+    primaryDark: '#0A2E18',
+    accent: '#F59E0B',
+    accentHover: '#D97706',
+    text: '#1C1917',
   },
 
   contact: {
@@ -38,8 +38,8 @@ export const config: HousmansConfig = {
   hero: {
     title: 'Uw taxi in Echt & omgeving',
     subtitle: 'Snel, veilig en persoonlijk vervoer. Vaste tarieven, geen verrassingen. Dag en nacht beschikbaar.',
-    image: 'https://images.unsplash.com/photo-1553522991-f2f16b8f04ea?w=1920&h=1080&fit=crop',
-    cta: 'Rit Berekenen',
+    image: 'https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?w=1920&h=1080&fit=crop',
+    cta: 'Rit Aanvragen',
     ctaLink: '/#boeken',
   },
 
