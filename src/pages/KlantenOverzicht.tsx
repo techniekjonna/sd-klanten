@@ -83,6 +83,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Taxibedrijf Savelkoul',
+    branche: 'Taxivervoer · Heerlen',
+    beschrijving: 'Betrouwbaar taxibedrijf in Heerlen en de Parkstad-regio. Lokale ritten, luchthaventransfers, zakelijk vervoer en zorgvervoer. Met online boekingswidget.',
+    pad: '/preview/taxibedrijf-savelkoul',
+    kleur: '#1a3c2e',
+    accent: '#c9952a',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Alfa Taxi',
     branche: 'Taxivervoer',
     beschrijving: 'Betrouwbaar en comfortabel taxivervoer 24/7. Vaste tarieven voor particulieren en zakelijk.',
