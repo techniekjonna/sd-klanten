@@ -93,6 +93,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Global Taxi Heerlen',
+    branche: 'Taxivervoer · Heerlen',
+    beschrijving: 'Modern taxibedrijf met 10 jaar ervaring. Airport service, particulier vervoer, hotelvervoer en vervoer op maat. Online boekingswidget en dropdown navigatie.',
+    pad: '/preview/global-taxi-heerlen',
+    kleur: '#1a1a1a',
+    accent: '#f5c800',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Alfa Taxi',
     branche: 'Taxivervoer',
     beschrijving: 'Betrouwbaar en comfortabel taxivervoer 24/7. Vaste tarieven voor particulieren en zakelijk.',
@@ -160,6 +170,16 @@ const klanten: KlantCard[] = [
     kleur: '#1E3A8A',
     accent: '#1D4ED8',
     icon: '🪟',
+    status: 'concept',
+  },
+  {
+    naam: 'Grootveld',
+    branche: 'Taxi & Takelservice · Noord-Nederland',
+    beschrijving: 'Takel- en Taxibedrijf Grootveld B.V. — betrouwbaar taxivervoer én professionele takelservice. 24/7 bereikbaar, vaste tarieven. Inclusief boekingswidget op de homepage.',
+    pad: '/preview/grootveld',
+    kleur: '#1A2B1E',
+    accent: '#1A5C38',
+    icon: '🚛',
     status: 'concept',
   },
   {
