@@ -29,37 +29,43 @@ const DropdownMenu = ({
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
+  const active = isActive(item.path);
+
   return (
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded ${
-          isActive(item.path)
-            ? 'text-white'
-            : 'text-gray-300 hover:text-white'
-        }`}
-        style={isActive(item.path) ? { color: config.colors.accent } : {}}
+        className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors rounded-lg"
+        style={{ color: active ? config.colors.accent : 'rgba(255,255,255,0.75)' }}
       >
         {item.label}
         <svg
-          className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+          className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`}
+          fill="none" stroke="currentColor" viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-1 z-50 overflow-hidden">
+        <div
+          className="absolute top-full left-0 mt-2 w-52 rounded-xl shadow-2xl py-1.5 z-50 overflow-hidden"
+          style={{ backgroundColor: '#1f1f1f', border: '1px solid rgba(255,255,255,0.08)' }}
+        >
           {item.dropdown!.map((sub) => (
             <Link
               key={sub.path}
               to={config.basePath + sub.path}
               onClick={() => { setOpen(false); onClose(); }}
-              className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors border-b border-gray-50 last:border-0"
+              className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium transition-colors group"
+              style={{ color: 'rgba(255,255,255,0.7)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
             >
+              <span
+                className="w-1 h-1 rounded-full flex-shrink-0 transition-all"
+                style={{ backgroundColor: config.colors.accent }}
+              />
               {sub.label}
             </Link>
           ))}
@@ -71,41 +77,46 @@ const DropdownMenu = ({
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const isActive = (path: string) => {
     const fullPath = config.basePath + path;
-    if (path === '/') {
-      return location.pathname === config.basePath || location.pathname === config.basePath + '/';
-    }
+    if (path === '/') return location.pathname === config.basePath || location.pathname === config.basePath + '/';
     return location.pathname.startsWith(fullPath);
   };
 
   return (
-    <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: config.colors.dark }}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+    <header
+      className="sticky top-0 z-50 transition-all duration-300"
+      style={{
+        backgroundColor: scrolled ? 'rgba(18,18,18,0.97)' : config.colors.dark,
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.5)' : 'none',
+      }}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-[68px]">
           <Logo />
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
             {(config.navigation as NavItem[]).map((item) =>
               item.dropdown ? (
-                <DropdownMenu
-                  key={item.path}
-                  item={item}
-                  isActive={isActive}
-                  onClose={() => setMenuOpen(false)}
-                />
+                <DropdownMenu key={item.path} item={item} isActive={isActive} onClose={() => setMenuOpen(false)} />
               ) : (
                 <Link
                   key={item.path}
                   to={config.basePath + item.path}
-                  className={`px-3 py-2 text-sm font-medium transition-colors rounded ${
-                    isActive(item.path) ? '' : 'text-gray-300 hover:text-white'
-                  }`}
-                  style={isActive(item.path) ? { color: config.colors.accent } : {}}
+                  className="px-4 py-2 text-sm font-semibold rounded-lg transition-colors"
+                  style={{ color: isActive(item.path) ? config.colors.accent : 'rgba(255,255,255,0.75)' }}
                 >
                   {item.label}
                 </Link>
@@ -113,9 +124,10 @@ export const Header = () => {
             )}
           </nav>
 
+          {/* Phone CTA */}
           <a
             href={`tel:${config.contact.phoneTel}`}
-            className="hidden lg:flex items-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors"
+            className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold rounded-xl transition-all hover:scale-105"
             style={{ backgroundColor: config.colors.accent, color: config.colors.dark }}
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -126,16 +138,16 @@ export const Header = () => {
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 text-gray-300 hover:text-white transition-colors"
+            className="lg:hidden p-2 rounded-lg transition-colors"
+            style={{ color: 'rgba(255,255,255,0.8)' }}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
+              {menuOpen
+                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              }
             </svg>
           </button>
         </div>
@@ -143,41 +155,35 @@ export const Header = () => {
         {/* Mobile nav */}
         {menuOpen && (
           <nav
-            className="lg:hidden border-t py-3 flex flex-col gap-1"
-            style={{ borderColor: config.colors.gray }}
+            className="lg:hidden py-4 flex flex-col gap-0.5"
+            style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
           >
             {(config.navigation as NavItem[]).map((item) => (
               <div key={item.path}>
                 {item.dropdown ? (
                   <>
                     <button
-                      onClick={() =>
-                        setMobileDropdownOpen(
-                          mobileDropdownOpen === item.path ? null : item.path
-                        )
-                      }
-                      className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium text-gray-300 hover:text-white"
+                      onClick={() => setMobileDropdown(mobileDropdown === item.path ? null : item.path)}
+                      className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-semibold rounded-lg"
+                      style={{ color: 'rgba(255,255,255,0.75)' }}
                     >
                       {item.label}
                       <svg
-                        className={`w-3.5 h-3.5 transition-transform ${
-                          mobileDropdownOpen === item.path ? 'rotate-180' : ''
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                        className={`w-3 h-3 transition-transform ${mobileDropdown === item.path ? 'rotate-180' : ''}`}
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                       </svg>
                     </button>
-                    {mobileDropdownOpen === item.path && (
-                      <div className="ml-4 border-l-2 pl-4" style={{ borderColor: config.colors.accent }}>
+                    {mobileDropdown === item.path && (
+                      <div className="ml-4 pl-4 py-1 flex flex-col gap-0.5" style={{ borderLeft: `2px solid ${config.colors.accent}` }}>
                         {item.dropdown.map((sub) => (
                           <Link
                             key={sub.path}
                             to={config.basePath + sub.path}
-                            onClick={() => { setMenuOpen(false); setMobileDropdownOpen(null); }}
-                            className="block py-2 text-sm text-gray-400 hover:text-white transition-colors"
+                            onClick={() => { setMenuOpen(false); setMobileDropdown(null); }}
+                            className="block px-3 py-2 text-sm rounded-lg"
+                            style={{ color: 'rgba(255,255,255,0.6)' }}
                           >
                             {sub.label}
                           </Link>
@@ -189,10 +195,8 @@ export const Header = () => {
                   <Link
                     to={config.basePath + item.path}
                     onClick={() => setMenuOpen(false)}
-                    className={`block px-4 py-2.5 text-sm font-medium rounded transition-colors ${
-                      isActive(item.path) ? 'text-white' : 'text-gray-300 hover:text-white'
-                    }`}
-                    style={isActive(item.path) ? { color: config.colors.accent } : {}}
+                    className="block px-4 py-2.5 text-sm font-semibold rounded-lg"
+                    style={{ color: isActive(item.path) ? config.colors.accent : 'rgba(255,255,255,0.75)' }}
                   >
                     {item.label}
                   </Link>
@@ -201,7 +205,7 @@ export const Header = () => {
             ))}
             <a
               href={`tel:${config.contact.phoneTel}`}
-              className="mx-4 mt-2 px-4 py-3 text-sm font-bold rounded-lg text-center"
+              className="mt-3 mx-2 flex items-center justify-center gap-2 py-3.5 text-sm font-bold rounded-xl"
               style={{ backgroundColor: config.colors.accent, color: config.colors.dark }}
             >
               📞 {config.contact.phone}
