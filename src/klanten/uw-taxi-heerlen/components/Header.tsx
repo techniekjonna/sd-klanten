@@ -10,6 +10,7 @@ const Logo = () => (
       src="https://uwtaxiheerlen.nl/Trial%20kleur/images%20kleur/Hoofdlogo%20kleur2.gif"
       alt="Uw Taxi Heerlen"
       className="h-14 w-auto object-contain"
+      style={{ mixBlendMode: 'multiply' }}
       onError={(e) => {
         (e.currentTarget as HTMLImageElement).style.display = 'none';
       }}
