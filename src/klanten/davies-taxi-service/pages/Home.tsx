@@ -150,7 +150,7 @@ export const Home = () => (
     <section
       className="relative min-h-[92vh] flex items-center"
       style={{
-        backgroundImage: `url(https://images.unsplash.com/photo-1549294413-26f195200c16?w=1920&h=1080&fit=crop)`,
+        backgroundImage: `url(https://images.unsplash.com/photo-1514041181368-bca62cceffcd?q=80&w=1632&auto=format&fit=crop)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
