@@ -39,7 +39,7 @@ export const config = {
 
   hero: {
     subtitle: 'Uw betrouwbare taxibedrijf in Heerlen, Landgraaf, Kerkrade en omgeving. Dag en nacht voor u beschikbaar.',
-    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1920&h=1080&fit=crop',
   },
 
   features: [
