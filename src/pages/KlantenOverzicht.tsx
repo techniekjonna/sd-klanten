@@ -103,6 +103,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Taxi Van Rooy',
+    branche: 'Taxivervoer · Landgraaf',
+    beschrijving: 'Taxicentrale Cor van Rooy B.V. — al 40+ jaar betrouwbaar vervoer in Zuid-Limburg. Taxi, groepsvervoer, rolstoel, medisch, directievervoer en airportservice.',
+    pad: '/preview/taxi-van-rooy',
+    kleur: '#111111',
+    accent: '#FFD600',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Pack Taxi',
     branche: 'Taxivervoer · Heerlen',
     beschrijving: 'Comfortabel en betrouwbaar taxivervoer in Heerlen en omgeving. Vaste prijzen, luchthaven transfers, 24/7 beschikbaar. Mercedes-voertuigen, pin betaling.',
