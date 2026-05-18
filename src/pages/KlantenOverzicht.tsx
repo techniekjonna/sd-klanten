@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'TaxiFrans',
+    branche: 'Taxivervoer · Maastricht',
+    beschrijving: 'Betaalbaar en betrouwbaar taxivervoer in Maastricht en omgeving. Taxi Service, Airport Taxi, Europa Service en Zorgvervoer. 24/7 bereikbaar.',
+    pad: '/preview/taxi-frans',
+    kleur: '#1C2C6E',
+    accent: '#E8A020',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Davies Taxi Service',
     branche: 'Taxivervoer · Heerlen',
     beschrijving: 'Veilig, comfortabel en professioneel taxivervoer in Zuid-Limburg. Mercedes E-Klasse AMG Line en volledig elektrische EQV. Zakelijk, VIP, airport en groepsvervoer. 24/7 beschikbaar.',
