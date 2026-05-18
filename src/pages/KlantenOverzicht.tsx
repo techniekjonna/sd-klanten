@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Davies Taxi Service',
+    branche: 'Taxivervoer · Heerlen',
+    beschrijving: 'Veilig, comfortabel en professioneel taxivervoer in Zuid-Limburg. Mercedes E-Klasse AMG Line en volledig elektrische EQV. Zakelijk, VIP, airport en groepsvervoer. 24/7 beschikbaar.',
+    pad: '/preview/davies-taxi-service',
+    kleur: '#0B0C10',
+    accent: '#C9A84C',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Taxi Centrale Parkstad',
     branche: 'Taxivervoer · Heerlen',
     beschrijving: 'Veilig, comfortabel én stipt vervoer in Heerlen, Landgraaf, Kerkrade en omgeving. Particulier, zakelijk en luchthaventritten. 24/7 bereikbaar.',

@@ -27,6 +27,7 @@ import { PackTaxi } from './klanten/pack-taxi';
 import { TaxiMC } from './klanten/taxi-mc';
 import { TaxiCentraleParkstad } from './klanten/taxi-centrale-parkstad';
 import { TaxiVanRooy } from './klanten/taxi-van-rooy';
+import { DaviesTaxiService } from './klanten/davies-taxi-service';
 
 function App() {
   return (
@@ -87,6 +88,8 @@ function App() {
         <Route path="/preview/taxi-centrale-parkstad/*" element={<TaxiCentraleParkstad />} />
         <Route path="/preview/taxi-van-rooy" element={<TaxiVanRooy />} />
         <Route path="/preview/taxi-van-rooy/*" element={<TaxiVanRooy />} />
+        <Route path="/preview/davies-taxi-service" element={<DaviesTaxiService />} />
+        <Route path="/preview/davies-taxi-service/*" element={<DaviesTaxiService />} />
       </Routes>
     </BrowserRouter>
   );
