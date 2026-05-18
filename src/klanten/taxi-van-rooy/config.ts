@@ -59,7 +59,7 @@ export const config: TaxiVanRooyConfig = {
     subtitle:
       'Taxi Van Rooy — uw betrouwbare taxicentrale in Landgraaf. 24/7 bereikbaar voor taxi, groepsvervoer, rolstoelvervoer en meer.',
     image:
-      'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop',
+      'https://images.unsplash.com/photo-1628947733273-cdae71c9bfd3?q=80&w=1470&auto=format&fit=crop',
   },
 
   features: [
@@ -250,7 +250,7 @@ export const config: TaxiVanRooyConfig = {
     description:
       'Taxicentrale Cor van Rooy B.V. is een familiebedrijf gevestigd in Landgraaf, Zuid-Limburg. Al decennialang verzorgen wij betrouwbaar vervoer voor particulieren, bedrijven en zorginstellingen in de regio en daarbuiten. Onze kracht ligt in persoonlijk contact, vakkennis en de passie voor het vak.',
     image:
-      'https://images.unsplash.com/photo-1628947733273-cdae71c9bfd3?q=80&w=1470&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop',
     stats: [
       { label: 'Jaar ervaring', value: '40+' },
       { label: 'Tevreden klanten', value: '10.000+' },
