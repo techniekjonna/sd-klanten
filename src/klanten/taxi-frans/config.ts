@@ -54,7 +54,7 @@ export const config: SjabloonConfig & {
     title: 'Snel, veilig en',
     highlight: 'voordelig rijden',
     subtitle: 'Taxivervoer door heel Maastricht en Limburg. Airport transfers, zorgvervoer, zakelijke ritten en Europa-service — altijd betrouwbaar en op tijd.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1514041181368-bca62cceffcd?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     cta: 'Boek een rit',
     ctaLink: '/contact',
     ctaSecondary: 'Bel direct',
