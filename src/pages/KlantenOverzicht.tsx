@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxi Centrale Parkstad',
+    branche: 'Taxivervoer · Heerlen',
+    beschrijving: 'Veilig, comfortabel én stipt vervoer in Heerlen, Landgraaf, Kerkrade en omgeving. Particulier, zakelijk en luchthaventritten. 24/7 bereikbaar.',
+    pad: '/preview/taxi-centrale-parkstad',
+    kleur: '#1A6B58',
+    accent: '#C9A84C',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Taxi MC',
     branche: 'Taxivervoer · Heerlen',
     beschrijving: 'Betrouwbaar, comfortabel & veilig vervoer op maat. Zakelijk vervoer, airportritten, treinstation transfers en Europees vervoer. 24/7 bereikbaar.',
