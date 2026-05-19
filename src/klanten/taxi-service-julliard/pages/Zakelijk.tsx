@@ -56,7 +56,7 @@ export const Zakelijk = () => {
             </div>
             <div className="rounded-2xl overflow-hidden aspect-[4/3]">
               <img
-                src="https://images.unsplash.com/photo-1549924231-f129b911e442?w=800&h=600&fit=crop"
+                src="https://images.unsplash.com/photo-1530675669163-6f4c0f2bafd5?q=80&w=1547&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Zakelijk vervoer"
                 className="w-full h-full object-cover"
               />

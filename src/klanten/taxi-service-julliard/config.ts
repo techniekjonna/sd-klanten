@@ -92,8 +92,8 @@ export const config = {
 
   fleet: {
     bus: {
-      title: 'Mercedes-Benz Bus',
-      description: 'Ruime en comfortabele bus met capaciteit voor tot 16 passagiers. Ideaal voor groepsvervoer, luchthaventritten met veel bagage en evenementen.',
+      title: 'Opel Bus',
+      description: 'Ruime en comfortabele Opel bus met capaciteit voor tot 16 passagiers. Ideaal voor groepsvervoer, luchthaventritten met veel bagage en evenementen.',
       capacity: '16 passagiers',
       features: ['Airconditioning', 'Ruime bagageruimte', 'Comfortabele stoelen', 'USB-laders'],
       images: [
@@ -103,8 +103,8 @@ export const config = {
       ],
     },
     wagen: {
-      title: 'Personenwagen',
-      description: 'Stijlvolle en representatieve personenwagen voor uw dagelijkse ritten, zakelijk vervoer en kleinere luchthaventritten.',
+      title: 'BMW Stationwagen',
+      description: 'Stijlvolle en representatieve BMW stationwagen voor uw dagelijkse ritten, zakelijk vervoer en kleinere luchthaventritten.',
       capacity: '4 passagiers',
       features: ['Airconditioning', 'Leder interieur', 'WiFi beschikbaar', 'Stil en comfortabel'],
       images: [
