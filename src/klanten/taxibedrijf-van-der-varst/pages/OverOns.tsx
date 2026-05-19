@@ -10,7 +10,7 @@ export const OverOns = () => (
     {/* Header */}
     <section
       className="py-20 text-white text-center relative overflow-hidden"
-      style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, #0D1F3C 100%)` }}
+      style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, #111827 100%)` }}
     >
       <div className="relative container mx-auto px-4">
         <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>Ons verhaal</p>
@@ -87,7 +87,7 @@ export const OverOns = () => (
         alt="Taxi"
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: 'rgba(27,79,138,0.7)' }}>
+      <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: 'rgba(31,41,55,0.75)' }}>
         <div className="text-center text-white px-4">
           <h3 className="text-xl md:text-2xl font-extrabold mb-4">Klaar om te rijden?</h3>
           <Link

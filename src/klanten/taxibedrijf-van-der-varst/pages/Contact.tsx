@@ -20,7 +20,7 @@ export const Contact = () => {
       {/* Header */}
       <section
         className="py-20 text-white text-center"
-        style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, #0D1F3C 100%)` }}
+        style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, #111827 100%)` }}
       >
         <div className="container mx-auto px-4">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>Neem contact op</p>
@@ -77,7 +77,7 @@ export const Contact = () => {
               {sent ? (
                 <div
                   className="text-center py-14 px-8 rounded-2xl border"
-                  style={{ backgroundColor: config.colors.light, borderColor: '#BFDBFE' }}
+                  style={{ backgroundColor: config.colors.light, borderColor: '#99F6E4' }}
                 >
                   <div className="text-4xl mb-4">✅</div>
                   <h3 className="font-extrabold text-lg mb-2" style={{ color: config.colors.text }}>Bericht ontvangen!</h3>
