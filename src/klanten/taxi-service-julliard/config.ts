@@ -103,8 +103,8 @@ export const config = {
       ],
     },
     wagen: {
-      title: 'BMW Stationwagen',
-      description: 'Stijlvolle en representatieve BMW stationwagen voor uw dagelijkse ritten, zakelijk vervoer en kleinere luchthaventritten.',
+      title: 'Mercedes-Benz & BMW Stationwagen',
+      description: 'Stijlvolle en representatieve Mercedes-Benz en BMW stationwagens voor uw dagelijkse ritten, zakelijk vervoer en kleinere luchthaventritten.',
       capacity: '4 passagiers',
       features: ['Airconditioning', 'Leder interieur', 'WiFi beschikbaar', 'Stil en comfortabel'],
       images: [
