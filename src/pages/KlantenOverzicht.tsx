@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxibedrijf Van der Varst',
+    branche: 'Taxivervoer · Echt',
+    beschrijving: 'Betrouwbaar taxivervoer in Echt en Midden-Limburg. Opgericht in 1987 met 49 chauffeurs. Personenvervoer, luchthaventritten, zakelijk en zorgvervoer. 24/7 bereikbaar.',
+    pad: '/preview/taxibedrijf-van-der-varst',
+    kleur: '#1B4F8A',
+    accent: '#F59E0B',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'TaxiFrans',
     branche: 'Taxivervoer · Maastricht',
     beschrijving: 'Betaalbaar en betrouwbaar taxivervoer in Maastricht en omgeving. Taxi Service, Airport Taxi, Europa Service en Zorgvervoer. 24/7 bereikbaar.',
