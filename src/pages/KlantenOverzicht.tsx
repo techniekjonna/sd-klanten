@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxi Nelissen',
+    branche: 'Taxivervoer · Maastricht',
+    beschrijving: 'Betrouwbare taxipartner in de regio Maastricht – sinds 1962. Particulier, zakelijk, WMO, ziekenvervoer, luchthavenvervoer en groepsvervoer.',
+    pad: '/preview/taxi-nelissen',
+    kleur: '#E05A1C',
+    accent: '#FFF',
+    icon: '🚖',
+    status: 'concept',
+  },
+  {
     naam: 'Taxibedrijf Van der Varst',
     branche: 'Taxivervoer · Echt',
     beschrijving: 'Betrouwbaar taxivervoer in Echt en Midden-Limburg. Opgericht in 1987 met 49 chauffeurs. Personenvervoer, luchthaventritten, zakelijk en zorgvervoer. 24/7 bereikbaar.',
