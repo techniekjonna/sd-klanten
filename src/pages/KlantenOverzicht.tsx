@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxiservice Julliard',
+    branche: 'Taxivervoer · Limburg',
+    beschrijving: 'Professioneel taxivervoer voor particulieren, zakelijk, groepen en luchthavens. Airportservice, schoolvervoer en kortingskaart. 24/7 bereikbaar.',
+    pad: '/preview/taxi-service-julliard',
+    kleur: '#0C2D6B',
+    accent: '#C8963E',
+    icon: '✈️',
+    status: 'concept',
+  },
+  {
     naam: 'Taxi Nelissen',
     branche: 'Taxivervoer · Maastricht',
     beschrijving: 'Betrouwbare taxipartner in de regio Maastricht – sinds 1962. Particulier, zakelijk, WMO, ziekenvervoer, luchthavenvervoer en groepsvervoer.',
