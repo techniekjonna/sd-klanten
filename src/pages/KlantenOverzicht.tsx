@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxi Comfort Maastricht',
+    branche: 'Taxivervoer · Maastricht',
+    beschrijving: 'Familiebedrijf voor comfortabel en betrouwbaar taxivervoer in Maastricht en omgeving. Persoonlijk vervoer, luchthavenvervoer, zorgvervoer en zakelijk vervoer. 24/7 bereikbaar.',
+    pad: '/preview/taxi-comfort-maastricht',
+    kleur: '#1A3A6B',
+    accent: '#C9972A',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Taxibedrijf Renierkens',
     branche: 'Taxivervoer · Zuid-Limburg',
     beschrijving: 'Betrouwbaar taxivervoer in Zuid-Limburg vanuit Margraten. Particulier, zorgvervoer, luchthavenvervoer en zakelijk contractvervoer. 28+ jaar ervaring.',

@@ -33,6 +33,7 @@ import { TaxiNelissen } from './klanten/taxi-nelissen';
 import { TaxibedrijfVanDerVarst } from './klanten/taxibedrijf-van-der-varst';
 import { TaxiServiceJulliard } from './klanten/taxi-service-julliard';
 import { TaxibedrijfRenierkens } from './klanten/taxibedrijf-renierkens';
+import { TaxiComfortMaastricht } from './klanten/taxi-comfort-maastricht';
 
 function App() {
   return (
@@ -105,6 +106,8 @@ function App() {
         <Route path="/preview/taxi-service-julliard/*" element={<TaxiServiceJulliard />} />
         <Route path="/preview/taxibedrijf-renierkens" element={<TaxibedrijfRenierkens />} />
         <Route path="/preview/taxibedrijf-renierkens/*" element={<TaxibedrijfRenierkens />} />
+        <Route path="/preview/taxi-comfort-maastricht" element={<TaxiComfortMaastricht />} />
+        <Route path="/preview/taxi-comfort-maastricht/*" element={<TaxiComfortMaastricht />} />
       </Routes>
     </BrowserRouter>
   );
