@@ -96,7 +96,7 @@ export const Home = () => {
 
             {/* Right: boekingswidget */}
             <div>
-              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ backgroundColor: '#FFF9F0' }}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ backgroundColor: '#F0FDFA' }}>
                 {/* Header boekingswidget */}
                 <div className="px-6 py-5" style={{ backgroundColor: PRIMARY }}>
                   <h2 className="text-white font-extrabold text-xl">Bestel je taxi</h2>

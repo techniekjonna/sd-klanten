@@ -41,7 +41,7 @@ export const Bestellen = () => {
       {/* Header */}
       <section
         className="py-16 text-white text-center"
-        style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, #0D1F3C 100%)` }}
+        style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, #111827 100%)` }}
       >
         <div className="container mx-auto px-4">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>Snel & eenvoudig</p>

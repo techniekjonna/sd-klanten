@@ -9,11 +9,11 @@ export const config: VanDerVarstConfig = {
   founded: 1987,
 
   colors: {
-    primary: '#1B4F8A',
-    primaryHover: '#163F6E',
-    accent: '#F59E0B',
-    accentHover: '#D97706',
-    light: '#EFF6FF',
+    primary: '#1F2937',
+    primaryHover: '#111827',
+    accent: '#0D9488',
+    accentHover: '#0F766E',
+    light: '#F0FDFA',
     text: '#1E293B',
     background: '#FFFFFF',
   },

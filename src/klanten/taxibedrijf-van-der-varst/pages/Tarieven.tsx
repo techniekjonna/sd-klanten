@@ -10,7 +10,7 @@ export const Tarieven = () => (
     {/* Header */}
     <section
       className="py-20 text-white text-center"
-      style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, #0D1F3C 100%)` }}
+      style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, #111827 100%)` }}
     >
       <div className="container mx-auto px-4">
         <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>Transparante prijzen</p>
@@ -42,7 +42,7 @@ export const Tarieven = () => (
 
         {/* Info */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="rounded-2xl p-5 border" style={{ backgroundColor: config.colors.light, borderColor: '#BFDBFE' }}>
+          <div className="rounded-2xl p-5 border" style={{ backgroundColor: config.colors.light, borderColor: '#99F6E4' }}>
             <h3 className="font-bold mb-2 text-sm" style={{ color: PRIMARY }}>Toeslag informatie</h3>
             <ul className="text-xs text-gray-600 space-y-1.5">
               <li>• Nachttarief geldig van 23:00 tot 06:00 uur</li>
@@ -51,8 +51,8 @@ export const Tarieven = () => (
               <li>• Groepskorting beschikbaar op aanvraag</li>
             </ul>
           </div>
-          <div className="rounded-2xl p-5 border" style={{ backgroundColor: '#FFFBEB', borderColor: '#FDE68A' }}>
-            <h3 className="font-bold mb-2 text-sm" style={{ color: '#92400E' }}>Betaalmogelijkheden</h3>
+          <div className="rounded-2xl p-5 border" style={{ backgroundColor: '#F0FDFA', borderColor: '#99F6E4' }}>
+            <h3 className="font-bold mb-2 text-sm" style={{ color: config.colors.primary }}>Betaalmogelijkheden</h3>
             <ul className="text-xs text-gray-600 space-y-1.5">
               <li>• Contant betalen in de taxi</li>
               <li>• Pin / betaalpas</li>

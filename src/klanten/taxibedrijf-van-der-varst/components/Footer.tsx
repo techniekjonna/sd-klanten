@@ -2,23 +2,15 @@ import { Link } from 'react-router-dom';
 import { config } from '../config';
 
 export const Footer = () => (
-  <footer style={{ backgroundColor: '#0D1F3C', color: 'rgba(255,255,255,0.75)' }}>
+  <footer style={{ backgroundColor: '#111827', color: 'rgba(255,255,255,0.75)' }}>
     <div className="container mx-auto px-4 py-14">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
 
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <div
-              className="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-lg"
-              style={{ backgroundColor: config.colors.accent }}
-            >
-              V
-            </div>
-            <div>
-              <span className="text-white font-bold text-base leading-tight block">Van der Varst</span>
-              <span className="text-xs" style={{ color: config.colors.accent }}>Taxibedrijf · Echt</span>
-            </div>
+          <div className="mb-4">
+            <span className="text-white font-extrabold text-lg leading-tight block tracking-tight">Van der Varst</span>
+            <span className="text-xs" style={{ color: config.colors.accent }}>Taxibedrijf · Echt</span>
           </div>
           <p className="text-sm leading-relaxed mb-4">{config.description}</p>
           <p className="text-xs" style={{ color: config.colors.accent }}>

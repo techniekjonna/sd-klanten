@@ -17,16 +17,10 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link to={config.basePath + '/'} className="flex items-center gap-3 group">
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center font-black text-white text-lg transition-transform group-hover:scale-105"
-              style={{ backgroundColor: config.colors.accent }}
-            >
-              V
-            </div>
+          <Link to={config.basePath + '/'} className="flex items-center gap-2 group">
             <div className="leading-none">
-              <span className="text-white font-extrabold text-base tracking-tight block">Van der Varst</span>
-              <span className="text-xs font-medium" style={{ color: 'rgba(245,158,11,0.85)' }}>Taxibedrijf · Echt</span>
+              <span className="text-white font-extrabold text-lg tracking-tight block" style={{ letterSpacing: '-0.01em' }}>Van der Varst</span>
+              <span className="text-xs font-medium" style={{ color: config.colors.accent }}>Taxibedrijf · Echt</span>
             </div>
           </Link>
 
