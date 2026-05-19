@@ -13,6 +13,16 @@ interface KlantCard {
 
 const klanten: KlantCard[] = [
   {
+    naam: 'Taxibedrijf Renierkens',
+    branche: 'Taxivervoer · Zuid-Limburg',
+    beschrijving: 'Betrouwbaar taxivervoer in Zuid-Limburg vanuit Margraten. Particulier, zorgvervoer, luchthavenvervoer en zakelijk contractvervoer. 28+ jaar ervaring.',
+    pad: '/preview/taxibedrijf-renierkens',
+    kleur: '#1A5C38',
+    accent: '#C8963E',
+    icon: '🚕',
+    status: 'concept',
+  },
+  {
     naam: 'Taxiservice Julliard',
     branche: 'Taxivervoer · Limburg',
     beschrijving: 'Professioneel taxivervoer voor particulieren, zakelijk, groepen en luchthavens. Airportservice, schoolvervoer en kortingskaart. 24/7 bereikbaar.',
