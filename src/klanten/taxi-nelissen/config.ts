@@ -52,6 +52,7 @@ export const config = {
     { name: 'Düsseldorf Airport', time: '±1u' },
     { name: 'Frankfurt Airport', time: '±2u' },
   ],
+  heroImage: 'https://images.unsplash.com/photo-1503470069725-dacc9110076e?q=80&w=1470&auto=format&fit=crop',
   about: {
     title: 'Over Taxi Nelissen',
     story: 'Opgericht in 1962 is Taxi Nelissen uitgegroeid tot een van de meest vertrouwde taxibedrijven in de regio Maastricht. Generaties lang rijden wij voor particulieren, bedrijven en zorginstellingen. Onze chauffeurs kennen de regio als hun broekzak.',

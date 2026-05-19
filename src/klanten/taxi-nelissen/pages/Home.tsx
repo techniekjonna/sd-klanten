@@ -240,7 +240,7 @@ export const Home = () => {
       <section
         className="relative min-h-[88vh] flex items-center"
         style={{
-          backgroundImage: `url(${config.about.image})`,
+          backgroundImage: `url(${config.heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
