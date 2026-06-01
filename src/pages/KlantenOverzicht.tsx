@@ -333,6 +333,16 @@ const klanten: KlantCard[] = [
     status: 'concept',
   },
   {
+    naam: 'Visser Driving Services',
+    branche: 'Directiechauffeurs · Nederland',
+    beschrijving: 'Gecertificeerde directiechauffeurs voor de private en publieke sector. CCV-D1, CCV-D2 & CORTEX SRO-D3 gecertificeerd. 365 dagen per jaar beschikbaar.',
+    pad: '/preview/visser-driving-services',
+    kleur: '#1A1A1A',
+    accent: '#C9A84C',
+    icon: '🚘',
+    status: 'concept',
+  },
+  {
     naam: 'Sjabloon',
     branche: 'Generiek Template',
     beschrijving: 'Het basis-sjabloon voor nieuwe klanten. Kopieer deze map en pas config.ts aan om te starten.',
