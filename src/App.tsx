@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { KlantenOverzicht } from './pages/KlantenOverzicht';
+import { PreviewViewer } from './pages/PreviewViewer';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Sjabloon } from './klanten/sjabloon';
 import { DutchInk } from './klanten/dutch-ink';
 import { Care4CarsSittard } from './klanten/care4carssittard';
@@ -39,8 +41,10 @@ import { VisserDrivingServices } from './klanten/visser-driving-services';
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<KlantenOverzicht />} />
+        <Route path="/viewer/:slug" element={<PreviewViewer />} />
         <Route path="/preview/sjabloon" element={<Sjabloon />} />
         <Route path="/preview/sjabloon/*" element={<Sjabloon />} />
         <Route path="/preview/dutch-ink" element={<DutchInk />} />
