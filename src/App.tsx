@@ -36,6 +36,7 @@ import { TaxibedrijfVanDerVarst } from './klanten/taxibedrijf-van-der-varst';
 import { TaxiServiceJulliard } from './klanten/taxi-service-julliard';
 import { TaxibedrijfRenierkens } from './klanten/taxibedrijf-renierkens';
 import { TaxiComfortMaastricht } from './klanten/taxi-comfort-maastricht';
+import { VisserDrivingServices } from './klanten/visser-driving-services';
 
 function App() {
   return (
@@ -112,6 +113,8 @@ function App() {
         <Route path="/preview/taxibedrijf-renierkens/*" element={<TaxibedrijfRenierkens />} />
         <Route path="/preview/taxi-comfort-maastricht" element={<TaxiComfortMaastricht />} />
         <Route path="/preview/taxi-comfort-maastricht/*" element={<TaxiComfortMaastricht />} />
+        <Route path="/preview/visser-driving-services" element={<VisserDrivingServices />} />
+        <Route path="/preview/visser-driving-services/*" element={<VisserDrivingServices />} />
       </Routes>
     </BrowserRouter>
   );
