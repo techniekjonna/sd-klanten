@@ -167,7 +167,7 @@ export const Home = () => {
       <section
         className="relative min-h-[92vh] flex items-center"
         style={{
-          backgroundImage: `url(${config.photos.car1})`,
+          backgroundImage: `url(${config.hero.image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
         }}

@@ -41,7 +41,7 @@ export const config = {
     title: 'Taxi Comfort',
     highlight: 'Maastricht',
     subtitle: 'Uw betrouwbare taxipartner in Maastricht en omgeving. Comfortabel, persoonlijk en altijd op tijd.',
-    image: 'https://taxicomfortmaastricht.nl/wp-content/uploads/2019/01/Taxi-Comfort-Maastricht_09_600.jpg',
+    image: 'https://taxicomfortmaastricht.nl/wp-content/uploads/2019/01/Taxi-Comfort-Maastricht_10_500.png',
     cta: 'Direct boeken',
     ctaLink: '/contact',
     ctaSecondary: 'Bel ons nu',
