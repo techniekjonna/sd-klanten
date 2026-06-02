@@ -398,6 +398,17 @@ const klanten: KlantCard[] = [
     categorie: 'Taxi & Vervoer',
   },
   {
+    naam: 'GoTax Maastricht',
+    branche: 'Luxe Taxi · Maastricht',
+    beschrijving: 'Premium taxidienst in Maastricht met luxe voertuigen waaronder de Bentley. Luchthavenvervoer, zakelijke ritten en evenementen. 24/7 beschikbaar.',
+    pad: '/preview/gotax-maastricht',
+    kleur: '#0F0F0F',
+    accent: '#C9A84C',
+    icon: '🎩',
+    status: 'concept',
+    categorie: 'Taxi & Vervoer',
+  },
+  {
     naam: 'Vandewall Dienstverlening',
     branche: 'Premium Taxi & Vervoer',
     beschrijving: 'Luxe taxibedrijf in Maastricht. Premium vervoer voor particulieren en zakelijke klanten, 24/7 bereikbaar.',
