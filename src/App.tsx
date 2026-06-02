@@ -29,6 +29,7 @@ import { TaxiCompleetMaastricht } from './klanten/taxi-compleet-maastricht';
 import { PackTaxi } from './klanten/pack-taxi';
 import { TaxiMC } from './klanten/taxi-mc';
 import { TaxiCentraleParkstad } from './klanten/taxi-centrale-parkstad';
+import { TaxiCentraleService } from './klanten/taxi-centrale-service';
 import { TaxiVanRooy } from './klanten/taxi-van-rooy';
 import { DaviesTaxiService } from './klanten/davies-taxi-service';
 import { TaxiFrans } from './klanten/taxi-frans';
@@ -102,6 +103,8 @@ function App() {
         <Route path="/preview/taxi-mc/*" element={<TaxiMC />} />
         <Route path="/preview/taxi-centrale-parkstad" element={<TaxiCentraleParkstad />} />
         <Route path="/preview/taxi-centrale-parkstad/*" element={<TaxiCentraleParkstad />} />
+        <Route path="/preview/taxi-centrale-service" element={<TaxiCentraleService />} />
+        <Route path="/preview/taxi-centrale-service/*" element={<TaxiCentraleService />} />
         <Route path="/preview/taxi-van-rooy" element={<TaxiVanRooy />} />
         <Route path="/preview/taxi-van-rooy/*" element={<TaxiVanRooy />} />
         <Route path="/preview/davies-taxi-service" element={<DaviesTaxiService />} />

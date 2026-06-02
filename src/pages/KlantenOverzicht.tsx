@@ -112,6 +112,17 @@ const klanten: KlantCard[] = [
     categorie: 'Taxi & Vervoer',
   },
   {
+    naam: 'Taxi Centrale Service (T.C.S.)',
+    branche: 'Taxivervoer · Kerkrade',
+    beschrijving: 'Veilig, stipt en persoonlijk taxivervoer vanuit Kerkrade. Lokaal, zakelijk, evenementen en luchthaventritten naar Düsseldorf, Maastricht en meer. 24/7 bereikbaar.',
+    pad: '/preview/taxi-centrale-service',
+    kleur: '#0D2447',
+    accent: '#F59E0B',
+    icon: '🚕',
+    status: 'concept',
+    categorie: 'Taxi & Vervoer',
+  },
+  {
     naam: 'Taxi MC',
     branche: 'Taxivervoer · Heerlen',
     beschrijving: 'Betrouwbaar, comfortabel & veilig vervoer op maat. Zakelijk vervoer, airportritten, treinstation transfers en Europees vervoer. 24/7 bereikbaar.',
