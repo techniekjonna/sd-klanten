@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 interface KlantCard {
@@ -9,7 +10,17 @@ interface KlantCard {
   accent: string;
   icon: string;
   status: 'live' | 'concept';
+  categorie: Categorie;
 }
+
+type Categorie =
+  | 'Taxi & Vervoer'
+  | 'Automotive'
+  | 'Beauty & Verzorging'
+  | 'Schoonmaak'
+  | 'Fotografie'
+  | 'Tattoo & Piercing'
+  | 'Overig';
 
 const klanten: KlantCard[] = [
   {
@@ -21,6 +32,7 @@ const klanten: KlantCard[] = [
     accent: '#C9972A',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxibedrijf Renierkens',
@@ -31,6 +43,7 @@ const klanten: KlantCard[] = [
     accent: '#C8963E',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxiservice Julliard',
@@ -41,6 +54,7 @@ const klanten: KlantCard[] = [
     accent: '#C8963E',
     icon: '✈️',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxi Nelissen',
@@ -51,6 +65,7 @@ const klanten: KlantCard[] = [
     accent: '#FFF',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxibedrijf Van der Varst',
@@ -61,6 +76,7 @@ const klanten: KlantCard[] = [
     accent: '#F59E0B',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'TaxiFrans',
@@ -71,6 +87,7 @@ const klanten: KlantCard[] = [
     accent: '#E8A020',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Davies Taxi Service',
@@ -81,6 +98,7 @@ const klanten: KlantCard[] = [
     accent: '#C9A84C',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxi Centrale Parkstad',
@@ -91,6 +109,7 @@ const klanten: KlantCard[] = [
     accent: '#C9A84C',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxi MC',
@@ -101,6 +120,7 @@ const klanten: KlantCard[] = [
     accent: '#F5C200',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxi Sittard',
@@ -111,6 +131,7 @@ const klanten: KlantCard[] = [
     accent: '#3db8e4',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxibedrijf Knol',
@@ -121,6 +142,7 @@ const klanten: KlantCard[] = [
     accent: '#F97316',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'OneTaxi Zuid-Limburg',
@@ -131,6 +153,7 @@ const klanten: KlantCard[] = [
     accent: '#FFB800',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxi Centrale Geleen',
@@ -141,6 +164,7 @@ const klanten: KlantCard[] = [
     accent: '#F5C518',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxi 046',
@@ -151,6 +175,7 @@ const klanten: KlantCard[] = [
     accent: '#FFFFFF',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Omega Taxi',
@@ -161,6 +186,7 @@ const klanten: KlantCard[] = [
     accent: '#F5C842',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Uw Taxi Heerlen',
@@ -171,6 +197,7 @@ const klanten: KlantCard[] = [
     accent: '#F5C200',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxi Van Rooy',
@@ -181,6 +208,7 @@ const klanten: KlantCard[] = [
     accent: '#FFD600',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Pack Taxi',
@@ -191,6 +219,7 @@ const klanten: KlantCard[] = [
     accent: '#C9A84C',
     icon: '🚘',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxibedrijf Mitax',
@@ -201,6 +230,7 @@ const klanten: KlantCard[] = [
     accent: '#E85D04',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxibedrijf Savelkoul',
@@ -211,6 +241,7 @@ const klanten: KlantCard[] = [
     accent: '#c9952a',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxi Compleet Maastricht',
@@ -221,6 +252,7 @@ const klanten: KlantCard[] = [
     accent: '#D4960A',
     icon: '🚕',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Taxibedrijf Housmans',
@@ -231,6 +263,7 @@ const klanten: KlantCard[] = [
     accent: '#F97316',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Alfa Taxi',
@@ -241,66 +274,7 @@ const klanten: KlantCard[] = [
     accent: '#F59E0B',
     icon: '🚖',
     status: 'concept',
-  },
-  {
-    naam: 'Care4Cars Sittard',
-    branche: 'Garage & APK',
-    beschrijving: 'RDW erkend garagebedrijf in Sittard. APK, onderhoud, banden, airco, diagnose en campers.',
-    pad: '/preview/care4carssittard',
-    kleur: '#1F2937',
-    accent: '#DC2626',
-    icon: '🔧',
-    status: 'concept',
-  },
-  {
-    naam: 'Dutch Ink',
-    branche: 'Tattoo & Piercing',
-    beschrijving: 'The Tattoo Company — 15+ vestigingen door heel Nederland. Tattoo, piercing, PMU en laser.',
-    pad: '/preview/dutch-ink',
-    kleur: '#0D0D0D',
-    accent: '#DC2626',
-    icon: '🖋️',
-    status: 'concept',
-  },
-  {
-    naam: 'Beatrix Nails & Beauty',
-    branche: 'Nagelstudio & Beauty',
-    beschrijving: 'Professionele nagelstudio in Sittard. Gellak, acrylnagels, nailart en meer. Mooie nagels voor elke verzorgde vrouw.',
-    pad: '/preview/beatrix-nails',
-    kleur: '#2D0F1E',
-    accent: '#C2185B',
-    icon: '💅',
-    status: 'concept',
-  },
-  {
-    naam: 'Autorijschool van der Sande',
-    branche: 'Autorijschool',
-    beschrijving: '30+ jaar ervaring in Sittard-Geleen. 90% slaagt de eerste keer. Moderne Mercedes lesauto, reguliere en spoedopleiding.',
-    pad: '/preview/autorijschoolvdsande',
-    kleur: '#1B2D80',
-    accent: '#7878B2',
-    icon: '🚗',
-    status: 'concept',
-  },
-  {
-    naam: 'Cleanfirm Stylesatlife',
-    branche: 'Schoonmaakbedrijf',
-    beschrijving: 'Professioneel schoonmaakbedrijf voor particulieren en bedrijven in de regio Limburg en Brabant. Gevestigd in Geleen.',
-    pad: '/preview/stylesatlife',
-    kleur: '#1A2B1A',
-    accent: '#2D6A2D',
-    icon: '🧹',
-    status: 'concept',
-  },
-  {
-    naam: 'Schoonmaakbedrijf Erwin',
-    branche: 'Glazenwassen · Schilderwerk · Geleen',
-    beschrijving: 'Professioneel glazenwassen voor particulieren en bedrijven in Zuid-Limburg. Al actief sinds 2009. KvK 14110743.',
-    pad: '/preview/schoonmaakbedrijf-erwin',
-    kleur: '#1E3A8A',
-    accent: '#1D4ED8',
-    icon: '🪟',
-    status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Global Taxi Heerlen',
@@ -311,6 +285,7 @@ const klanten: KlantCard[] = [
     accent: '#f5c800',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Grootveld',
@@ -321,6 +296,7 @@ const klanten: KlantCard[] = [
     accent: '#1A5C38',
     icon: '🚛',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'D&M Taxi Parkstad',
@@ -331,26 +307,73 @@ const klanten: KlantCard[] = [
     accent: '#F97316',
     icon: '🚖',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
-    naam: 'Visser Driving Services',
-    branche: 'Directiechauffeurs · Nederland',
-    beschrijving: 'Gecertificeerde directiechauffeurs voor de private en publieke sector. CCV-D1, CCV-D2 & CORTEX SRO-D3 gecertificeerd. 365 dagen per jaar beschikbaar.',
-    pad: '/preview/visser-driving-services',
-    kleur: '#1A1A1A',
-    accent: '#C9A84C',
-    icon: '🚘',
+    naam: 'Care4Cars Sittard',
+    branche: 'Garage & APK',
+    beschrijving: 'RDW erkend garagebedrijf in Sittard. APK, onderhoud, banden, airco, diagnose en campers.',
+    pad: '/preview/care4carssittard',
+    kleur: '#1F2937',
+    accent: '#DC2626',
+    icon: '🔧',
     status: 'concept',
+    categorie: 'Automotive',
   },
   {
-    naam: 'Sjabloon',
-    branche: 'Generiek Template',
-    beschrijving: 'Het basis-sjabloon voor nieuwe klanten. Kopieer deze map en pas config.ts aan om te starten.',
-    pad: '/preview/sjabloon',
+    naam: 'Autorijschool van der Sande',
+    branche: 'Autorijschool',
+    beschrijving: '30+ jaar ervaring in Sittard-Geleen. 90% slaagt de eerste keer. Moderne Mercedes lesauto, reguliere en spoedopleiding.',
+    pad: '/preview/autorijschoolvdsande',
+    kleur: '#1B2D80',
+    accent: '#7878B2',
+    icon: '🚗',
+    status: 'concept',
+    categorie: 'Automotive',
+  },
+  {
+    naam: 'Dutch Ink',
+    branche: 'Tattoo & Piercing',
+    beschrijving: 'The Tattoo Company — 15+ vestigingen door heel Nederland. Tattoo, piercing, PMU en laser.',
+    pad: '/preview/dutch-ink',
+    kleur: '#0D0D0D',
+    accent: '#DC2626',
+    icon: '🖋️',
+    status: 'concept',
+    categorie: 'Tattoo & Piercing',
+  },
+  {
+    naam: 'Beatrix Nails & Beauty',
+    branche: 'Nagelstudio & Beauty',
+    beschrijving: 'Professionele nagelstudio in Sittard. Gellak, acrylnagels, nailart en meer. Mooie nagels voor elke verzorgde vrouw.',
+    pad: '/preview/beatrix-nails',
+    kleur: '#2D0F1E',
+    accent: '#C2185B',
+    icon: '💅',
+    status: 'concept',
+    categorie: 'Beauty & Verzorging',
+  },
+  {
+    naam: 'Cleanfirm Stylesatlife',
+    branche: 'Schoonmaakbedrijf',
+    beschrijving: 'Professioneel schoonmaakbedrijf voor particulieren en bedrijven in de regio Limburg en Brabant. Gevestigd in Geleen.',
+    pad: '/preview/stylesatlife',
+    kleur: '#1A2B1A',
+    accent: '#2D6A2D',
+    icon: '🧹',
+    status: 'concept',
+    categorie: 'Schoonmaak',
+  },
+  {
+    naam: 'Schoonmaakbedrijf Erwin',
+    branche: 'Glazenwassen · Schilderwerk · Geleen',
+    beschrijving: 'Professioneel glazenwassen voor particulieren en bedrijven in Zuid-Limburg. Al actief sinds 2009. KvK 14110743.',
+    pad: '/preview/schoonmaakbedrijf-erwin',
     kleur: '#1E3A8A',
-    accent: '#2563EB',
-    icon: '📋',
+    accent: '#1D4ED8',
+    icon: '🪟',
     status: 'concept',
+    categorie: 'Schoonmaak',
   },
   {
     naam: 'Fotografie Ton Dirkx',
@@ -361,123 +384,340 @@ const klanten: KlantCard[] = [
     accent: '#3e8c28',
     icon: '📸',
     status: 'concept',
+    categorie: 'Fotografie',
+  },
+  {
+    naam: 'Visser Driving Services',
+    branche: 'Directiechauffeurs · Nederland',
+    beschrijving: 'Gecertificeerde directiechauffeurs voor de private en publieke sector. CCV-D1, CCV-D2 & CORTEX SRO-D3 gecertificeerd. 365 dagen per jaar beschikbaar.',
+    pad: '/preview/visser-driving-services',
+    kleur: '#1A1A1A',
+    accent: '#C9A84C',
+    icon: '🚘',
+    status: 'concept',
+    categorie: 'Taxi & Vervoer',
+  },
+  {
+    naam: 'Sjabloon',
+    branche: 'Generiek Template',
+    beschrijving: 'Het basis-sjabloon voor nieuwe klanten. Kopieer deze map en pas config.ts aan om te starten.',
+    pad: '/preview/sjabloon',
+    kleur: '#1E3A8A',
+    accent: '#2563EB',
+    icon: '📋',
+    status: 'concept',
+    categorie: 'Overig',
   },
 ];
 
-export const KlantenOverzicht = () => (
-  <div className="min-h-screen bg-[#0a0a0a] text-white">
-    {/* Header */}
-    <header className="border-b border-white/10 px-6 py-5">
-      <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img
-            src="https://fl-group.org/wp-content/uploads/2025/03/New-Logo-SandeDesign-150x150.png"
-            alt="SandeDesign"
-            className="w-8 h-8 opacity-80"
-          />
-          <div>
-            <p className="text-sm font-bold text-white">SandeDesign</p>
-            <p className="text-xs text-white/40">Klanten Bibliotheek</p>
+const CATEGORIE_VOLGORDE: Categorie[] = [
+  'Taxi & Vervoer',
+  'Automotive',
+  'Beauty & Verzorging',
+  'Tattoo & Piercing',
+  'Schoonmaak',
+  'Fotografie',
+  'Overig',
+];
+
+const CATEGORIE_ICOON: Record<Categorie, string> = {
+  'Taxi & Vervoer': '🚖',
+  Automotive: '🚗',
+  'Beauty & Verzorging': '💅',
+  'Tattoo & Piercing': '🖋️',
+  Schoonmaak: '🧹',
+  Fotografie: '📸',
+  Overig: '📋',
+};
+
+type Weergave = 'grid' | 'lijst';
+
+export const KlantenOverzicht = () => {
+  const [zoek, setZoek] = useState('');
+  const [actieveCategorie, setActieveCategorie] = useState<Categorie | 'Alle'>('Alle');
+  const [weergave, setWeergave] = useState<Weergave>('grid');
+
+  const aantalPerCategorie = useMemo(() => {
+    const t: Record<string, number> = {};
+    for (const k of klanten) t[k.categorie] = (t[k.categorie] ?? 0) + 1;
+    return t;
+  }, []);
+
+  const gefilterd = useMemo(() => {
+    const q = zoek.trim().toLowerCase();
+    return klanten.filter((k) => {
+      if (actieveCategorie !== 'Alle' && k.categorie !== actieveCategorie) return false;
+      if (!q) return true;
+      return (
+        k.naam.toLowerCase().includes(q) ||
+        k.branche.toLowerCase().includes(q) ||
+        k.beschrijving.toLowerCase().includes(q)
+      );
+    });
+  }, [zoek, actieveCategorie]);
+
+  const gegroepeerd = useMemo(() => {
+    const groepen = new Map<Categorie, KlantCard[]>();
+    for (const cat of CATEGORIE_VOLGORDE) groepen.set(cat, []);
+    for (const k of gefilterd) groepen.get(k.categorie)!.push(k);
+    return Array.from(groepen.entries()).filter(([, items]) => items.length > 0);
+  }, [gefilterd]);
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
+      {/* Header */}
+      <header className="border-b border-white/10 px-6 py-5 sticky top-0 bg-[#0a0a0a]/95 backdrop-blur z-20">
+        <div className="container mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img
+              src="https://fl-group.org/wp-content/uploads/2025/03/New-Logo-SandeDesign-150x150.png"
+              alt="SandeDesign"
+              className="w-8 h-8 opacity-80"
+            />
+            <div>
+              <p className="text-sm font-bold text-white">SandeDesign</p>
+              <p className="text-xs text-white/40">Klanten Bibliotheek</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="hidden sm:inline text-xs text-white/40">
+              {klanten.length} klanten totaal
+            </span>
+            <span className="text-xs px-3 py-1 rounded-full bg-white/5 text-white/40 border border-white/10">
+              Intern — Niet delen
+            </span>
           </div>
         </div>
-        <span className="text-xs px-3 py-1 rounded-full bg-white/5 text-white/40 border border-white/10">
-          Intern — Niet delen
+      </header>
+
+      {/* Hero */}
+      <section className="pt-14 pb-8 text-center">
+        <div className="container mx-auto px-4">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/30 mb-4">
+            Acquisitie Bibliotheek
+          </p>
+          <h1 className="text-4xl md:text-5xl font-black mb-3">
+            Klanten{' '}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+              Preview
+            </span>
+          </h1>
+          <p className="text-white/50 max-w-lg mx-auto text-sm">
+            Klik op een klant om de preview-website te bekijken.
+          </p>
+        </div>
+      </section>
+
+      {/* Toolbar: zoek + filters + weergave */}
+      <section className="pb-6">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {/* Zoek + weergave */}
+          <div className="flex flex-col md:flex-row gap-3 mb-4">
+            <div className="relative flex-1">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30">🔍</span>
+              <input
+                type="text"
+                value={zoek}
+                onChange={(e) => setZoek(e.target.value)}
+                placeholder="Zoek op naam, branche of plaats…"
+                className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors"
+              />
+              {zoek && (
+                <button
+                  onClick={() => setZoek('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-sm px-2"
+                  aria-label="Wis zoekopdracht"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+            <div className="flex bg-white/5 border border-white/10 rounded-xl p-1">
+              <button
+                onClick={() => setWeergave('grid')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  weergave === 'grid' ? 'bg-white/10 text-white' : 'text-white/40 hover:text-white/70'
+                }`}
+              >
+                ▦ Grid
+              </button>
+              <button
+                onClick={() => setWeergave('lijst')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  weergave === 'lijst' ? 'bg-white/10 text-white' : 'text-white/40 hover:text-white/70'
+                }`}
+              >
+                ☰ Lijst
+              </button>
+            </div>
+          </div>
+
+          {/* Categorie chips */}
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setActieveCategorie('Alle')}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                actieveCategorie === 'Alle'
+                  ? 'bg-white text-black border-white'
+                  : 'bg-white/5 text-white/60 border-white/10 hover:border-white/30 hover:text-white'
+              }`}
+            >
+              Alle <span className="opacity-60">({klanten.length})</span>
+            </button>
+            {CATEGORIE_VOLGORDE.map((cat) => {
+              const aantal = aantalPerCategorie[cat] ?? 0;
+              if (aantal === 0) return null;
+              const actief = actieveCategorie === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActieveCategorie(cat)}
+                  className={`px-4 py-1.5 rounded-full text-xs font-medium border transition-colors flex items-center gap-1.5 ${
+                    actief
+                      ? 'bg-white text-black border-white'
+                      : 'bg-white/5 text-white/60 border-white/10 hover:border-white/30 hover:text-white'
+                  }`}
+                >
+                  <span>{CATEGORIE_ICOON[cat]}</span>
+                  {cat} <span className="opacity-60">({aantal})</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Resultaten */}
+      <section className="pb-24">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {gefilterd.length === 0 ? (
+            <div className="text-center py-20 border border-dashed border-white/10 rounded-2xl">
+              <p className="text-3xl mb-3 opacity-40">🔎</p>
+              <p className="text-white/60 text-sm">Geen klanten gevonden voor deze zoekopdracht.</p>
+              <button
+                onClick={() => {
+                  setZoek('');
+                  setActieveCategorie('Alle');
+                }}
+                className="mt-4 text-xs text-white/40 hover:text-white underline"
+              >
+                Filters wissen
+              </button>
+            </div>
+          ) : (
+            gegroepeerd.map(([categorie, items]) => (
+              <div key={categorie} className="mb-12 last:mb-0">
+                {/* Categorie header */}
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="text-2xl">{CATEGORIE_ICOON[categorie]}</span>
+                  <h2 className="text-lg font-bold text-white">{categorie}</h2>
+                  <span className="text-xs text-white/40 px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
+                    {items.length}
+                  </span>
+                  <div className="flex-1 h-px bg-white/5" />
+                </div>
+
+                {weergave === 'grid' ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {items.map((k) => (
+                      <KlantGridCard key={k.pad} klant={k} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-2">
+                    {items.map((k) => (
+                      <KlantLijstItem key={k.pad} klant={k} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))
+          )}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/5 py-8 text-center">
+        <p className="text-xs text-white/20">
+          © {new Date().getFullYear()} SandeDesign — Interne tool
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+const naarViewer = (pad: string) => {
+  const slug = pad.replace(/^\/preview\//, '').replace(/\/$/, '');
+  return `/viewer/${slug}`;
+};
+
+const KlantGridCard = ({ klant: k }: { klant: KlantCard }) => (
+  <Link
+    to={naarViewer(k.pad)}
+    className="group block rounded-xl overflow-hidden border border-white/8 hover:border-white/25 transition-all duration-200 hover:-translate-y-0.5 bg-[#141414]"
+  >
+    <div className="h-1" style={{ backgroundColor: k.accent }} />
+    <div className="p-5">
+      <div className="flex items-start justify-between mb-3">
+        <div
+          className="w-10 h-10 rounded-lg flex items-center justify-center text-xl"
+          style={{ backgroundColor: `${k.accent}20` }}
+        >
+          {k.icon}
+        </div>
+        <span
+          className="text-[10px] px-2 py-0.5 rounded-full font-medium"
+          style={{
+            backgroundColor: k.status === 'live' ? '#16a34a20' : '#f59e0b20',
+            color: k.status === 'live' ? '#4ade80' : '#fbbf24',
+          }}
+        >
+          {k.status === 'live' ? '● Live' : '○ Concept'}
         </span>
       </div>
-    </header>
-
-    {/* Hero */}
-    <section className="py-20 text-center">
-      <div className="container mx-auto px-4">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/30 mb-4">
-          Acquisitie Bibliotheek
-        </p>
-        <h1 className="text-5xl md:text-6xl font-black mb-4">
-          Klanten{' '}
-          <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-            Preview
-          </span>
-        </h1>
-        <p className="text-white/50 max-w-lg mx-auto">
-          Klik op een klant om de preview-website te bekijken. Elke site is direct klaar om te presenteren.
-        </p>
-      </div>
-    </section>
-
-    {/* Klanten grid */}
-    <section className="pb-24">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {klanten.map((k) => (
-            <Link
-              key={k.pad}
-              to={k.pad}
-              className="group block rounded-2xl overflow-hidden border border-white/8 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-              style={{ backgroundColor: '#141414' }}
-            >
-              {/* Color band */}
-              <div
-                className="h-2"
-                style={{ backgroundColor: k.accent }}
-              />
-
-              <div className="p-7">
-                {/* Icon + status */}
-                <div className="flex items-start justify-between mb-5">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
-                    style={{ backgroundColor: `${k.accent}20` }}
-                  >
-                    {k.icon}
-                  </div>
-                  <span
-                    className="text-xs px-2.5 py-1 rounded-full font-medium"
-                    style={{
-                      backgroundColor: k.status === 'live' ? '#16a34a20' : '#f59e0b20',
-                      color: k.status === 'live' ? '#4ade80' : '#fbbf24',
-                    }}
-                  >
-                    {k.status === 'live' ? '● Live' : '○ Concept'}
-                  </span>
-                </div>
-
-                <h2 className="text-xl font-bold text-white mb-1">{k.naam}</h2>
-                <p className="text-xs font-medium mb-3" style={{ color: k.accent }}>
-                  {k.branche}
-                </p>
-                <p className="text-sm leading-relaxed text-white/45">{k.beschrijving}</p>
-
-                {/* CTA */}
-                <div
-                  className="mt-6 flex items-center gap-2 text-sm font-medium transition-colors"
-                  style={{ color: 'rgba(255,255,255,0.4)' }}
-                >
-                  <span className="group-hover:text-white transition-colors">Preview bekijken</span>
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-
-          {/* Nieuwe klant toevoegen card */}
-          <div
-            className="rounded-2xl border-2 border-dashed border-white/10 p-7 flex flex-col items-center justify-center text-center min-h-[220px] hover:border-white/20 transition-colors cursor-default"
-          >
-            <div className="text-4xl mb-4 opacity-30">+</div>
-            <p className="text-sm font-medium text-white/30">Nieuwe klant toevoegen</p>
-            <p className="text-xs text-white/20 mt-1">
-              Kopieer src/klanten/sjabloon/ naar een nieuwe map
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Footer */}
-    <footer className="border-t border-white/5 py-8 text-center">
-      <p className="text-xs text-white/20">
-        © {new Date().getFullYear()} SandeDesign — Interne tool
+      <h3 className="text-base font-bold text-white mb-1 leading-snug">{k.naam}</h3>
+      <p className="text-[11px] font-medium mb-2" style={{ color: k.accent }}>
+        {k.branche}
       </p>
-    </footer>
-  </div>
+      <p className="text-xs leading-relaxed text-white/45 line-clamp-2">{k.beschrijving}</p>
+      <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-white/40 group-hover:text-white transition-colors">
+        <span>Preview bekijken</span>
+        <span className="group-hover:translate-x-1 transition-transform">→</span>
+      </div>
+    </div>
+  </Link>
+);
+
+const KlantLijstItem = ({ klant: k }: { klant: KlantCard }) => (
+  <Link
+    to={naarViewer(k.pad)}
+    className="group flex items-center gap-4 rounded-xl border border-white/8 hover:border-white/25 bg-[#141414] px-4 py-3 transition-colors"
+  >
+    <div
+      className="w-10 h-10 rounded-lg flex items-center justify-center text-xl shrink-0"
+      style={{ backgroundColor: `${k.accent}20` }}
+    >
+      {k.icon}
+    </div>
+    <div className="flex-1 min-w-0">
+      <div className="flex items-center gap-2 mb-0.5">
+        <h3 className="text-sm font-bold text-white truncate">{k.naam}</h3>
+        <span
+          className="text-[10px] px-1.5 py-0.5 rounded-full font-medium shrink-0"
+          style={{
+            backgroundColor: k.status === 'live' ? '#16a34a20' : '#f59e0b20',
+            color: k.status === 'live' ? '#4ade80' : '#fbbf24',
+          }}
+        >
+          {k.status === 'live' ? 'Live' : 'Concept'}
+        </span>
+      </div>
+      <p className="text-[11px] font-medium truncate" style={{ color: k.accent }}>
+        {k.branche}
+      </p>
+    </div>
+    <span className="text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all text-sm shrink-0">
+      →
+    </span>
+  </Link>
 );
