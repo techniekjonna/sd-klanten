@@ -409,6 +409,17 @@ const klanten: KlantCard[] = [
     categorie: 'Taxi & Vervoer',
   },
   {
+    naam: 'Taxi Quaaden',
+    branche: 'Zakelijk Taxi · Gulpen',
+    beschrijving: 'Kwalitatief zakelijk personenvervoer in het Zuid-Limburgse Heuvelland. Luchthaventransfers, zakelijk vervoer en chauffeursdiensten. 24/7 bereikbaar.',
+    pad: '/preview/taxi-quaaden',
+    kleur: '#0F2557',
+    accent: '#B8965A',
+    icon: '🎩',
+    status: 'concept',
+    categorie: 'Taxi & Vervoer',
+  },
+  {
     naam: 'Vandewall Dienstverlening',
     branche: 'Premium Taxi & Vervoer',
     beschrijving: 'Luxe taxibedrijf in Maastricht. Premium vervoer voor particulieren en zakelijke klanten, 24/7 bereikbaar.',
