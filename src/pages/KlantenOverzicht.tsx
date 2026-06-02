@@ -398,6 +398,17 @@ const klanten: KlantCard[] = [
     categorie: 'Taxi & Vervoer',
   },
   {
+    naam: 'Vandewall Dienstverlening',
+    branche: 'Premium Taxi & Vervoer',
+    beschrijving: 'Luxe taxibedrijf in Maastricht. Premium vervoer voor particulieren en zakelijke klanten, 24/7 bereikbaar.',
+    pad: '/preview/van-de-wall-dienstverlening',
+    kleur: '#0E0D0B',
+    accent: '#B8972A',
+    icon: '🚙',
+    status: 'concept',
+    categorie: 'Taxi & Vervoer',
+  },
+  {
     naam: 'Sjabloon',
     branche: 'Generiek Template',
     beschrijving: 'Het basis-sjabloon voor nieuwe klanten. Kopieer deze map en pas config.ts aan om te starten.',

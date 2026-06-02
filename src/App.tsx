@@ -3,6 +3,7 @@ import { KlantenOverzicht } from './pages/KlantenOverzicht';
 import { PreviewViewer } from './pages/PreviewViewer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Sjabloon } from './klanten/sjabloon';
+import { VanDeWallDienstverlening } from './klanten/van-de-wall-dienstverlening';
 import { DutchInk } from './klanten/dutch-ink';
 import { Care4CarsSittard } from './klanten/care4carssittard';
 import { AlfaTaxi } from './klanten/alfa-taxi';
@@ -47,6 +48,8 @@ function App() {
         <Route path="/viewer/:slug" element={<PreviewViewer />} />
         <Route path="/preview/sjabloon" element={<Sjabloon />} />
         <Route path="/preview/sjabloon/*" element={<Sjabloon />} />
+        <Route path="/preview/van-de-wall-dienstverlening" element={<VanDeWallDienstverlening />} />
+        <Route path="/preview/van-de-wall-dienstverlening/*" element={<VanDeWallDienstverlening />} />
         <Route path="/preview/dutch-ink" element={<DutchInk />} />
         <Route path="/preview/dutch-ink/*" element={<DutchInk />} />
         <Route path="/preview/care4carssittard" element={<Care4CarsSittard />} />
