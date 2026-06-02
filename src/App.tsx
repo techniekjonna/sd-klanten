@@ -39,6 +39,7 @@ import { TaxibedrijfRenierkens } from './klanten/taxibedrijf-renierkens';
 import { TaxiComfortMaastricht } from './klanten/taxi-comfort-maastricht';
 import { VisserDrivingServices } from './klanten/visser-driving-services';
 import { GotaxMaastricht } from './klanten/gotax-maastricht';
+import { TaxiQuaaden } from './klanten/taxi-quaaden';
 
 function App() {
   return (
@@ -121,6 +122,8 @@ function App() {
         <Route path="/preview/visser-driving-services/*" element={<VisserDrivingServices />} />
         <Route path="/preview/gotax-maastricht" element={<GotaxMaastricht />} />
         <Route path="/preview/gotax-maastricht/*" element={<GotaxMaastricht />} />
+        <Route path="/preview/taxi-quaaden" element={<TaxiQuaaden />} />
+        <Route path="/preview/taxi-quaaden/*" element={<TaxiQuaaden />} />
       </Routes>
     </BrowserRouter>
   );
