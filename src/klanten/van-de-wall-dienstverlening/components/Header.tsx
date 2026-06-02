@@ -15,7 +15,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0E0D0B] border-b border-[#B8972A]/30 shadow-lg">
+    <header className="sticky top-0 z-50 bg-white border-b border-[#B8972A]/25 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-3">
           <Link
@@ -37,7 +37,7 @@ export const Header = () => {
                 className={`text-sm font-medium tracking-wide transition-colors ${
                   isActive(link.path)
                     ? 'text-[#B8972A] border-b border-[#B8972A] pb-0.5'
-                    : 'text-gray-300 hover:text-[#B8972A]'
+                    : 'text-[#1A1209] hover:text-[#B8972A]'
                 }`}
               >
                 {link.label}
@@ -45,7 +45,7 @@ export const Header = () => {
             ))}
             <a
               href={`tel:${config.contact.phone}`}
-              className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold transition-colors border border-[#B8972A] text-[#B8972A] hover:bg-[#B8972A] hover:text-[#0E0D0B]"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold transition-colors border border-[#B8972A] text-[#B8972A] hover:bg-[#B8972A] hover:text-white"
             >
               <span>📞</span>
               {config.contact.phone}
@@ -53,7 +53,7 @@ export const Header = () => {
           </nav>
 
           <button
-            className="md:hidden p-2 text-gray-300 hover:text-[#B8972A] transition-colors"
+            className="md:hidden p-2 text-[#1A1209] hover:text-[#B8972A] transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
@@ -64,7 +64,7 @@ export const Header = () => {
         </div>
 
         {menuOpen && (
-          <nav className="md:hidden border-t border-[#B8972A]/20 py-4 flex flex-col gap-1">
+          <nav className="md:hidden border-t border-[#B8972A]/15 py-4 flex flex-col gap-1 bg-white">
             {config.navigation.map((link) => (
               <Link
                 key={link.path}
@@ -72,8 +72,8 @@ export const Header = () => {
                 onClick={() => setMenuOpen(false)}
                 className={`px-4 py-3 text-sm font-medium transition-colors ${
                   isActive(link.path)
-                    ? 'text-[#B8972A] bg-[#B8972A]/10'
-                    : 'text-gray-300 hover:text-[#B8972A] hover:bg-white/5'
+                    ? 'text-[#B8972A] bg-[#B8972A]/8'
+                    : 'text-[#1A1209] hover:text-[#B8972A] hover:bg-gray-50'
                 }`}
               >
                 {link.label}
@@ -81,7 +81,7 @@ export const Header = () => {
             ))}
             <a
               href={`tel:${config.contact.phone}`}
-              className="mx-4 mt-2 px-4 py-3 text-sm font-semibold text-[#0E0D0B] bg-[#B8972A] text-center"
+              className="mx-4 mt-2 px-4 py-3 text-sm font-semibold text-white bg-[#B8972A] text-center"
             >
               {config.contact.phone}
             </a>
