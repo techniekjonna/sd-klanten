@@ -395,6 +395,7 @@ const klanten: KlantCard[] = [
     accent: '#C9A84C',
     icon: '🚘',
     status: 'concept',
+    categorie: 'Taxi & Vervoer',
   },
   {
     naam: 'Sjabloon',
